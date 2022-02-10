@@ -33,6 +33,7 @@
 		D0E1EE8727B58B4000037CF9 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8627B58B4000037CF9 /* ControlsView.swift */; };
 		D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8827B58E9B00037CF9 /* ChartView.swift */; };
 		D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE9027B5993900037CF9 /* StatisticsView.swift */; };
+		D0E1EE9427B5AA5000037CF9 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D0E1EE9327B5AA5000037CF9 /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E1EE9427B5AA5000037CF9 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +411,7 @@
 			);
 			name = "HRV Monitor WatchKit Extension";
 			packageProductDependencies = (
+				D0E1EE9327B5AA5000037CF9 /* Charts */,
 			);
 			productName = "HRV Monitor WatchKit Extension";
 			productReference = 77A4F66227B476EF00906DC5 /* HRV Monitor WatchKit Extension.appex */;
@@ -497,6 +500,7 @@
 			);
 			mainGroup = 77A4F62A27B476EA00906DC5;
 			packageReferences = (
+				D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
 			);
 			productRefGroup = 77A4F63427B476EA00906DC5 /* Products */;
 			projectDirPath = "";
@@ -1202,6 +1206,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0E1EE9327B5AA5000037CF9 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77A4F62B27B476EA00906DC5 /* Project object */;
 }

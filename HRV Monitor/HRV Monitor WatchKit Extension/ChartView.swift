@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ChartView: View {
     
@@ -22,7 +23,10 @@ struct ChartView: View {
                 Text("158")
                     .font(.title3);
             }
-            Text("Graph Placeholder");
+            Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
+                .chartStyle(
+                    LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
+                )
         }
     }
 }
