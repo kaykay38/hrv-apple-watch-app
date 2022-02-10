@@ -15,9 +15,10 @@ struct ChartView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Live HRV")
-                .font(.title);
+                .font(.title2)
+            
             HStack {
-                Text("Good")
+                Label("Good", systemImage: "hand.thumbsup.circle")
                     .font(.title3)
                     .foregroundColor(.green);
                 Text("158")

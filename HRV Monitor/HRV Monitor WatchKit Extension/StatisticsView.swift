@@ -10,9 +10,17 @@ import SwiftUI
 struct StatisticsView: View {
     var body: some View {
         VStack {
-            Label("HRV Stats", systemImage: "bolt.heart")
+            HStack {
+                Image(systemName: "bolt.heart")
+                    .font(.largeTitle)
+                VStack(alignment: .leading){
+                    Text("HRV")
+                    Text("Statistics")
+                }
                 .font(.title2)
-                .padding()
+            }
+            Spacer()
+            
             VStack(alignment: .leading, spacing: 9.0) {
                 HStack {
                     Label("Maximum:", systemImage: "arrow.up.circle")
