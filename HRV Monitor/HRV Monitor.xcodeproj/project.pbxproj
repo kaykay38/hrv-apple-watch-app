@@ -270,14 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				77A4F66727B476EF00906DC5 /* HRV_MonitorApp.swift */,
-				77A4F66927B476EF00906DC5 /* StartView.swift */,
-				D0E1EE8427B58A7F00037CF9 /* PagingView.swift */,
-				D0E1EE8627B58B4000037CF9 /* ControlsView.swift */,
-				D0E1EE8827B58E9B00037CF9 /* ChartView.swift */,
-				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
-				77A4F66B27B476EF00906DC5 /* NotificationController.swift */,
-				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
-				77A4F66F27B476EF00906DC5 /* ComplicationController.swift */,
+				D055E96727BAEA310026FE92 /* Views */,
+				D055E96827BAEA3A0026FE92 /* Controllers */,
 				77A4F67127B476F000906DC5 /* Assets.xcassets */,
 				77A4F67627B476F000906DC5 /* Info.plist */,
 				77A4F67727B476F000906DC5 /* PushNotificationPayload.apns */,
@@ -318,6 +312,28 @@
 				77A4F6A927B4775400906DC5 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D055E96727BAEA310026FE92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77A4F66927B476EF00906DC5 /* StartView.swift */,
+				D0E1EE8427B58A7F00037CF9 /* PagingView.swift */,
+				D0E1EE8627B58B4000037CF9 /* ControlsView.swift */,
+				D0E1EE8827B58E9B00037CF9 /* ChartView.swift */,
+				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
+				77A4F66B27B476EF00906DC5 /* NotificationController.swift */,
+				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D055E96827BAEA3A0026FE92 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				77A4F66F27B476EF00906DC5 /* ComplicationController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -22,6 +22,7 @@ struct PagingView: View {
             ChartView().tag(Tab.chart)
             StatisticsView().tag(Tab.stats)
         }
+        .padding()
     }
 }
 

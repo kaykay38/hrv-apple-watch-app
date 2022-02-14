@@ -19,6 +19,7 @@ struct ControlsView: View {
                 }
             }.foregroundColor(.green);
         }
+        .padding()
     }
 }
 

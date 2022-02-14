@@ -29,6 +29,7 @@ struct ChartView: View {
                     LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
                 )
         }
+        .padding()
     }
 }
 
