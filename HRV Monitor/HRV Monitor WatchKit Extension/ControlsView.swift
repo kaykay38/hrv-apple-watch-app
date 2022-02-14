@@ -14,20 +14,16 @@ struct ControlsView: View {
                 /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
             }label: {
                 VStack {
-                    Text("Start Monitoring");
+                    Text("Start Monitoring HRV");
                     Image(systemName: "play");
                 }
             }.foregroundColor(.green);
         }
-        .padding()
     }
 }
 
 struct ControlsView_Previews: PreviewProvider {
     static var previews: some View {
         ControlsView()
-            .previewDevice("Apple Watch Series 5 - 40mm")
-        ControlsView()
-            .previewDevice("Apple Watch Series 7 - 45mm")
     }
 }

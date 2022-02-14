@@ -17,7 +17,7 @@ struct StatisticsView: View {
                     Text("HRV")
                     Text("Statistics")
                 }
-                .font(.title3)
+                .font(.title2)
             }
             Spacer()
             
@@ -25,28 +25,23 @@ struct StatisticsView: View {
                 HStack {
                     Label("Maximum:", systemImage: "arrow.up.circle")
                     Text("128");
-                }.font(.headline)
+                }.font(.title3)
                 HStack {
                     Label("Average:", systemImage: "minus.circle")
                     Text("100");
-                }.font(.headline)
+                }.font(.title3)
                 HStack {
                     Label("Minimum:", systemImage: "arrow.down.circle")
                     Text("23");
-                }.font(.headline)
+                }.font(.title3)
 
             }
         }
-        .padding()
     }
 }
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
         StatisticsView()
-            .previewDevice("Apple Watch Series 5 - 40mm")
-        StatisticsView()
-            .previewDevice("Apple Watch Series 7 - 45mm")
-            
     }
 }

@@ -29,15 +29,11 @@ struct ChartView: View {
                     LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
                 )
         }
-        .padding()
     }
 }
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
         ChartView()
-            .previewDevice("Apple Watch Series 5 - 40mm")
-        ChartView()
-            .previewDevice("Apple Watch Series 7 - 45mm")
     }
 }
