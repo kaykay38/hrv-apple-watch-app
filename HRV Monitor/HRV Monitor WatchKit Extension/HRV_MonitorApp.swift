@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct HRV_MonitorApp: App {
+    @StateObject var workoutManager = WorkoutManager()
+    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                PagingView()
+                StartView()
             }
+            .environmentObject(workoutManager)
         }
 
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")

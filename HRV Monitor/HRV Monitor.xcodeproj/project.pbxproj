@@ -29,6 +29,8 @@
 		77A4F68B27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68A27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITests.swift */; };
 		77A4F68D27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68C27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift */; };
 		77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4F6A927B4775400906DC5 /* HealthKit.framework */; };
+		D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055E96927BAF3C30026FE92 /* WorkoutManager.swift */; };
+		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
 		D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8427B58A7F00037CF9 /* PagingView.swift */; };
 		D0E1EE8727B58B4000037CF9 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8627B58B4000037CF9 /* ControlsView.swift */; };
 		D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8827B58E9B00037CF9 /* ChartView.swift */; };
@@ -137,6 +139,9 @@
 		77A4F68C27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		77A4F6A727B4775400906DC5 /* HRV Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor.entitlements"; sourceTree = "<group>"; };
 		77A4F6A927B4775400906DC5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D0E1EE8427B58A7F00037CF9 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		D0E1EE8627B58B4000037CF9 /* ControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		D0E1EE8827B58E9B00037CF9 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0E1EE9427B5AA5000037CF9 /* Charts in Frameworks */,
+				D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +275,7 @@
 		77A4F66627B476EF00906DC5 /* HRV Monitor WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */,
 				77A4F66727B476EF00906DC5 /* HRV_MonitorApp.swift */,
 				D055E96727BAEA310026FE92 /* Views */,
 				D055E96827BAEA3A0026FE92 /* Controllers */,
@@ -308,6 +315,7 @@
 		77A4F6A827B4775400906DC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D055E96C27BAFC030026FE92 /* HealthKit.framework */,
 				777C03E627B47913007F4FE5 /* AuthenticationServices.framework */,
 				77A4F6A927B4775400906DC5 /* HealthKit.framework */,
 			);
@@ -332,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				77A4F66F27B476EF00906DC5 /* ComplicationController.swift */,
+				D055E96927BAF3C30026FE92 /* WorkoutManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -628,6 +637,7 @@
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
 				77A4F66827B476EF00906DC5 /* HRV_MonitorApp.swift in Sources */,
 				D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */,
+				D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */,
 				77A4F66E27B476EF00906DC5 /* NotificationView.swift in Sources */,
 				D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */,
 			);
@@ -801,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
@@ -809,7 +820,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HRV Monitor WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = HRV_Monitor_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -833,6 +844,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
@@ -841,7 +853,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HRV Monitor WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = HRV_Monitor_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (

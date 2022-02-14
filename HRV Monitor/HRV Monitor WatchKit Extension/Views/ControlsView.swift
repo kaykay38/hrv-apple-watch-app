@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ControlsView: View {
+    @EnvironmentObject var workoutManager: WorkoutManager
+    
     var body: some View {
         VStack {
             Button {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                workoutManager.endWorkout()
             }label: {
                 VStack {
-                    Text("Start Monitoring HRV");
-                    Image(systemName: "play");
+                    Text("Stop Monitoring HRV");
+                    Image(systemName: "Square");
                 }
             }.foregroundColor(.green);
         }
