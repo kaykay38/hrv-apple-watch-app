@@ -10,11 +10,10 @@ import SwiftUI
 @main
 struct HRV_MonitorApp: App {
     @StateObject var workoutManager = WorkoutManager()
-    
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                StartView()
+                StartStopView()
             }
             .environmentObject(workoutManager)
         }

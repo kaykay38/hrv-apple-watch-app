@@ -12,10 +12,9 @@ struct StatisticsView: View {
         VStack {
             HStack {
                 Image(systemName: "bolt.heart")
-                    .font(.largeTitle)
+                    .font(.title).padding(4)
                 VStack(alignment: .leading){
-                    Text("HRV")
-                    Text("Statistics")
+                    Text("Stats")
                 }
                 .font(.title2)
             }
@@ -23,15 +22,15 @@ struct StatisticsView: View {
             
             VStack(alignment: .leading, spacing: 9.0) {
                 HStack {
-                    Label("Maximum:", systemImage: "arrow.up.circle")
+                    Label("Max:", systemImage: "arrow.up.circle")
                     Text("128");
                 }.font(.title3)
                 HStack {
-                    Label("Average:", systemImage: "minus.circle")
+                    Label("Avg:", systemImage: "minus.circle")
                     Text("100");
                 }.font(.title3)
                 HStack {
-                    Label("Minimum:", systemImage: "arrow.down.circle")
+                    Label("Min:", systemImage: "arrow.down.circle")
                     Text("23");
                 }.font(.title3)
 

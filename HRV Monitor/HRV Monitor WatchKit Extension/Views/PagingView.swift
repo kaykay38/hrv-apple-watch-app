@@ -18,7 +18,8 @@ struct PagingView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            ControlsView().tag(Tab.controls)
+            // StartStopNavigationView().tag(Tab.controls)
+            StartStopView().tag(Tab.controls)
             ChartView().tag(Tab.chart)
             StatisticsView().tag(Tab.stats)
         }
