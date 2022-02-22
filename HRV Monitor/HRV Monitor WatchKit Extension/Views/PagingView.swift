@@ -9,8 +9,8 @@ import SwiftUI
 import WatchKit
 
 struct PagingView: View {
-    
     @State private var selection: Tab = .chart
+    @EnvironmentObject var workoutManager: WorkoutManager
     
     enum Tab {
         case controls, chart, stats
@@ -18,12 +18,12 @@ struct PagingView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            // StartStopNavigationView().tag(Tab.controls)
-            StartStopView().tag(Tab.controls)
+            ControlsView().tag(Tab.controls)
             ChartView().tag(Tab.chart)
             StatisticsView().tag(Tab.stats)
         }
         .padding()
+        .onAppear(perform: workoutManager.requestAuthroization)
     }
 }
 
@@ -32,3 +32,4 @@ struct TabView_Previews: PreviewProvider {
         PagingView()
     }
 }
+

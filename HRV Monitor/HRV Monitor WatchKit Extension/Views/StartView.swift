@@ -11,14 +11,12 @@ struct StartView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     var body: some View {
         VStack {
+            Text("Start").font(.title).padding(.bottom, 10)
             Button {
                 workoutManager.startWorkout()
-            }label: {
-                VStack {
-                    Text("Start Monitoring HRV");
-                    Image(systemName: "play");
-                }
-            }.foregroundColor(.green);
+            } label: {
+                Image(systemName: "play.fill").font(.title).padding(.top, 3).padding(.bottom, 3);
+            }.foregroundColor(.green)
         }
         .padding()
         .onAppear(perform: workoutManager.requestAuthroization)

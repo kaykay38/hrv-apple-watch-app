@@ -11,12 +11,11 @@ struct StatisticsView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "bolt.heart")
-                    .font(.title).padding(4)
+                Image(systemName: "bolt.heart").font(.title2).padding(2)
                 VStack(alignment: .leading){
                     Text("Stats")
                 }
-                .font(.title2)
+                .font(.title)
             }
             Spacer()
             
