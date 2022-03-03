@@ -8,9 +8,10 @@
 import SwiftUI
 import Charts
 
+var demoData: [Double] = [0.1,0.3,0.5]
+var demoData2: [Double] = [0.0,0.1,0.6]
+
 struct ChartView: View {
-    
-    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
     
     @EnvironmentObject var workoutManager: WorkoutManager
     
@@ -32,10 +33,16 @@ struct ChartView: View {
                     )
                     .font(.title3);
                 }
-                Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
-                    .chartStyle(
-                        LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
-                    )
+                ZStack {
+                    Chart(data: demoData)
+                        .chartStyle(
+                            LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
+                        )
+                    Chart(data: demoData2)
+                        .chartStyle(
+                            LineChartStyle(.quadCurve, lineColor: .gray, lineWidth: 5)
+                        )
+                }
             }
             .padding()
         }
