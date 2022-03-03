@@ -118,9 +118,15 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.minimumHeartRate = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.maximumHeartRate = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.arrayCurHR.append(self.heartRate/500)
+                if(self.arrayCurHR.count > 10) {
+                    self.arrayCurHR.removeFirst()
+                }
+                self.arrayCurHR.append(self.heartRate/200)
                 self.DiffHR = self.heartRate - self.lastHR
-                self.arraydiffHR.append(self.DiffHR/500)
+                if(self.arraydiffHR.count > 10) {
+                    self.arraydiffHR.removeFirst()
+                }
+                self.arraydiffHR.append(self.DiffHR/200)
                 
             default:
                 return

@@ -8,9 +8,6 @@
 import SwiftUI
 import Charts
 
-var demoData: [Double] = [0.1,0.3,0.5]
-var demoData2: [Double] = [0.0,0.1,0.6]
-
 struct ChartView: View {
     
     @EnvironmentObject var workoutManager: WorkoutManager
