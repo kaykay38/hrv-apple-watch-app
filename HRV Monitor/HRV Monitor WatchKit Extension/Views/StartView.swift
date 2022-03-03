@@ -19,7 +19,7 @@ struct StartView: View {
             }.foregroundColor(.green)
         }
         .padding()
-        .onAppear(perform: workoutManager.requestAuthroization)
+        .onAppear(perform: workoutManager.requestAuthorization)
     }
 }
 

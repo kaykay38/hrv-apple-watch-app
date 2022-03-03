@@ -12,29 +12,51 @@ struct ChartView: View {
     
     var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
     
+    @EnvironmentObject var workoutManager: WorkoutManager
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Live HRV")
-                .font(.title2)
-            
-            HStack {
-                Label("Good", systemImage: "hand.thumbsup.circle")
-                    .font(.title3)
-                    .foregroundColor(.green);
-                Text("158")
+        TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
+            VStack(alignment: .leading) {
+                Text("Live HRV")
+                    .font(.title2)
+                
+                HStack {
+                    Label("Good", systemImage: "hand.thumbsup.circle")
+                        .font(.title3)
+                        .foregroundColor(.green);
+                    Text(
+                        workoutManager.heartRate
+                            .formatted(
+                                .number.precision(.fractionLength(0))
+                            )
+                    )
                     .font(.title3);
+                }
+                Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
+                    .chartStyle(
+                        LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
+                    )
             }
-            Chart(data: [0.1, 0.3, 0.2, 0.5, 0.4, 0.9, 0.1])
-                .chartStyle(
-                    LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
-                )
+            .padding()
         }
-        .padding()
     }
 }
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
         ChartView()
+    }
+}
+
+private struct MetricsTimelineSchedule: TimelineSchedule {
+    var startDate: Date
+
+    init(from startDate: Date) {
+        self.startDate = startDate
+    }
+
+    func entries(from startDate: Date, mode: TimelineScheduleMode) -> PeriodicTimelineSchedule.Entries {
+        PeriodicTimelineSchedule(from: self.startDate, by: (mode == .lowFrequency ? 1.0 : 1.0 / 30.0))
+            .entries(from: startDate, mode: mode)
     }
 }
