@@ -7,7 +7,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.SeniorProject.HRV-Monitor.HRV-Monitor.watchkitapp</string>
+			<string>com.HRV-Monitor.HRV-Monitor.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
@@ -20,9 +20,5 @@
 	<array>
 		<string>workout-processing</string>
 	</array>
-	<key>NSHealthShareUsageDescription</key>
-	<string>Workout data will be stored in HRV Monitor</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>Workouts tracked by HRV Monitor will be stored to health kit</string>
 </dict>
 </plist>
