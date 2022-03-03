@@ -100,6 +100,10 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var heartRate: Double = 0
     @Published var maximumHeartRate: Double = 0
     @Published var minimumHeartRate: Double = 0
+    var arrayCurHR: [Double] = []
+    var arraydiffHR: [Double] = []
+    var DiffHR: Double = 0
+    var lastHR: Double = 0
     @Published var workout: HKWorkout?
 
     func updateForStatistics(_ statistics: HKStatistics?) {
@@ -108,12 +112,16 @@ class WorkoutManager: NSObject, ObservableObject {
         DispatchQueue.main.async {
             switch statistics.quantityType {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
+                self.lastHR = self.heartRate
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.minimumHeartRate = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.maximumHeartRate = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-
+                self.arrayCurHR.append(self.heartRate/500)
+                self.DiffHR = self.heartRate - self.lastHR
+                self.arraydiffHR.append(self.DiffHR/500)
+                
             default:
                 return
             }
