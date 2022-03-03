@@ -10,14 +10,6 @@ import HealthKit
 
 class WorkoutManager: NSObject, ObservableObject {
 
-    @Published var showingSummaryView: Bool = false {
-        didSet {
-            if showingSummaryView == false {
-                resetWorkout()
-            }
-        }
-    }
-
     let healthStore = HKHealthStore()
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
@@ -26,7 +18,7 @@ class WorkoutManager: NSObject, ObservableObject {
     func startWorkout() {
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = HKWorkoutActivityType.mindAndBody
-        configuration.locationType = .outdoor
+        configuration.locationType = .indoor
 
         // Create the session and obtain the workout builder.
         do {
@@ -91,19 +83,19 @@ class WorkoutManager: NSObject, ObservableObject {
     }
 
     func endWorkout() {
+        resetWorkout()
         session?.end()
-        showingSummaryView = true
+        
     }
 
-    // MARK: - Workout Metrics
     @Published var averageHeartRate: Double = 0
     @Published var heartRate: Double = 0
     @Published var maximumHeartRate: Double = 0
     @Published var minimumHeartRate: Double = 0
-    var arrayCurHR: [Double] = []
-    var arraydiffHR: [Double] = []
-    var DiffHR: Double = 0
-    var lastHR: Double = 0
+    @Published var arrayCurHR: [Double] = []
+    @Published var arraydiffHR: [Double] = []
+    @Published var DiffHR: Double = 0
+    @Published var lastHR: Double = 0
     @Published var workout: HKWorkout?
 
     func updateForStatistics(_ statistics: HKStatistics?) {
@@ -135,13 +127,15 @@ class WorkoutManager: NSObject, ObservableObject {
     }
 
     func resetWorkout() {
-        builder = nil
-        workout = nil
-        session = nil
         averageHeartRate = 0
         heartRate = 0
         minimumHeartRate = 0
         maximumHeartRate = 0
+        arrayCurHR.removeAll()
+        arraydiffHR.removeAll()
+        DiffHR = 0
+        lastHR = 0
+        return
     }
 }
 
