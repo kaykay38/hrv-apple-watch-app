@@ -22,9 +22,20 @@ struct ChartView: View {
                     .font(.title2)
                 
                 HStack {
-                    Label("Good", systemImage: "hand.thumbsup.circle")
-                        .font(.title3)
-                        .foregroundColor(.green);
+                    if(workoutManager.heartRate > 100) {
+                        Label("High", systemImage: "hand.thumbsdown.circle")
+                            .font(.title3)
+                            .foregroundColor(.red);
+                    }else if(workoutManager.heartRate < 60) {
+                        Label("Low", systemImage: "hand.thumbsdown.circle")
+                            .font(.title3)
+                            .foregroundColor(.red);
+                    }else{
+                        Label("Good", systemImage: "hand.thumbsup.circle")
+                            .font(.title3)
+                            .foregroundColor(.green);
+                    }
+                    
                     Text(
                         workoutManager.heartRate
                             .formatted(
