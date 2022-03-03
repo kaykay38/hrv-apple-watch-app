@@ -17,7 +17,7 @@ class WorkoutManager: NSObject, ObservableObject {
     // Start the workout.
     func startWorkout() {
         let configuration = HKWorkoutConfiguration()
-        configuration.activityType = HKWorkoutActivityType.mindAndBody
+        configuration.activityType = HKWorkoutActivityType.walking
         configuration.locationType = .indoor
 
         // Create the session and obtain the workout builder.
