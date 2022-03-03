@@ -20,5 +20,9 @@
 	<array>
 		<string>workout-processing</string>
 	</array>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Your heartrate related data will be used for analysis</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Your heartrate related data will be used for analysis</string>
 </dict>
 </plist>

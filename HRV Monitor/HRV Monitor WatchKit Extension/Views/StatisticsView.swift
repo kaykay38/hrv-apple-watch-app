@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StatisticsView: View {
+    @EnvironmentObject var workoutManager: WorkoutManager
+    
     var body: some View {
         VStack {
             HStack {
@@ -22,15 +24,29 @@ struct StatisticsView: View {
             VStack(alignment: .leading, spacing: 9.0) {
                 HStack {
                     Label("Max:", systemImage: "arrow.up.circle")
-                    Text("128");
+                    Text(
+                        workoutManager.maximumHeartRate
+                            .formatted(
+                                .number.precision(.fractionLength(0))
+                            )
+                    )
                 }.font(.title3)
                 HStack {
                     Label("Avg:", systemImage: "minus.circle")
-                    Text("100");
-                }.font(.title3)
+                    Text(
+                        workoutManager.averageHeartRate
+                            .formatted(
+                                .number.precision(.fractionLength(0))
+                            )
+                    )                }.font(.title3)
                 HStack {
                     Label("Min:", systemImage: "arrow.down.circle")
-                    Text("23");
+                    Text(
+                        workoutManager.minimumHeartRate
+                            .formatted(
+                                .number.precision(.fractionLength(0))
+                            )
+                    )
                 }.font(.title3)
 
             }

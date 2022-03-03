@@ -22,8 +22,7 @@ struct PagingView: View {
             ChartView().tag(Tab.chart)
             StatisticsView().tag(Tab.stats)
         }
-        .padding()
-        .onAppear(perform: workoutManager.requestAuthroization)
+        .onAppear(perform: workoutManager.requestAuthorization)
     }
 }
 
