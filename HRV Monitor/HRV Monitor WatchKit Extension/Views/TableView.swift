@@ -11,21 +11,25 @@ struct TableView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     
     var body: some View {
-        TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
-            VStack(alignment: .leading) {
-                Text("Alert Log")
-                    .font(.title)
-                ForEach(workoutManager.alertTableArray) { Alert in
-                    HStack{
-                        Text(Alert.direction)
-                            .font(.title3)
-                        Text(Alert.time)
-                            .font(.title3)
+        ScrollView{
+            TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
+                VStack(alignment: .leading) {
+                    Label("Alert Log", systemImage: "exclamationmark.bubble")
+                        .font(.title2)
+                    Spacer()
+                    ForEach(workoutManager.alertTableArray) { Alert in
+                        HStack{
+                            Text(Alert.direction)
+                                .font(.title3)
+                            Text(Alert.time)
+                                .font(.title3)
+                        }
+                        Divider()
                     }
                 }
             }
+            .padding()
         }
-        .padding()
     }
 }
 

@@ -88,9 +88,7 @@ class WorkoutManager: NSObject, ObservableObject {
         
     }
     
-    let hour = Calendar.current.component(.hour, from: Date())
-    let minute = Calendar.current.component(.minute, from: Date())
-    let second = Calendar.current.component(.second, from: Date())
+
     
     struct Alert: Identifiable {
          let id = UUID()
@@ -113,6 +111,11 @@ class WorkoutManager: NSObject, ObservableObject {
         guard let statistics = statistics else { return }
 
         DispatchQueue.main.async {
+            
+            let hour = Calendar.current.component(.hour, from: Date())
+            let minute = Calendar.current.component(.minute, from: Date())
+            let second = Calendar.current.component(.second, from: Date())
+            
             switch statistics.quantityType {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 self.lastHR = self.heartRate
@@ -131,14 +134,10 @@ class WorkoutManager: NSObject, ObservableObject {
                 }
                 self.arraydiffHR.append(self.DiffHR/200)
                 
-                
-                if(self.alertTableArray.count > 10) {
-                    self.alertTableArray.removeFirst()
-                }
                 if(self.DiffHR > 10) {
-                    self.alertTableArray.append(Alert(direction: "High", time: "\(self.hour):\(self.minute):\(self.second)"))
+                    self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
                 }else if(self.DiffHR < -10) {
-                    self.alertTableArray.append(Alert(direction: "Low", time: "\(self.hour):\(self.minute):\(self.second)"))
+                    self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
                 }
                 
                 
@@ -149,16 +148,15 @@ class WorkoutManager: NSObject, ObservableObject {
     }
 
     func resetWorkout() {
-        averageHeartRate = 0
-        heartRate = 0
-        minimumHeartRate = 0
-        maximumHeartRate = 0
-        arrayCurHR.removeAll()
-        arraydiffHR.removeAll()
-        alertTableArray.removeAll()
-        DiffHR = 0
-        lastHR = 0
-        return
+        self.averageHeartRate = 0
+        self.heartRate = 0
+        self.minimumHeartRate = 0
+        self.maximumHeartRate = 0
+        self.arrayCurHR.removeAll()
+        self.arraydiffHR.removeAll()
+        self.alertTableArray.removeAll()
+        self.DiffHR = 0
+        self.lastHR = 0
     }
 }
 
