@@ -87,6 +87,15 @@ class WorkoutManager: NSObject, ObservableObject {
         session?.end()
         
     }
+    
+    let hour = Calendar.current.component(.hour, from: Date())
+    let minute = Calendar.current.component(.minute, from: Date())
+    
+    struct Alert: Identifiable {
+         let id = UUID()
+         var direction: String
+         var time: String
+     }
 
     @Published var averageHeartRate: Double = 0
     @Published var heartRate: Double = 0
@@ -97,6 +106,7 @@ class WorkoutManager: NSObject, ObservableObject {
     @Published var DiffHR: Double = 0
     @Published var lastHR: Double = 0
     @Published var workout: HKWorkout?
+    @Published var alertTableArray: [Alert] = []
 
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
@@ -119,6 +129,13 @@ class WorkoutManager: NSObject, ObservableObject {
                     self.arraydiffHR.removeFirst()
                 }
                 self.arraydiffHR.append(self.DiffHR/200)
+                
+                if(self.DiffHR > 10) {
+                    self.alertTableArray.append(Alert(direction: "High", time: "\(self.hour):\(self.minute)"))
+                }else if(self.DiffHR < -10) {
+                    self.alertTableArray.append(Alert(direction: "Low", time: "\(self.hour):\(self.minute)"))
+                }
+                
                 
             default:
                 return

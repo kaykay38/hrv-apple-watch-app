@@ -13,7 +13,7 @@ struct PagingView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     
     enum Tab {
-        case controls, chart, stats
+        case controls, chart, stats, table
     }
     
     var body: some View {
@@ -21,6 +21,7 @@ struct PagingView: View {
             ControlsView().tag(Tab.controls)
             ChartView().tag(Tab.chart)
             StatisticsView().tag(Tab.stats)
+            TableView().tag(Tab.table)
         }
         .onAppear(perform: workoutManager.requestAuthorization)
     }
