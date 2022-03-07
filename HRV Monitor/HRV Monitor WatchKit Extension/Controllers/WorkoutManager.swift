@@ -90,6 +90,7 @@ class WorkoutManager: NSObject, ObservableObject {
     
     let hour = Calendar.current.component(.hour, from: Date())
     let minute = Calendar.current.component(.minute, from: Date())
+    let second = Calendar.current.component(.second, from: Date())
     
     struct Alert: Identifiable {
          let id = UUID()
@@ -130,10 +131,14 @@ class WorkoutManager: NSObject, ObservableObject {
                 }
                 self.arraydiffHR.append(self.DiffHR/200)
                 
+                
+                if(self.alertTableArray.count > 10) {
+                    self.alertTableArray.removeFirst()
+                }
                 if(self.DiffHR > 10) {
-                    self.alertTableArray.append(Alert(direction: "High", time: "\(self.hour):\(self.minute)"))
+                    self.alertTableArray.append(Alert(direction: "High", time: "\(self.hour):\(self.minute):\(self.second)"))
                 }else if(self.DiffHR < -10) {
-                    self.alertTableArray.append(Alert(direction: "Low", time: "\(self.hour):\(self.minute)"))
+                    self.alertTableArray.append(Alert(direction: "Low", time: "\(self.hour):\(self.minute):\(self.second)"))
                 }
                 
                 
@@ -150,6 +155,7 @@ class WorkoutManager: NSObject, ObservableObject {
         maximumHeartRate = 0
         arrayCurHR.removeAll()
         arraydiffHR.removeAll()
+        alertTableArray.removeAll()
         DiffHR = 0
         lastHR = 0
         return
