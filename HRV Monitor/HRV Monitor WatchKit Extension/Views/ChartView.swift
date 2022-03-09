@@ -44,20 +44,25 @@ struct ChartView: View {
                 }
                 ZStack {
                     if(workoutManager.arrayCurHR.isEmpty && workoutManager.arraydiffHR.isEmpty) {
+                        if(workoutManager.running == true) {
+                            Text("Initalizing Data")
+                                .font(.headline)
+                        }else{
                         Text("No Data")
                             .font(.title2)
+                        }
                     }else{
-                        Chart(data: workoutManager.arraydiffHR)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .gray, lineWidth: 5)
-                            )
-                        
                         Chart(data: workoutManager.arrayCurHR)
                             .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
+                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 3)
                             )
+//                        Chart(data: workoutManager.arraydiffHR)
+//                            .chartStyle(
+//                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
+//                            )
                     }
                 }
+                Spacer()
             }
             .padding()
         }
