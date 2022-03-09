@@ -45,8 +45,11 @@ struct ChartView: View {
                 ZStack {
                     if(workoutManager.arrayCurHR.isEmpty && workoutManager.arraydiffHR.isEmpty) {
                         if(workoutManager.running == true) {
-                            Text("Initalizing Data")
-                                .font(.headline)
+                            VStack{
+                                Text("Initalizing Data")
+                                    .font(.headline)
+                                LoadingView()
+                            }
                         }else{
                         Text("No Data")
                             .font(.title2)
