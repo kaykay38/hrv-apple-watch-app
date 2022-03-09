@@ -43,25 +43,35 @@ struct ChartView: View {
                     }
                 }
                 ZStack {
-                    if(workoutManager.arrayCurHR.isEmpty && workoutManager.arraydiffHR.isEmpty) {
+                    if(workoutManager.arrayCurHR.count<10 && workoutManager.arraydiffHR.count < 10) {
                         if(workoutManager.running == true) {
                             VStack{
+                                Spacer()
                                 Text("Initalizing Data")
-                                    .font(.headline)
+                                    .font(.title3)
+                                    .foregroundColor(.gray)
+                                    
+                                Spacer()
                                 LoadingView()
+                                    .foregroundColor(.gray)
                             }
                         }else{
-                        Text("No Data")
-                            .font(.title2)
+                            VStack(alignment: .leading){
+                                Spacer()
+                                Text("No Data")
+                                    .font(.title3)
+                                Text("Start Session To Begin Collecting Data")
+                                    .foregroundColor(.gray)
+                            }
                         }
                     }else{
+//                        Chart(data: workoutManager.arraydiffHR)
+//                            .chartStyle(
+//                                LineChartStyle(.line, lineColor: .gray, lineWidth: 3)
+//                            )
                         Chart(data: workoutManager.arrayCurHR)
                             .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
-                            )
-                        Chart(data: workoutManager.arraydiffHR)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .gray, lineWidth: 3)
+                                LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
                             )
                     }
                 }

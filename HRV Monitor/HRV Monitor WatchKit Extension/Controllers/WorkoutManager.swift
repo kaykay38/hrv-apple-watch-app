@@ -135,14 +135,14 @@ class WorkoutManager: NSObject, ObservableObject {
                 if(self.arrayCurHR.count > 20) {
                     self.arrayCurHR.removeFirst()
                 }
-                self.arrayCurHR.append((self.heartRate-70)/50)
+                self.arrayCurHR.append((self.heartRate-75)/50)
                 
                 self.DiffHR = self.heartRate - self.lastHR
                 
                 if(self.arraydiffHR.count > 20) {
                     self.arraydiffHR.removeFirst()
                 }
-                self.arraydiffHR.append((self.DiffHR+5)/15)
+                self.arraydiffHR.append((self.DiffHR+5)/25)
                 
                 if(self.DiffHR > 20) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
