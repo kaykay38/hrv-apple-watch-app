@@ -10,9 +10,9 @@ import SwiftUI
 struct LoadingView: View {
     var body: some View {
         HStack {
-            DotView() // 1.
-            DotView(delay: 0.2) // 2.
-            DotView(delay: 0.4) // 3.
+            DotView()
+            DotView(delay: 0.2)
+            DotView(delay: 0.4)
         }
     }
 }

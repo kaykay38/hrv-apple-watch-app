@@ -57,12 +57,12 @@ struct ChartView: View {
                     }else{
                         Chart(data: workoutManager.arrayCurHR)
                             .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 3)
+                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
                             )
-//                        Chart(data: workoutManager.arraydiffHR)
-//                            .chartStyle(
-//                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
-//                            )
+                        Chart(data: workoutManager.arraydiffHR)
+                            .chartStyle(
+                                LineChartStyle(.quadCurve, lineColor: .gray, lineWidth: 3)
+                            )
                     }
                 }
                 Spacer()
