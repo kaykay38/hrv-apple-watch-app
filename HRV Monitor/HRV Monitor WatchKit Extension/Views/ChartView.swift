@@ -17,13 +17,13 @@ struct ChartView: View {
             VStack(alignment: .leading) {
                 Text("Live HR")
                     .font(.title2)
-                if(workoutManager.heartRate != 0) {
+                if(workoutManager.HRV != 0) {
                     HStack {
-                        if(workoutManager.DiffHR > 10) {
+                        if(workoutManager.hrvCalculator.isHigh()) {
                             Label("High", systemImage: "hand.thumbsdown.circle")
                                 .font(.title3)
                                 .foregroundColor(.red);
-                        }else if(workoutManager.DiffHR < -10) {
+                        }else if(workoutManager.hrvCalculator.isLow()) {
                             Label("Low", systemImage: "hand.thumbsdown.circle")
                                 .font(.title3)
                                 .foregroundColor(.red);
@@ -34,7 +34,7 @@ struct ChartView: View {
                         }
                         
                         Text(
-                            workoutManager.heartRate
+                            workoutManager.HRV
                                 .formatted(
                                     .number.precision(.fractionLength(0))
                                 )
@@ -43,21 +43,39 @@ struct ChartView: View {
                     }
                 }
                 ZStack {
-                    if(workoutManager.arrayCurHR.isEmpty && workoutManager.arraydiffHR.isEmpty) {
-                        Text("No Data")
-                            .font(.title2)
+                    if(workoutManager.hrvArray.count < 10) {
+                        if(workoutManager.running == true) {
+                            VStack{
+                                Spacer()
+                                Text("Initalizing Data")
+                                    .font(.title3)
+                                    .foregroundColor(.gray)
+                                    
+                                Spacer()
+                                LoadingView()
+                                    .foregroundColor(.gray)
+                            }
+                        }else{
+                            VStack(alignment: .leading){
+                                Spacer()
+                                Text("No Data")
+                                    .font(.title3)
+                                Text("Start Session To Begin Collecting Data")
+                                    .foregroundColor(.gray)
+                            }
+                        }
                     }else{
-                        Chart(data: workoutManager.arraydiffHR)
+//                        Chart(data: workoutManager.arraydiffHR)
+//                            .chartStyle(
+//                                LineChartStyle(.line, lineColor: .gray, lineWidth: 3)
+//                            )
+                        Chart(data: workoutManager.hrvArray)
                             .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .gray, lineWidth: 5)
-                            )
-                        
-                        Chart(data: workoutManager.arrayCurHR)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
+                                LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
                             )
                     }
                 }
+                Spacer()
             }
             .padding()
         }

@@ -9,11 +9,27 @@ import Foundation
 import HealthKit
 
 class WorkoutManager: NSObject, ObservableObject {
-
+    
+    @Published var workout: HKWorkout?
+    // The app's workout state.
+    @Published var running = false
+    
     let healthStore = HKHealthStore()
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
-
+   
+    @Published var HRV: Double = 0
+    @Published var hrvCalculator: HRVCalculator
+    
+    private var currentHRV: Double = 0
+    private var currentHR: Double = 0
+    
+    private var previousHRV: Double = 0
+    private var diffHRV: Double = 0
+    @Published var hrvArray: [Double] = []
+    
+    private var alertTableArray: [Alert] = []
+    
     // Start the workout.
     func startWorkout() {
         let configuration = HKWorkoutConfiguration()
@@ -34,8 +50,7 @@ class WorkoutManager: NSObject, ObservableObject {
         builder?.delegate = self
 
         // Set the workout builder's data source.
-        builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore,
-                                                     workoutConfiguration: configuration)
+        builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
 
         // Start the workout session and begin data collection.
         let startDate = Date()
@@ -63,8 +78,7 @@ class WorkoutManager: NSObject, ObservableObject {
         }
     }
 
-    // The app's workout state.
-    @Published var running = false
+    
 
     func togglePause() {
         if running == true {
@@ -85,27 +99,17 @@ class WorkoutManager: NSObject, ObservableObject {
     func endWorkout() {
         resetWorkout()
         session?.end()
-        
     }
-    
-
     
     struct Alert: Identifiable {
          let id = UUID()
          var direction: String
          var time: String
      }
-
-    @Published var averageHeartRate: Double = 0
-    @Published var heartRate: Double = 0
-    @Published var maximumHeartRate: Double = 0
-    @Published var minimumHeartRate: Double = 0
-    @Published var arrayCurHR: [Double] = []
-    @Published var arraydiffHR: [Double] = []
-    @Published var DiffHR: Double = 0
-    @Published var lastHR: Double = 0
-    @Published var workout: HKWorkout?
-    @Published var alertTableArray: [Alert] = []
+    
+    private var prevSampleTime: Date
+    private var curSampleTime: Date
+    private var timeDiffMillisec: Double
 
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
@@ -116,27 +120,34 @@ class WorkoutManager: NSObject, ObservableObject {
             let minute = Calendar.current.component(.minute, from: Date())
             let second = Calendar.current.component(.second, from: Date())
             
+            let prevSampleTime = self.curSampleTime
+            let curSampleTime = Date()
+            
             switch statistics.quantityType {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
-                self.lastHR = self.heartRate
-                let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
-                self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.minimumHeartRate = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.maximumHeartRate = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                if(self.arrayCurHR.count > 10) {
-                    self.arrayCurHR.removeFirst()
-                }
-                self.arrayCurHR.append(self.heartRate/200)
-                self.DiffHR = self.heartRate - self.lastHR
-                if(self.arraydiffHR.count > 10) {
-                    self.arraydiffHR.removeFirst()
-                }
-                self.arraydiffHR.append(self.DiffHR/200)
                 
-                if(self.DiffHR > 10) {
+                let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+                
+                self.hrvCalculator.averageHRV = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                self.hrvCalculator.minimumHRV = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                self.hrvCalculator.maximumHRV = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+               
+                
+                //self.currentHR =  statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                
+                self.hrvCalculator.addSample(curSampleTime, prevSampleTime, self.currentHR)
+                
+               
+                if(self.hrvArray.count > 10) {
+                    self.hrvArray.removeFirst()
+                }
+                
+                self.HRV = self.hrvCalculator.HRV()
+                self.hrvArray.append(self.HRV)
+                
+                if(self.diffHRV > 10) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
-                }else if(self.DiffHR < -10) {
+                }else if(self.diffHRV < -10) {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
                 }
                 
@@ -148,15 +159,8 @@ class WorkoutManager: NSObject, ObservableObject {
     }
 
     func resetWorkout() {
-        self.averageHeartRate = 0
-        self.heartRate = 0
-        self.minimumHeartRate = 0
-        self.maximumHeartRate = 0
-        self.arrayCurHR.removeAll()
-        self.arraydiffHR.removeAll()
-        self.alertTableArray.removeAll()
-        self.DiffHR = 0
-        self.lastHR = 0
+        hrvCalculator.reset()
+        
     }
 }
 
