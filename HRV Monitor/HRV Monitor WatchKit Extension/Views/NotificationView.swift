@@ -9,14 +9,17 @@ import SwiftUI
 
 struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
-
     var body: some View {
     VStack {
-        Text("Notification").font(.title2).padding(.bottom, 10)
+        HStack{
+            Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
+         
+                Text("Episode Detected").font(.title3).padding(.bottom, 10)
+        }
                Button {
                     workoutManager.resume()
-                } label: {
-                    Image(systemName: "return.right").font(.title).padding(.top, 3).padding(.bottom, 3);
+                } label: {Text("Dismiss")
+                    .font(.subheadline).padding(.top, 3).padding(.bottom, 3);
                 }.foregroundColor(.white)
             }
             .padding()
