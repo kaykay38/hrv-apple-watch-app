@@ -118,23 +118,33 @@ class WorkoutManager: NSObject, ObservableObject {
             
             switch statistics.quantityType {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
-                self.lastHR = self.heartRate
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+                
+                if(self.lastHR == 0)
+                {
+                    self.lastHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+                }else{
+                    self.lastHR = self.heartRate
+                }
+
                 self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.minimumHeartRate = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.maximumHeartRate = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                if(self.arrayCurHR.count > 10) {
+                
+                if(self.arrayCurHR.count > 20) {
                     self.arrayCurHR.removeFirst()
                 }
-                self.arrayCurHR.append(self.heartRate/200)
+                self.arrayCurHR.append((self.heartRate-75)/50)
+                
                 self.DiffHR = self.heartRate - self.lastHR
-                if(self.arraydiffHR.count > 10) {
+                
+                if(self.arraydiffHR.count > 20) {
                     self.arraydiffHR.removeFirst()
                 }
-                self.arraydiffHR.append(self.DiffHR/200)
+                self.arraydiffHR.append((self.DiffHR+5)/25)
                 
-                if(self.DiffHR > 10) {
+                if(self.DiffHR > 20) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
                 }else if(self.DiffHR < -10) {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))

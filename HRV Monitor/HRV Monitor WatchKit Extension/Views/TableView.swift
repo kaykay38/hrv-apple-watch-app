@@ -17,14 +17,20 @@ struct TableView: View {
                     Label("Alert Log", systemImage: "exclamationmark.bubble")
                         .font(.title2)
                     Spacer()
-                    ForEach(workoutManager.alertTableArray) { Alert in
-                        HStack{
-                            Text(Alert.direction)
-                                .font(.title3)
-                            Text(Alert.time)
-                                .font(.title3)
+                    if(workoutManager.alertTableArray.isEmpty == false) {
+                        ForEach(workoutManager.alertTableArray) { Alert in
+                            HStack{
+                                Text(Alert.direction)
+                                    .font(.title3)
+                                Text(Alert.time)
+                                    .font(.title3)
+                            }
+                            Divider()
                         }
-                        Divider()
+                    }else{
+                        Text("No Alerts Recorded")
+                            .foregroundColor(.gray)
+                            .font(.title3)
                     }
                 }
             }

@@ -33,6 +33,8 @@
 		D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055E96927BAF3C30026FE92 /* WorkoutManager.swift */; };
 		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
 		D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08ED19227D67EDB003F9DA7 /* TableView.swift */; };
+		D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E05E4F27D8791900FBE1F2 /* DotView.swift */; };
+		D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E05E5127D8794800FBE1F2 /* LoadingView.swift */; };
 		D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8427B58A7F00037CF9 /* PagingView.swift */; };
 		D0E1EE8727B58B4000037CF9 /* StopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8627B58B4000037CF9 /* StopView.swift */; };
 		D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8827B58E9B00037CF9 /* ChartView.swift */; };
@@ -146,6 +148,8 @@
 		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D08ED19227D67EDB003F9DA7 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		D0E05E4F27D8791900FBE1F2 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		D0E05E5127D8794800FBE1F2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D0E1EE8427B58A7F00037CF9 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		D0E1EE8627B58B4000037CF9 /* StopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopView.swift; sourceTree = "<group>"; };
 		D0E1EE8827B58E9B00037CF9 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
 				77A4F66B27B476EF00906DC5 /* NotificationController.swift */,
 				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
+				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,6 +354,15 @@
 				D055E96927BAF3C30026FE92 /* WorkoutManager.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D0E05E5327D87D9100FBE1F2 /* Loading Dots */ = {
+			isa = PBXGroup;
+			children = (
+				D0E05E5127D8794800FBE1F2 /* LoadingView.swift */,
+				D0E05E4F27D8791900FBE1F2 /* DotView.swift */,
+			);
+			path = "Loading Dots";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -641,12 +655,14 @@
 				77A4F66C27B476EF00906DC5 /* NotificationController.swift in Sources */,
 				77A4F66A27B476EF00906DC5 /* StartView.swift in Sources */,
 				77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */,
+				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
 				77A4F66827B476EF00906DC5 /* HRV_MonitorApp.swift in Sources */,
 				D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */,
 				D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */,
 				77A4F66E27B476EF00906DC5 /* NotificationView.swift in Sources */,
 				D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */,
+				D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */,
 				776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
