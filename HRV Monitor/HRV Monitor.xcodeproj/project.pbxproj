@@ -650,11 +650,8 @@
 				D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */,
 				77A4F66C27B476EF00906DC5 /* NotificationController.swift in Sources */,
 				77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */,
-<<<<<<< HEAD
 				77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */,
-=======
 				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
->>>>>>> origin/main
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
 				77A4F66827B476EF00906DC5 /* HRV_MonitorApp.swift in Sources */,
 				D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */,
