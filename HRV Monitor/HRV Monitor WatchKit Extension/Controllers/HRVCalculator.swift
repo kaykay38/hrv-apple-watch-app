@@ -62,8 +62,14 @@ class HRVCalculator: NSObject, ObservableObject {
     private var averageIBITable: [Double] = []
     
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
-        if hrSampleTable.count > 20 {
-            hrSampleTable.removeFirst();
+        // Unwrap optional HRSamples in table, first and last.
+        if let firstSample = hrSampleTable.first {
+            if let lastSample = hrSampleTable.last {
+                // Check if samples spans more than 5 minutes, if so remove first entry.
+                if lastSample.date.timeIntervalSince(firstSample.date) > 300 {
+                    hrSampleTable.removeFirst();
+                }
+            }
         }
         
         let timeDiffMillisec = curSampleTime.timeIntervalSince(prevSampleTime)*1000
