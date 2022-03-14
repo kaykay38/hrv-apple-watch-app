@@ -15,7 +15,7 @@ struct ChartView: View {
     var body: some View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
             VStack(alignment: .leading) {
-                Text("Live HR")
+                Text("Live HRV")
                     .font(.title2)
                 if(workoutManager.HRV != 0) {
                     HStack {
@@ -60,7 +60,7 @@ struct ChartView: View {
                                 Spacer()
                                 Text("No Data")
                                     .font(.title3)
-                                Text("Start Session To Begin Collecting Data")
+                                Text("Start Session To Begin Displaying HRV")
                                     .foregroundColor(.gray)
                             }
                         }
