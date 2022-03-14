@@ -15,7 +15,7 @@ struct ChartView: View {
     var body: some View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
             VStack(alignment: .leading) {
-                Text("Live HRV")
+                Text("HRV")
                     .font(.title2)
                 if(workoutManager.HRV != 0) {
                     HStack {
@@ -39,46 +39,45 @@ struct ChartView: View {
                                     .number.precision(.fractionLength(0))
                                 )
                         )
-                        .font(.title3);
+                            .font(.title2);
                     }
                 }
                 ZStack {
-                    if(workoutManager.hrvArray.count < 10) {
-                        if(workoutManager.running == true) {
+                    if(workoutManager.running) {
+                        if(workoutManager.hrvChartArray.count < 10) {
                             VStack{
                                 Spacer()
                                 Text("Initalizing Data")
                                     .font(.title3)
                                     .foregroundColor(.gray)
-                                    
+                                
                                 Spacer()
                                 LoadingView()
                                     .foregroundColor(.gray)
                             }
+                            
                         }else{
-                            VStack(alignment: .leading){
-                                Spacer()
-                                Text("No Data")
-                                    .font(.title3)
-                                Text("Start Session To Begin Displaying HRV")
-                                    .foregroundColor(.gray)
-                            }
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
+                                )
                         }
+                        
                     }else{
-//                        Chart(data: workoutManager.arraydiffHR)
-//                            .chartStyle(
-//                                LineChartStyle(.line, lineColor: .gray, lineWidth: 3)
-//                            )
-                        Chart(data: workoutManager.hrvArray)
-                            .chartStyle(
-                                LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
-                            )
+                        VStack(alignment: .leading){
+                            Spacer()
+                            Text("No Data")
+                                .font(.title3)
+                            Text("Start Session To Begin Displaying HRV")
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
                 Spacer()
             }
             .padding()
         }
+        
     }
 }
 
@@ -90,11 +89,11 @@ struct ChartView_Previews: PreviewProvider {
 
 private struct MetricsTimelineSchedule: TimelineSchedule {
     var startDate: Date
-
+    
     init(from startDate: Date) {
         self.startDate = startDate
     }
-
+    
     func entries(from startDate: Date, mode: TimelineScheduleMode) -> PeriodicTimelineSchedule.Entries {
         PeriodicTimelineSchedule(from: self.startDate, by: (mode == .lowFrequency ? 1.0 : 1.0 / 30.0))
             .entries(from: startDate, mode: mode)

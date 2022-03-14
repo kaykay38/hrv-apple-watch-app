@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */; };
 		776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776151E927C5563C0066BED1 /* ControlsView.swift */; };
 		777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C03E627B47913007F4FE5 /* AuthenticationServices.framework */; };
 		77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63627B476EA00906DC5 /* HRV_MonitorApp.swift */; };
@@ -112,6 +113,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVSimpleView.swift; sourceTree = "<group>"; };
 		776151E927C5563C0066BED1 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		777C03E627B47913007F4FE5 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
 		77A4F63327B476EA00906DC5 /* HRV Monitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HRV Monitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,6 +340,7 @@
 				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
 				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
 				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
+				7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */,
 				77A4F66E27B476EF00906DC5 /* NotificationView.swift in Sources */,
 				D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */,
+				7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */,
 				D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */,
 				776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */,
 			);

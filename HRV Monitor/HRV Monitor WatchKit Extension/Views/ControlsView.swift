@@ -14,7 +14,7 @@ struct ControlsView: View {
             // TODO: temporarily disable button for x seconds after function call.
             if workoutManager.running {
                 Spacer(minLength: 5)
-                Text("Monitoring Started")
+                Text("Running")
                     .font(.title3)
                     .foregroundColor(.gray)
                 Spacer(minLength: 10)
@@ -27,7 +27,7 @@ struct ControlsView: View {
             }
             else {
                 Spacer(minLength: 5)
-                Text("Monitoring Stopped")
+                Text("Stopped")
                     .font(.title3)
                     .foregroundColor(.gray)
                 Spacer(minLength: 10)

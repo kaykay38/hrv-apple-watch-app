@@ -18,7 +18,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
     
-    var hrvCalculator: HRVCalculator = HRVCalculator()
+    @Published var hrvCalculator: HRVCalculator = HRVCalculator()
     
     private var currentHR: Double = 0
     
@@ -26,8 +26,8 @@ class WorkoutManager: NSObject, ObservableObject {
     
     private var previousHRV: Double = 0
     private var diffHRV: Double = 0
-    @Published var hrvArray: [Double] = []
     
+    @Published var hrvChartArray: [Double] = []
     @Published var alertTableArray: [Alert] = []
     
     
@@ -81,11 +81,7 @@ class WorkoutManager: NSObject, ObservableObject {
         session?.startActivity(with: startDate)
         builder?.beginCollection(withStart: startDate) { (success, error) in
             // The workout has started.
-        }
-        
-        // Ensure these variables will not be nil when first called.
-        self.prevSampleTime = Date()
-        self.curSampleTime = Date()
+        }   
     }
     
     func togglePause() {
@@ -109,7 +105,7 @@ class WorkoutManager: NSObject, ObservableObject {
         self.HRV = 0
         self.prevSampleTime = nil
         self.curSampleTime = nil
-        self.hrvArray = []
+        self.hrvChartArray = []
         self.timeDiffMilliSec = 0
         self.currentHR = 0
         self.previousHRV = 0
@@ -140,23 +136,21 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-                self.hrvCalculator.averageHRV = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.hrvCalculator.minimumHRV = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.hrvCalculator.maximumHRV = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                
+                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+               
                 // Force unwrap curSampleTime and prevSampleTime because they will never be nil when this function is called.
-                self.hrvCalculator.addSample(self.curSampleTime!, self.prevSampleTime!, self.currentHR)
+                self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
+                
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                if(self.hrvArray.count > 10) {
-                    self.hrvArray.removeFirst()
+                if(self.hrvChartArray.count > 10) {
+                    self.hrvChartArray.removeFirst()
                 }
-                self.hrvArray.append(self.HRV)
-                
-                self.diffHRV = self.previousHRV - self.HRV
-                if(self.diffHRV > 10) {
+                self.hrvChartArray.append(self.HRV/1000)
+
+                if(self.hrvCalculator.isHigh()) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
-                } else if(self.diffHRV < -10) {
+                } else if(self.hrvCalculator.isLow()) {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
                 }
                 
