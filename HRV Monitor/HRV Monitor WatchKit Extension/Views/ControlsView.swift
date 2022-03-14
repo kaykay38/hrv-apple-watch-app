@@ -12,19 +12,29 @@ struct ControlsView: View {
     var body: some View {
         VStack {
             if workoutManager.running {
-                Text("Stop").font(.title).padding(.bottom, 10)
+                Spacer()
+                Text("Collecting Data")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                    
+                Spacer()
+                LoadingView()
+                    .foregroundColor(.gray)
+                Spacer()
+                
                 Button {
                     workoutManager.endWorkout()
                 } label: {
-                    Image(systemName: "stop.fill").font(.title).padding(.top, 3).padding(.bottom, 3);
+                    Text("Stop")
+                        .font(.title)
                 }.foregroundColor(.red)
             }
             else {
-                Text("Start").font(.title).padding(.bottom, 10)
                 Button {
                     workoutManager.startWorkout()
                 } label: {
-                    Image(systemName: "play.fill").font(.title).padding(.top, 3).padding(.bottom, 3);
+                    Text("Start")
+                        .font(.title)
                 }.foregroundColor(.green)
             }
         }

@@ -127,24 +127,24 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
-                
                 self.hrvCalculator.averageHRV = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.hrvCalculator.minimumHRV = statistics.minimumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                 self.hrvCalculator.maximumHRV = statistics.maximumQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-               
-                
-                //self.currentHR =  statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                
-                self.hrvCalculator.addSample(curSampleTime, prevSampleTime, self.currentHR)
-                
-               
                 if(self.hrvArray.count > 10) {
                     self.hrvArray.removeFirst()
+                self.hrvCalculator.addSample(curSampleTime, prevSampleTime, self.currentHR)
+               
                 }
+                self.arrayCurHR.append(self.heartRate/200)
+                self.DiffHR = self.heartRate - self.lastHR
+                if(self.arraydiffHR.count > 10) {
+                    self.arraydiffHR.removeFirst()
+                }
+                self.arraydiffHR.append(self.DiffHR/200)
                 
                 self.HRV = self.hrvCalculator.HRV()
-                self.hrvArray.append(self.HRV)
                 
+                self.hrvArray.append(self.HRV)
                 if(self.diffHRV > 10) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
                 }else if(self.diffHRV < -10) {
