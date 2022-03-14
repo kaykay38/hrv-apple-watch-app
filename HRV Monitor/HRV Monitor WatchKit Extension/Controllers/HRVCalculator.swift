@@ -11,19 +11,36 @@ import SwiftUI
 struct HRSample: Identifiable, Hashable {
     let id = UUID()
     var date: Date
-    var timeMillSecDiff: Double = 0
+    var timeDiffMilliSec: Double = 0 // Difference between this and previous sample time.
     var currentHR: Double = 0
     var currentHRPerMillSec: Double = 0
-    var averageIBI: Double = 0
+    var averageIBI: Double = 0 // Interbeat Interval (IBI/nn).
+    var IBIdiff: Double = 0 // Difference between this and previous IBI.
     var accuracy: Double = 0
 }
 
 extension Collection where Iterator.Element == HRSample {
+    // Standard deviation of IBI/NN samples in 24 hrs. Must have 24hr of data.
     var SDNN: Double {
         let length = Double(self.count)
         let avg = self.reduce(0, {$0 + $1.averageIBI}) / length
         let sumOfSquaredAvgDiff = self.map { pow($0.averageIBI - avg, 2.0)}.reduce(0, {$0 + $1})
         return sqrt(sumOfSquaredAvgDiff / length)
+    }
+    
+    // Standard deviation of successive IBI/NN differences in 5 min.
+    var SDSD: Double {
+        let length = Double(self.count)
+        let avg = self.reduce(0, {$0 + $1.IBIdiff}) / length
+        let sumOfSquaredAvgDiffs = self.map { pow($0.IBIdiff - avg, 2.0)}.reduce(0, {$0 + $1})
+        return sqrt(sumOfSquaredAvgDiffs / length)
+    }
+    
+    // Root mean square of successive IBI/NN differences in 5 mins.
+    var RMSSD: Double {
+        let length = Double(self.count)
+        let avgOfSumOfSquaredDiffs = self.map {pow($0.IBIdiff, 2.0)}.reduce(0, {$0 + $1}) / length
+        return sqrt(avgOfSumOfSquaredDiffs)
     }
 }
 
@@ -31,7 +48,7 @@ class HRVCalculator: NSObject, ObservableObject {
     
     @Published var hrSampleTable: [HRSample] = []
     
-    private var currentHRV: Double = 0
+    @Published var HRV: Double = 0
     
     @Published var maximumHRV: Double = 0
     @Published var minimumHRV: Double = 0
@@ -44,11 +61,6 @@ class HRVCalculator: NSObject, ObservableObject {
     @Published var isPast24Hrs: Bool = false
     private var averageIBITable: [Double] = []
     
-    func HRV() -> Double {
-        currentHRV = hrSampleTable.SDNN
-        return currentHRV
-    }
-    
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
         if hrSampleTable.count > 20 {
             hrSampleTable.removeFirst();
@@ -59,22 +71,27 @@ class HRVCalculator: NSObject, ObservableObject {
         let averageIBI = timeDiffMillisec/beats
         
         self.hrSampleTable.append(
-            HRSample(date: curSampleTime, timeMillSecDiff: timeDiffMillisec, currentHR: heartrate, currentHRPerMillSec: heartrate/6000, averageIBI: averageIBI, accuracy: 0)
+            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMillisec, currentHR: heartrate, currentHRPerMillSec: heartrate/6000, averageIBI: averageIBI, IBIdiff: (hrSampleTable.last? .averageIBI ?? averageIBI) - averageIBI, accuracy: 0)
         )
     }
     
     func isLow() -> Bool {
-        if currentHRV < 0.2 {
+        if HRV < 0.2 {
             return true
         }
         return false
     }
     
     func isHigh() -> Bool {
-        if currentHRV > 10 {
+        if HRV > 10 {
             return true
         }
         return false
+    }
+    
+    func updateHRV() -> Double {
+        HRV = hrSampleTable.RMSSD
+        return HRV
     }
     
     func reset() {
