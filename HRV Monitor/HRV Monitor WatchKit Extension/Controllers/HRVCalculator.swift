@@ -19,7 +19,6 @@ struct HRSample: Identifiable, Hashable {
 }
 
 extension Collection where Iterator.Element == HRSample {
-    
     // Standard deviation of IBI/NN samples in 24 hrs. Must have 24hr of data.
     var SDNN: Double {
         let length = Double(self.count)
@@ -46,29 +45,29 @@ extension Collection where Iterator.Element == HRSample {
 
 class HRVCalculator: NSObject, ObservableObject {
     
-    @Published var hrSampleTable: [HRSample] = []
+    private var HRSampleTable: [HRSample] = []
     
-    @Published var HRV: Double = 0
-    @Published var HRVTable: [Double] = []
-    
-    @Published var maximumHRV: Double = 0
-    @Published var minimumHRV: Double = 0
-    @Published var averageHRV: Double = 0
-    
-    @Published var predictedHRV: Double = 0
-    
-    @Published var notificationThreshold: Double = 0
-    
-    @Published var isPast24Hrs: Bool = false
+    private(set) var HRV: Double = 0
+    private var HRVTable: [Double] = []
+
+    @Published private(set) var maximumHRV: Double = 0
+    @Published private(set) var minimumHRV: Double = 0
+    @Published private(set) var averageHRV: Double = 0
+
+    private var predictedHRV: Double = 0
+
+    private(set) var notificationThreshold: Double = 0
+
+    private var isPast24Hrs: Bool = false
     
     // heartrate comes in beats per second
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
         // Unwrap optional HRSamples in table, first and last.
-        if let lastSample = self.hrSampleTable.last {
+        if let lastSample = self.HRSampleTable.last {
             
             // Check if samples spans more than 5 minutes, if so remove first entry.
             if curSampleTime.timeIntervalSince(lastSample.date) > 300 {
-                hrSampleTable.removeFirst();
+                HRSampleTable.removeFirst();
             }
             
         }
@@ -78,8 +77,8 @@ class HRVCalculator: NSObject, ObservableObject {
         let beats = HRPerMilliSec * timeDiffMilliSec
         let averageIBI = timeDiffMilliSec/beats
         
-        self.hrSampleTable.append(
-            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: self.hrSampleTable.last?.averageIBI ?? averageIBI - averageIBI, accuracy: 0)
+        self.HRSampleTable.append(
+            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: self.HRSampleTable.last?.averageIBI ?? averageIBI - averageIBI, accuracy: 0)
         )
     }
     
@@ -97,25 +96,38 @@ class HRVCalculator: NSObject, ObservableObject {
         return false
     }
     
+    // Recalculate and update HRV
     func updateHRV() -> Double {
-        if (HRVTable.count == 1) {
-            if HRVTable.first == 0 {
-                HRVTable.removeFirst()
-            }
-        }
-        self.HRV = hrSampleTable.RMSSD
-        HRVTable.append(self.HRV)
-        if (HRVTable.count > hrSampleTable.count) {
+        // Remove 0 in first index calculated from when there is only one sample in HRSampleTable
+        if HRVTable.first == 0.0 {
             HRVTable.removeFirst()
         }
+
+        // Calculate new HRV
+        self.HRV = HRSampleTable.RMSSD
+
+        HRVTable.append(self.HRV)
+        
+        // Maintain the cor
+        if (HRVTable.count > HRSampleTable.count) {
+            HRVTable.removeFirst()
+        }
+
         self.maximumHRV = self.HRVTable.max() ?? 0
         self.minimumHRV = self.HRVTable.min() ?? 0
         self.averageHRV = self.HRVTable.reduce(0, {$0 + $1})/Double(HRVTable.count)
+
         return self.HRV
     }
     
     func reset() {
-        self.hrSampleTable.removeAll()
+        self.HRV = 0
+        self.maximumHRV = 0
+        self.minimumHRV = 0
+        self.averageHRV = 0
+        self.predictedHRV = 0
+        self.HRVTable.removeAll()
+        self.HRSampleTable.removeAll()
     }
     
 }

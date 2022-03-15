@@ -18,14 +18,14 @@ class WorkoutManager: NSObject, ObservableObject {
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
     
-    @Published var hrvCalculator: HRVCalculator = HRVCalculator()
+    var hrvCalculator: HRVCalculator = HRVCalculator()
     
     private var currentHR: Double = 0
     
-    @Published var HRV: Double = 0
+    @Published private(set) var HRV: Double = 0
     
-    private var previousHRV: Double = 0
-    private var diffHRV: Double = 0
+    // private var previousHRV: Double = 0
+    // private var diffHRV: Double = 0
     
     @Published var hrvChartArray: [Double] = []
     @Published var alertTableArray: [Alert] = []
@@ -101,6 +101,8 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     func endWorkout() {
+        session?.end()
+
         hrvCalculator.reset()
         self.HRV = 0
         self.prevSampleTime = nil
@@ -108,9 +110,6 @@ class WorkoutManager: NSObject, ObservableObject {
         self.hrvChartArray = []
         self.timeDiffMilliSec = 0
         self.currentHR = 0
-        self.previousHRV = 0
-        
-        session?.end()
     }
     
     struct Alert: Identifiable {
@@ -123,6 +122,7 @@ class WorkoutManager: NSObject, ObservableObject {
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
         
+        // Run in background thread
         DispatchQueue.main.async {
             
             let hour = Calendar.current.component(.hour, from: Date())
@@ -138,15 +138,14 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                
-                // Force unwrap curSampleTime and prevSampleTime because they will never be nil when this function is called.
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
                 
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                if(self.hrvChartArray.count > 10) {
+                if(self.hrvChartArray.count > 30) {
                     self.hrvChartArray.removeFirst()
                 }
-                self.hrvChartArray.append(self.HRV/1000)
+                self.hrvChartArray.append(self.HRV/250)
 
                 if(self.hrvCalculator.isHigh()) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
