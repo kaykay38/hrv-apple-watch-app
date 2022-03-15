@@ -18,7 +18,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
     
-    @Published var hrvCalculator: HRVCalculator = HRVCalculator()
+    var hrvCalculator: HRVCalculator = HRVCalculator()
     
     private var currentHR: Double = 0
     
@@ -45,7 +45,9 @@ class WorkoutManager: NSObject, ObservableObject {
         
         // The quantity types to read from the health store.
         let typesToRead: Set = [
-            HKQuantityType.quantityType(forIdentifier: .heartRate)!
+            HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         ]
         
         // Request authorization for those quantity types.
@@ -138,15 +140,14 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
                
-                // Force unwrap curSampleTime and prevSampleTime because they will never be nil when this function is called.
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
                 
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                if(self.hrvChartArray.count > 10) {
+                if(self.hrvChartArray.count > 20) {
                     self.hrvChartArray.removeFirst()
                 }
-                self.hrvChartArray.append(self.HRV/1000)
+                self.hrvChartArray.append(self.HRV/250)
 
                 if(self.hrvCalculator.isHigh()) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
