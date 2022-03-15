@@ -40,7 +40,8 @@ class WorkoutManager: NSObject, ObservableObject {
     func requestAuthorization() {
         // The quantity type to write to the health store.
         let typesToShare: Set = [
-            HKQuantityType.workoutType()
+            HKQuantityType.workoutType(),
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!
         ]
         
         // The quantity types to read from the health store.
@@ -125,7 +126,7 @@ class WorkoutManager: NSObject, ObservableObject {
         guard let statistics = statistics else { return }
         
         // Run in background thread
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             
             let hour = Calendar.current.component(.hour, from: Date())
             let minute = Calendar.current.component(.minute, from: Date())
@@ -144,10 +145,11 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                if(self.hrvChartArray.count > 20) {
+                
+                if(self.hrvChartArray.count > 100) {
                     self.hrvChartArray.removeFirst()
                 }
-                self.hrvChartArray.append(self.HRV/250)
+                self.hrvChartArray.append(self.HRV/200)
 
                 if(self.hrvCalculator.isHigh()) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
@@ -155,9 +157,33 @@ class WorkoutManager: NSObject, ObservableObject {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
                 }
                 
+                if(self.hrvChartArray.count > 10) {
+                    self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
+                }
+                
+                
             default:
                 return
             }
+        }
+    }
+    
+    func saveHRVData(date: Date, hrv: Double) {
+        let quantityType = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)
+        
+        let hrv = HKQuantitySample.init(type: quantityType!,
+                                        quantity: HKQuantity.init(unit: HKUnit.secondUnit(with: .milli), doubleValue: hrv),
+                                        start: date,
+                                        end: date)
+        
+        healthStore.save(hrv) { success, error in
+                if (error != nil) {
+                    print("Error: \(String(describing: error))")
+                }
+                if success {
+                    print("📗 Saved: \(success) 📗")
+                    print("Value Stored: \(hrv) \n")
+                }
         }
     }
 }
