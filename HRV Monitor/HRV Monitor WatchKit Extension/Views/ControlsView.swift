@@ -11,25 +11,35 @@ struct ControlsView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     var body: some View {
         VStack {
+            // TODO: temporarily disable button for x seconds after function call.
             if workoutManager.running {
-                Text("Stop").font(.title).padding(.bottom, 10)
+                Spacer(minLength: 5)
+                Text("Running")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                Spacer(minLength: 10)
                 Button {
                     workoutManager.endWorkout()
                 } label: {
-                    Image(systemName: "stop.fill").font(.title).padding(.top, 3).padding(.bottom, 3);
+                    Text("Stop")
+                        .font(.title)
                 }.foregroundColor(.red)
             }
             else {
-                Text("Start").font(.title).padding(.bottom, 10)
+                Spacer(minLength: 5)
+                Text("Stopped")
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                Spacer(minLength: 10)
                 Button {
                     workoutManager.startWorkout()
                 } label: {
-                    Image(systemName: "play.fill").font(.title).padding(.top, 3).padding(.bottom, 3);
+                    Text("Start")
+                        .font(.title)
                 }.foregroundColor(.green)
             }
         }
         .padding()
-        //.onAppear(perform: workoutManager.requestAuthroization)
     }
 }
 

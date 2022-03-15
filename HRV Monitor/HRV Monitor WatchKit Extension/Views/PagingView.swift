@@ -9,17 +9,18 @@ import SwiftUI
 import WatchKit
 
 struct PagingView: View {
-    @State private var selection: Tab = .chart
+    @State private var selection: Tab = .liveHRV
     @EnvironmentObject var workoutManager: WorkoutManager
     
     enum Tab {
-        case controls, chart, stats, table
+        case controls, liveHRV, stats, table
     }
     
     var body: some View {
         TabView(selection: $selection) {
             ControlsView().tag(Tab.controls)
-            ChartView().tag(Tab.chart)
+            ChartView().tag(Tab.liveHRV)
+            //HRVSimpleView().tag(Tab.liveHRV)
             StatisticsView().tag(Tab.stats)
             TableView().tag(Tab.table)
         }

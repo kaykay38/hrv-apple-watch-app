@@ -14,53 +14,88 @@ struct ChartView: View {
     
     var body: some View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
-            VStack(alignment: .leading) {
-                Text("Live HR")
-                    .font(.title2)
-                if(workoutManager.heartRate != 0) {
-                    HStack {
-                        if(workoutManager.DiffHR > 10) {
-                            Label("High", systemImage: "hand.thumbsdown.circle")
+            VStack {
+                if(workoutManager.running) {
+                    if (workoutManager.HRV == 0) {
+                        VStack{
+                            Spacer()
+                            Text("Initalizing HRV Data")
                                 .font(.title3)
-                                .foregroundColor(.red);
-                        }else if(workoutManager.DiffHR < -10) {
-                            Label("Low", systemImage: "hand.thumbsdown.circle")
+                                .foregroundColor(.gray)
+                            
+                            Spacer()
+                            LoadingView()
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }
+                    } else {
+                        VStack(alignment: .leading) {
+                            Text("HRV")
+                                .font(.title2)
+                            HStack {
+                                Text(
+                                    workoutManager.HRV
+                                        .formatted(
+                                            .number.precision(.fractionLength(0))
+                                        )
+                                ).font(.custom("Header", fixedSize: 45));
+                                Spacer()
+                                if(workoutManager.hrvCalculator.isHigh()) {
+                                    Label("High", systemImage: "hand.thumbsdown.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.red);
+                                }else if(workoutManager.hrvCalculator.isLow()) {
+                                    Label("Low", systemImage: "hand.thumbsdown.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.red);
+                                }else{
+                                    Label("Good", systemImage: "hand.thumbsup.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.green);
+                                }
+                            }
+                            
+                        }
+                    }
+                    if(workoutManager.HRV != 0 && workoutManager.hrvChartArray.count < 10) {
+                        VStack (alignment: .center){
+                            Spacer()
+                            Text("Loading Graph")
                                 .font(.title3)
-                                .foregroundColor(.red);
-                        }else{
-                            Label("Good", systemImage: "hand.thumbsup.circle")
-                                .font(.title3)
-                                .foregroundColor(.green);
+                                .foregroundColor(.gray)
+                            
+                            LoadingView()
+                                .foregroundColor(.gray)
                         }
                         
-                        Text(
-                            workoutManager.heartRate
-                                .formatted(
-                                    .number.precision(.fractionLength(0))
-                                )
-                        )
-                        .font(.title3);
-                    }
-                }
-                ZStack {
-                    if(workoutManager.arrayCurHR.isEmpty && workoutManager.arraydiffHR.isEmpty) {
-                        Text("No Data")
-                            .font(.title2)
                     }else{
-                        Chart(data: workoutManager.arraydiffHR)
+                        Chart(data: workoutManager.hrvChartArray)
                             .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .gray, lineWidth: 5)
+                                LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
                             )
-                        
-                        Chart(data: workoutManager.arrayCurHR)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 5)
-                            )
+                    }
+                    
+                }else{
+                    VStack(alignment: .leading){
+                        Text("HRV")
+                            .font(.title2)
+                        Text("No Data")
+                            .font(.title3)
+                        Text("Start Session To Begin Displaying HRV")
+                            .foregroundColor(.gray)
+                        Spacer()
+                        Button {
+                            workoutManager.startWorkout()
+                        } label: {
+                            Text("Start")
+                                .font(.title3)
+                        }.foregroundColor(.green).frame(height: 20)
                     }
                 }
             }
             .padding()
         }
+        
     }
 }
 
@@ -72,11 +107,11 @@ struct ChartView_Previews: PreviewProvider {
 
 private struct MetricsTimelineSchedule: TimelineSchedule {
     var startDate: Date
-
+    
     init(from startDate: Date) {
         self.startDate = startDate
     }
-
+    
     func entries(from startDate: Date, mode: TimelineScheduleMode) -> PeriodicTimelineSchedule.Entries {
         PeriodicTimelineSchedule(from: self.startDate, by: (mode == .lowFrequency ? 1.0 : 1.0 / 30.0))
             .entries(from: startDate, mode: mode)

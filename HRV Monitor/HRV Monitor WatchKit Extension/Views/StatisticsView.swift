@@ -25,7 +25,7 @@ struct StatisticsView: View {
                 HStack {
                     Label("Max:", systemImage: "arrow.up.circle")
                     Text(
-                        workoutManager.maximumHeartRate
+                        workoutManager.hrvCalculator.maximumHRV
                             .formatted(
                                 .number.precision(.fractionLength(0))
                             )
@@ -34,7 +34,7 @@ struct StatisticsView: View {
                 HStack {
                     Label("Avg:", systemImage: "minus.circle")
                     Text(
-                        workoutManager.averageHeartRate
+                        workoutManager.hrvCalculator.averageHRV
                             .formatted(
                                 .number.precision(.fractionLength(0))
                             )
@@ -42,7 +42,7 @@ struct StatisticsView: View {
                 HStack {
                     Label("Min:", systemImage: "arrow.down.circle")
                     Text(
-                        workoutManager.minimumHeartRate
+                        workoutManager.hrvCalculator.minimumHRV
                             .formatted(
                                 .number.precision(.fractionLength(0))
                             )
