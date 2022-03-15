@@ -63,10 +63,10 @@ class HRVCalculator: NSObject, ObservableObject {
     // heartrate comes in beats per second
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
         // Unwrap optional HRSamples in table, first and last.
-        if let lastSample = self.HRSampleTable.last {
+        if let lastSample = self.HRSampleTable.first {
             
             // Check if samples spans more than 5 minutes, if so remove first entry.
-            if curSampleTime.timeIntervalSince(lastSample.date) > 300 {
+            if curSampleTime.timeIntervalSince(lastSample.date) > 20 {
                 HRSampleTable.removeFirst();
             }
             
@@ -117,6 +117,8 @@ class HRVCalculator: NSObject, ObservableObject {
         self.minimumHRV = self.HRVTable.min() ?? 0
         self.averageHRV = self.HRVTable.reduce(0, {$0 + $1})/Double(HRVTable.count)
 
+        print("Sample Size: \(HRSampleTable.count)")
+        
         return self.HRV
     }
     

@@ -50,14 +50,14 @@ struct ChartView: View {
                                         .foregroundColor(.red);
                                 }else{
                                     Label("Good", systemImage: "hand.thumbsup.circle")
-                                        .font(.title3)
+                                        .font(.title2)
                                         .foregroundColor(.green);
                                 }
                             }
                             
                         }
                     }
-                    if(workoutManager.HRV != 0 && workoutManager.hrvChartArray.count < 10) {
+                    if(workoutManager.HRV != 0 && workoutManager.hrvChartArray.count < 12) {
                         VStack (alignment: .center){
                             Spacer()
                             Text("Loading Graph")
@@ -71,7 +71,7 @@ struct ChartView: View {
                     }else{
                         Chart(data: workoutManager.hrvChartArray)
                             .chartStyle(
-                                LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
+                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
                             )
                     }
                     

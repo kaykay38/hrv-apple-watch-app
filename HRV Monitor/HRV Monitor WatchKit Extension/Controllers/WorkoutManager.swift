@@ -27,6 +27,9 @@ class WorkoutManager: NSObject, ObservableObject {
     // private var previousHRV: Double = 0
     // private var diffHRV: Double = 0
     
+    private var dob: Int? = nil
+    private var sex: String? = nil
+    
     @Published var hrvChartArray: [Double] = []
     @Published var alertTableArray: [Alert] = []
     
@@ -47,6 +50,8 @@ class WorkoutManager: NSObject, ObservableObject {
         // The quantity types to read from the health store.
         let typesToRead: Set = [
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!,
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         ]
@@ -62,6 +67,7 @@ class WorkoutManager: NSObject, ObservableObject {
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = HKWorkoutActivityType.walking
         configuration.locationType = .indoor
+        
         
         // Create the session and obtain the workout builder.
         do {
@@ -145,11 +151,12 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 self.HRV = self.hrvCalculator.updateHRV()
                 
+                print("Current HR: \(currentHR)")
                 
-                if(self.hrvChartArray.count > 100) {
+                if(self.hrvChartArray.count > 12) {
                     self.hrvChartArray.removeFirst()
                 }
-                self.hrvChartArray.append(self.HRV/200)
+                self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
 
                 if(self.hrvCalculator.isHigh()) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
@@ -157,11 +164,11 @@ class WorkoutManager: NSObject, ObservableObject {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
                 }
                 
-                if(self.hrvChartArray.count > 10) {
+                if(self.hrvChartArray.count > 6) {
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
                 }
                 
-                
+                print("\n\n")
             default:
                 return
             }
@@ -182,7 +189,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 }
                 if success {
                     print("📗 Saved: \(success) 📗")
-                    print("Value Stored: \(hrv) \n")
+                    print("Value Stored: \(hrv)")
                 }
         }
     }
