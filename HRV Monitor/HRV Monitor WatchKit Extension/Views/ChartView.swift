@@ -14,66 +14,84 @@ struct ChartView: View {
     
     var body: some View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
-            VStack(alignment: .leading) {
-                Text("HRV")
-                    .font(.title2)
-                if(workoutManager.HRV != 0) {
-                    HStack {
-                        if(workoutManager.hrvCalculator.isHigh()) {
-                            Label("High", systemImage: "hand.thumbsdown.circle")
+            VStack {
+                if(workoutManager.running) {
+                    if (workoutManager.HRV == 0) {
+                        VStack{
+                            Spacer()
+                            Text("Initalizing HRV Data")
                                 .font(.title3)
-                                .foregroundColor(.red);
-                        }else if(workoutManager.hrvCalculator.isLow()) {
-                            Label("Low", systemImage: "hand.thumbsdown.circle")
-                                .font(.title3)
-                                .foregroundColor(.red);
-                        }else{
-                            Label("Good", systemImage: "hand.thumbsup.circle")
-                                .font(.title3)
-                                .foregroundColor(.green);
+                                .foregroundColor(.gray)
+                            
+                            Spacer()
+                            LoadingView()
+                                .foregroundColor(.gray)
+                            Spacer()
                         }
-                        
-                        Text(
-                            workoutManager.HRV
-                                .formatted(
-                                    .number.precision(.fractionLength(0))
-                                )
-                        )
-                            .font(.title2);
-                    }
-                }
-                ZStack {
-                    if(workoutManager.running) {
-                        if(workoutManager.hrvChartArray.count < 10) {
-                            VStack{
+                    } else {
+                        VStack(alignment: .leading) {
+                            Text("HRV")
+                                .font(.title2)
+                            HStack {
+                                Text(
+                                    workoutManager.HRV
+                                        .formatted(
+                                            .number.precision(.fractionLength(0))
+                                        )
+                                ).font(.custom("Header", fixedSize: 45));
                                 Spacer()
-                                Text("Initalizing Data")
-                                    .font(.title3)
-                                    .foregroundColor(.gray)
-                                
-                                Spacer()
-                                LoadingView()
-                                    .foregroundColor(.gray)
+                                if(workoutManager.hrvCalculator.isHigh()) {
+                                    Label("High", systemImage: "hand.thumbsdown.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.red);
+                                }else if(workoutManager.hrvCalculator.isLow()) {
+                                    Label("Low", systemImage: "hand.thumbsdown.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.red);
+                                }else{
+                                    Label("Good", systemImage: "hand.thumbsup.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.green);
+                                }
                             }
                             
-                        }else{
-                            Chart(data: workoutManager.hrvChartArray)
-                                .chartStyle(
-                                    LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
-                                )
+                        }
+                    }
+                    if(workoutManager.HRV != 0 && workoutManager.hrvChartArray.count < 10) {
+                        VStack (alignment: .center){
+                            Spacer()
+                            Text("Loading Graph")
+                                .font(.title3)
+                                .foregroundColor(.gray)
+                            
+                            LoadingView()
+                                .foregroundColor(.gray)
                         }
                         
                     }else{
-                        VStack(alignment: .leading){
-                            Spacer()
-                            Text("No Data")
+                        Chart(data: workoutManager.hrvChartArray)
+                            .chartStyle(
+                                LineChartStyle(.line, lineColor: .blue, lineWidth: 4)
+                            )
+                    }
+                    
+                }else{
+                    VStack(alignment: .leading){
+                        Text("HRV")
+                            .font(.title2)
+                        Text("No Data")
+                            .font(.title3)
+                        Text("Start Session To Begin Displaying HRV")
+                            .foregroundColor(.gray)
+                        Spacer()
+                        Button {
+                            workoutManager.startWorkout()
+                        } label: {
+                            Text("Start")
                                 .font(.title3)
-                            Text("Start Session To Begin Displaying HRV")
-                                .foregroundColor(.gray)
-                        }
+                        }.foregroundColor(.green).frame(height: 20)
                     }
                 }
-                Spacer()
             }
             .padding()
         }
