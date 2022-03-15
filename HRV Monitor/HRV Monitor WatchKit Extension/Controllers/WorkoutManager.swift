@@ -45,7 +45,9 @@ class WorkoutManager: NSObject, ObservableObject {
         
         // The quantity types to read from the health store.
         let typesToRead: Set = [
-            HKQuantityType.quantityType(forIdentifier: .heartRate)!
+            HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
+            HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         ]
         
         // Request authorization for those quantity types.
@@ -142,7 +144,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                if(self.hrvChartArray.count > 30) {
+                if(self.hrvChartArray.count > 20) {
                     self.hrvChartArray.removeFirst()
                 }
                 self.hrvChartArray.append(self.HRV/250)
