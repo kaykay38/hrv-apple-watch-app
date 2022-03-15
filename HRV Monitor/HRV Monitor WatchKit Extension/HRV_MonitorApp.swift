@@ -13,12 +13,6 @@ struct HRV_MonitorApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-//                if workoutManager.running {
-//                    PagingView()
-//                }
-//                else {
-//                    ControlsView()
-//                }
                 PagingView()
             }
             .environmentObject(workoutManager)

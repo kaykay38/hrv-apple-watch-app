@@ -14,7 +14,7 @@ struct DotView: View {
         Circle()
             .frame(width: 10, height: 10)
             .scaleEffect(scale)
-            .animation(Animation.easeInOut(duration: 0.6).repeatForever().delay(delay)) // 2.
+            .animation(.easeInOut(duration: 0.6).repeatForever().delay(delay), value: scale) // 2.
             .onAppear {
                 withAnimation {
                     self.scale = 1
