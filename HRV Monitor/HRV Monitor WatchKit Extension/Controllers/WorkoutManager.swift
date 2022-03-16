@@ -38,6 +38,8 @@ class WorkoutManager: NSObject, ObservableObject {
     private var curSampleTime: Date? = nil
     private var timeDiffMilliSec: Double = 0.0
     
+    private var downCount: Int = 0
+    
     
     // Request authorization to access HealthKit.
     func requestAuthorization() {
@@ -128,6 +130,8 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     
+
+    
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
         
@@ -159,9 +163,14 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
 
                 if(self.hrvCalculator.isHigh()) {
-                    self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
+                    self.downCount += 1
+                    if(self.downCount == 3) {
+                        self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
+                        NotificationManager.instance.scheduleHighNotification()
+                   }
                 } else if(self.hrvCalculator.isLow()) {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
+                    NotificationManager.instance.scheduleLowNotification()
                 }
                 
                 if(self.hrvChartArray.count > 6) {
