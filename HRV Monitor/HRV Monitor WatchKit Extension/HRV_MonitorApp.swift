@@ -18,6 +18,6 @@ struct HRV_MonitorApp: App {
             .environmentObject(workoutManager)
         }
 
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
+        //WKNotificationScene(controller: NotificationManager.self, category: "myCategory")
     }
 }
