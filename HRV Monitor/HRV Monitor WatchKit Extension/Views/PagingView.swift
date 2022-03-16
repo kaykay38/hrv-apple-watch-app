@@ -11,6 +11,7 @@ import UserNotifications
 
 struct PagingView: View {
     @State private var selection: Tab = .liveHRV
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     @EnvironmentObject var workoutManager: WorkoutManager
     
     enum Tab {
@@ -27,6 +28,9 @@ struct PagingView: View {
         }
         .onAppear(perform: workoutManager.requestAuthorization)
         .onAppear(perform: NotificationManager.instance.requestAuthorization)
+        .sheet(isPresented: $notificationManager.activeAlert, content: {
+                    NotificationView()
+                })
     }
 }
 

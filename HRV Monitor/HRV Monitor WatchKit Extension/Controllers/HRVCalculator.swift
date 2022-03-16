@@ -48,6 +48,7 @@ class HRVCalculator: NSObject, ObservableObject {
     private var HRSampleTable: [HRSample] = []
     
     private(set) var HRV: Double = 0
+    private(set) var PrevHRV: Double = 0
     private var HRVTable: [Double] = []
 
     @Published private(set) var maximumHRV: Double = 0
@@ -63,10 +64,10 @@ class HRVCalculator: NSObject, ObservableObject {
     // heartrate comes in beats per second
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
         // Unwrap optional HRSamples in table, first and last.
-        if let lastSample = self.HRSampleTable.last {
+        if let lastSample = self.HRSampleTable.first {
             
             // Check if samples spans more than 5 minutes, if so remove first entry.
-            if curSampleTime.timeIntervalSince(lastSample.date) > 300 {
+            if curSampleTime.timeIntervalSince(lastSample.date) > 25 {
                 HRSampleTable.removeFirst();
             }
             
@@ -83,14 +84,15 @@ class HRVCalculator: NSObject, ObservableObject {
     }
     
     func isLow() -> Bool {
-        if self.HRVTable.count > 1 && self.HRV < 50 {
-            return true
-        }
+//        if self.HRVTable.count > 1 && self.HRV < 50 {
+//            return true
+//        }
         return false
     }
     
     func isHigh() -> Bool {
-        if self.HRVTable.count > 1 && self.HRV > 74 {
+        print((self.PrevHRV - self.HRV)/100)
+        if (((self.PrevHRV - self.HRV)/100) >= 0.001) {
             return true
         }
         return false
@@ -102,6 +104,8 @@ class HRVCalculator: NSObject, ObservableObject {
         if HRVTable.first == 0.0 {
             HRVTable.removeFirst()
         }
+        
+        self.PrevHRV = self.HRV
 
         // Calculate new HRV
         self.HRV = HRSampleTable.RMSSD

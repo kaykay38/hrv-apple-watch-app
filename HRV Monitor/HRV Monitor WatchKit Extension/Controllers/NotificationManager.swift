@@ -8,7 +8,10 @@
 import Foundation
 import UserNotifications
 
-class NotificationManager {
+class NotificationManager: ObservableObject {
+    
+    @Published var activeAlert: Bool = false
+    
     static let instance = NotificationManager()
     
     func requestAuthorization() {
@@ -19,6 +22,7 @@ class NotificationManager {
     }
     
     func scheduleHighNotification() {
+        self.activeAlert = true
         let content = UNMutableNotificationContent()
         content.title = "High"
         content.subtitle = "This is a High Alert"
