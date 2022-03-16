@@ -90,7 +90,7 @@ class HRVCalculator: NSObject, ObservableObject {
     }
     
     func isHigh() -> Bool {
-        if self.HRVTable.count > 1 && self.HRV > 90 {
+        if self.HRVTable.count > 1 && self.HRV > 74 {
             return true
         }
         return false

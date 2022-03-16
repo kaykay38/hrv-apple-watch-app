@@ -7,6 +7,7 @@
 
 import SwiftUI
 import WatchKit
+import UserNotifications
 
 struct PagingView: View {
     @State private var selection: Tab = .liveHRV
@@ -25,6 +26,7 @@ struct PagingView: View {
             TableView().tag(Tab.table)
         }
         .onAppear(perform: workoutManager.requestAuthorization)
+        .onAppear(perform: NotificationManager.instance.requestAuthorization)
     }
 }
 

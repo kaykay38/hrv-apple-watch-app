@@ -151,8 +151,10 @@ class WorkoutManager: NSObject, ObservableObject {
 
                 if(self.hrvCalculator.isHigh()) {
                     self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
+                    NotificationManager.instance.scheduleHighNotification()
                 } else if(self.hrvCalculator.isLow()) {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
+                    NotificationManager.instance.scheduleLowNotification()
                 }
                 
             default:
