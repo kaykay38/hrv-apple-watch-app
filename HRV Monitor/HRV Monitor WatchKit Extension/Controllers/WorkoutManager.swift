@@ -27,6 +27,9 @@ class WorkoutManager: NSObject, ObservableObject {
     // private var previousHRV: Double = 0
     // private var diffHRV: Double = 0
     
+    private var dob: Int? = nil
+    private var sex: String? = nil
+    
     @Published var hrvChartArray: [Double] = []
     @Published var alertTableArray: [Alert] = []
     
@@ -42,12 +45,15 @@ class WorkoutManager: NSObject, ObservableObject {
     func requestAuthorization() {
         // The quantity type to write to the health store.
         let typesToShare: Set = [
-            HKQuantityType.workoutType()
+            HKQuantityType.workoutType(),
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!
         ]
         
         // The quantity types to read from the health store.
         let typesToRead: Set = [
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!,
+            HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         ]
@@ -63,6 +69,7 @@ class WorkoutManager: NSObject, ObservableObject {
         let configuration = HKWorkoutConfiguration()
         configuration.activityType = HKWorkoutActivityType.walking
         configuration.locationType = .indoor
+        
         
         // Create the session and obtain the workout builder.
         do {
@@ -129,7 +136,7 @@ class WorkoutManager: NSObject, ObservableObject {
         guard let statistics = statistics else { return }
         
         // Run in background thread
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             
             let hour = Calendar.current.component(.hour, from: Date())
             let minute = Calendar.current.component(.minute, from: Date())
@@ -148,10 +155,12 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                if(self.hrvChartArray.count > 20) {
+                print("Current HR: \(currentHR)")
+                
+                if(self.hrvChartArray.count > 12) {
                     self.hrvChartArray.removeFirst()
                 }
-                self.hrvChartArray.append(self.HRV/250)
+                self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
 
                 if(self.hrvCalculator.isHigh()) {
                     self.downCount += 1
@@ -164,9 +173,33 @@ class WorkoutManager: NSObject, ObservableObject {
                     NotificationManager.instance.scheduleLowNotification()
                 }
                 
+                if(self.hrvChartArray.count > 6) {
+                    self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
+                }
+                
+                print("\n\n")
             default:
                 return
             }
+        }
+    }
+    
+    func saveHRVData(date: Date, hrv: Double) {
+        let quantityType = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)
+        
+        let hrv = HKQuantitySample.init(type: quantityType!,
+                                        quantity: HKQuantity.init(unit: HKUnit.secondUnit(with: .milli), doubleValue: hrv),
+                                        start: date,
+                                        end: date)
+        
+        healthStore.save(hrv) { success, error in
+                if (error != nil) {
+                    print("Error: \(String(describing: error))")
+                }
+                if success {
+                    print("📗 Saved: \(success) 📗")
+                    print("Value Stored: \(hrv)")
+                }
         }
     }
 }
