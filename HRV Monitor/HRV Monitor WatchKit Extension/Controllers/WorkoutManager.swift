@@ -154,11 +154,11 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.hrvChartArray.append(self.HRV/250)
 
                 if(self.hrvCalculator.isHigh()) {
-                    //self.downCount += 1
-                    //if(self.downCount == 3) {
+                    self.downCount += 1
+                    if(self.downCount == 3) {
                         self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
                         NotificationManager.instance.scheduleHighNotification()
-                  //  }
+                   }
                 } else if(self.hrvCalculator.isLow()) {
                     self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
                     NotificationManager.instance.scheduleLowNotification()
