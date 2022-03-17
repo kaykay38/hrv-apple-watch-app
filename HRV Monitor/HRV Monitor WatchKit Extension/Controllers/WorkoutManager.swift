@@ -39,6 +39,8 @@ class WorkoutManager: NSObject, ObservableObject {
     private var timeDiffMilliSec: Double = 0.0
     
     private var downCount: Int = 0
+    @Published var warning: Bool = false
+    @Published var alert: Bool = false
     
     
     // Request authorization to access HealthKit.
@@ -157,21 +159,35 @@ class WorkoutManager: NSObject, ObservableObject {
                 
                 print("Current HR: \(currentHR)")
                 
-                if(self.hrvChartArray.count > 12) {
+                if(self.hrvChartArray.count > 60) {
                     self.hrvChartArray.removeFirst()
                 }
                 self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
 
-                if(self.hrvCalculator.isHigh()) {
+                
+                if(self.hrvCalculator.hrvTrendPrecentage() >= 0.02) {
+                    self.warning = false
+                    self.alert = false
+                    
                     self.downCount += 1
-                    if(self.downCount == 3) {
-                        self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
+                    
+                    if(downCount == 5) {
+                        self.alert = true
+                        self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
                         NotificationManager.instance.scheduleHighNotification()
-                   }
-                } else if(self.hrvCalculator.isLow()) {
-                    self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
-                    NotificationManager.instance.scheduleLowNotification()
+
+                    }
+                    else {
+                        self.warning = true
+                    }
                 }
+                else {
+                    self.downCount = 0
+                    self.warning = false
+                    self.alert = false
+                }
+                
+
                 
                 if(self.hrvChartArray.count > 6) {
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)

@@ -83,20 +83,10 @@ class HRVCalculator: NSObject, ObservableObject {
         )
     }
     
-    func isLow() -> Bool {
-//        if self.HRVTable.count > 1 && self.HRV < 50 {
-//            return true
-//        }
-        return false
+    func hrvTrendPrecentage() -> Double {
+        return (self.PrevHRV - self.HRV)/100
     }
     
-    func isHigh() -> Bool {
-        print((self.PrevHRV - self.HRV)/100)
-        if (((self.PrevHRV - self.HRV)/100) >= 0.001) {
-            return true
-        }
-        return false
-    }
     
     // Recalculate and update HRV
     func updateHRV() -> Double {

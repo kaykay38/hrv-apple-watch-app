@@ -30,14 +30,14 @@ struct HRVSimpleView: View {
                         
                         Spacer()
                         
-                        if(workoutManager.hrvCalculator.isHigh()) {
-                            Label("High", systemImage: "hand.thumbsdown.circle")
+                        if(workoutManager.warning) {
+                            Label("Warning", systemImage: "hand.thumbsdown.circle")
                                 .font(.title3)
                                 .foregroundColor(.red);
-                        }else if(workoutManager.hrvCalculator.isLow()) {
-                            Label("Low", systemImage: "hand.thumbsdown.circle")
+                        }else if(workoutManager.alert) {
+                            Label("Down", systemImage: "hand.thumbsdown.circle")
                                 .font(.title3)
-                                .foregroundColor(.red);
+                                .foregroundColor(.yellow);
                         }else{
                             Label("Good", systemImage: "hand.thumbsup.circle")
                                 .font(.title3)
