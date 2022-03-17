@@ -242,7 +242,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        
+        NotificationManager.instance.anotherWorkoutStarted()
     }
 }
 
