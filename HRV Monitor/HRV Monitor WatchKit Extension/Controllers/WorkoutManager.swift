@@ -54,6 +54,7 @@ class WorkoutManager: NSObject, ObservableObject {
         // The quantity types to read from the health store.
         let typesToRead: Set = [
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!,
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
