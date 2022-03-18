@@ -849,8 +849,8 @@
 				INFOPLIST_FILE = "HRV Monitor WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = HRV_Monitor_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Workout data will be stored in HRV Monitor";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Workouts tracked by HRV Monitor will be stored to health kit";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your heartrate related data will be used for analysis";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your heartrate related data will be used for analysis";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -859,7 +859,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-Monitor.HRV-Monitor.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -884,8 +884,8 @@
 				INFOPLIST_FILE = "HRV Monitor WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit Extension";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = HRV_Monitor_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "Workout data will be stored in HRV Monitor";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Workouts tracked by HRV Monitor will be stored to health kit";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your heartrate related data will be used for analysis";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your heartrate related data will be used for analysis";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -894,7 +894,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-Monitor.HRV-Monitor.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -919,9 +919,9 @@
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-Monitor.HRV-Monitor";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-Monitor.HRV-Monitor.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -945,9 +945,9 @@
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-Monitor.HRV-Monitor";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-Monitor.HRV-Monitor.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -971,6 +971,9 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your heartrate related data will be used for analysis";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your heartrate related data will be used for analysis";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -982,7 +985,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-Monitor.HRV-Monitor";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1003,6 +1006,9 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your heartrate related data will be used for analysis";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your heartrate related data will be used for analysis";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1014,7 +1020,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-Monitor.HRV-Monitor";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
