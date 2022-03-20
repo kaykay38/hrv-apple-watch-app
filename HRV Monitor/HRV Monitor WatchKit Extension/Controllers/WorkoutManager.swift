@@ -172,7 +172,7 @@ class WorkoutManager: NSObject, ObservableObject {
                     
                     self.downCount += 1
                     
-                    if(downCount == 5) {
+                    if(downCount == 15) {
                         self.alert = true
                         self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
                         NotificationManager.instance.scheduleHighNotification()
