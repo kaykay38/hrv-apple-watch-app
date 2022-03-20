@@ -18,17 +18,18 @@ struct StatisticsView: View {
                 .frame(width: UIScreen.main.bounds.size.width)
             Text("Maximum: \(healthKitController.maxHRV)")
                 .font(.title)
+                .padding(.leading)
             Divider()
             Text("Average: \(healthKitController.avgHRV)")
                 .font(.title)
+                .padding(.leading)
             Divider()
             Text("Minimum: \(healthKitController.minHRV)")
                 .font(.title)
+                .padding(.leading)
             Spacer()
         }.padding()
-            .onAppear(perform: healthKitController.getAVG)
-            .onAppear(perform: healthKitController.getMax)
-            .onAppear(perform: healthKitController.getMin)
+            .onAppear(perform: healthKitController.getStats)
     }
 }
 

@@ -14,7 +14,6 @@ struct TodayChartView: View {
     var body: some View {
         LineView(data: healthKitController.today, title: "Past 24 Hours", legend: "Hourly Average")
             .padding()
-            .onAppear(perform: healthKitController.getToday)
     }
 }
 

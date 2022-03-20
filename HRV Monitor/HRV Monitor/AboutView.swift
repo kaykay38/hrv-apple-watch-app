@@ -10,10 +10,6 @@ import SwiftUI
 struct AboutView: View {
     var body: some View {
         VStack {
-            Image("Logs_prev_ui")
-                .resizable()
-                .scaledToFit()
-            
             Text("Made in Partnership with the EWU School of Computer Science and St. Lukes Rehabilitation Center of Spokane")
             Spacer()
         }.padding()

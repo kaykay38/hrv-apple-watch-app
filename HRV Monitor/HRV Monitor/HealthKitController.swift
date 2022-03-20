@@ -24,24 +24,43 @@ class HealthKitController: ObservableObject{
     let heartRateUnit:HKUnit = HKUnit(from: "ms")
     let heartRateType:HKQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRateVariabilitySDNN)!
     var heartRateQuery:HKSampleQuery?
+    
+    private var hkPermission: Bool = false
 
     
     func loadHKData(){
         
         let readData = Set([
-            HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
-            HKObjectType.quantityType(forIdentifier: .heartRate)!
+            HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!
         ])
         
         healthStore.requestAuthorization(toShare: [], read: readData) {(success, error) in
             if success {
                 print("Request Granted")
-                self.getToday()
-                self.getLast7Days()
-                self.getLast30Days()
+                self.hkPermission = true
             }else{
                 print("Authorization Failed")
             }
+        }
+    }
+    
+    func getCharts() {
+        if(hkPermission) {
+            getToday()
+            getLast7Days()
+            getLast30Days()
+        }else{
+            return
+        }
+    }
+    
+    func getStats() {
+        if(hkPermission){
+            getMin()
+            getMax()
+            getAVG()
+        }else{
+            return
         }
     }
     

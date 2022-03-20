@@ -18,7 +18,7 @@ struct ContentView: View {
                 ChartView().tabItem { Image(systemName: "chart.xyaxis.line"); Text("Graphs") }.tag(1)
                 StatisticsView().tabItem { Image(systemName: "heart.text.square"); Text("Past 30 Stats") }.tag(2)
                 //AlertView().tabItem { Text("Alerts") }.tag(3)
-                AboutView().tabItem { Image(systemName: "info.circle"); Text("About") }.tag(3)
+//                AboutView().tabItem { Image(systemName: "info.circle"); Text("About") }.tag(3)
             }
             Spacer()
         }

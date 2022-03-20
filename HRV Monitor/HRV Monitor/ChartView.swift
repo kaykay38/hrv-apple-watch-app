@@ -30,6 +30,7 @@ struct ChartView: View {
                 Spacer()
             }
         }.padding()
+            .onAppear(perform: healthKitController.getCharts)
     }
 }
 
