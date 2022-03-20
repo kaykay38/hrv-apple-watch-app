@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HRV Monitor.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>DF2825A2A10A0ED88037A157FF213368A3B9D225</string>
+				<key>dateExpires</key>
+				<string>3/2/23</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64_32</string>
+						<string>armv7k</string>
+					</array>
+					<key>bitcode</key>
+					<true/>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>DF2825A2A10A0ED88037A157FF213368A3B9D225</string>
+						<key>dateExpires</key>
+						<string>3/2/23</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>embeddedBinaries</key>
+					<array>
+						<dict>
+							<key>architectures</key>
+							<array>
+								<string>armv7k</string>
+								<string>arm64_32</string>
+							</array>
+							<key>bitcode</key>
+							<true/>
+							<key>buildNumber</key>
+							<string>1</string>
+							<key>certificate</key>
+							<dict>
+								<key>SHA1</key>
+								<string>DF2825A2A10A0ED88037A157FF213368A3B9D225</string>
+								<key>dateExpires</key>
+								<string>3/2/23</string>
+								<key>type</key>
+								<string>Apple Distribution</string>
+							</dict>
+							<key>entitlements</key>
+							<dict>
+								<key>application-identifier</key>
+								<string>7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension</string>
+								<key>beta-reports-active</key>
+								<true/>
+								<key>com.apple.developer.healthkit</key>
+								<true/>
+								<key>com.apple.developer.healthkit.access</key>
+								<array/>
+								<key>com.apple.developer.healthkit.background-delivery</key>
+								<true/>
+								<key>com.apple.developer.team-identifier</key>
+								<string>7ZTT37X4QG</string>
+								<key>get-task-allow</key>
+								<false/>
+							</dict>
+							<key>name</key>
+							<string>HRV Monitor WatchKit Extension.appex</string>
+							<key>profile</key>
+							<dict>
+								<key>UUID</key>
+								<string>4af12fd7-6ad5-418d-8ed9-abc306b0ebad</string>
+								<key>dateExpires</key>
+								<string>3/2/23</string>
+								<key>name</key>
+								<string>iOS Team Store Provisioning Profile: com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension</string>
+							</dict>
+							<key>symbols</key>
+							<true/>
+							<key>team</key>
+							<dict>
+								<key>id</key>
+								<string>7ZTT37X4QG</string>
+								<key>name</key>
+								<string>Jane Marsden Noonan</string>
+							</dict>
+							<key>versionNumber</key>
+							<string>1.0</string>
+						</dict>
+					</array>
+					<key>entitlements</key>
+					<dict>
+						<key>application-identifier</key>
+						<string>7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp</string>
+						<key>beta-reports-active</key>
+						<true/>
+						<key>com.apple.developer.team-identifier</key>
+						<string>7ZTT37X4QG</string>
+						<key>get-task-allow</key>
+						<false/>
+					</dict>
+					<key>name</key>
+					<string>HRV Monitor WatchKit App.app</string>
+					<key>profile</key>
+					<dict>
+						<key>UUID</key>
+						<string>e0872268-f270-45da-842d-f3968848fdad</string>
+						<key>dateExpires</key>
+						<string>3/2/23</string>
+						<key>name</key>
+						<string>iOS Team Store Provisioning Profile: com.HRV-MonitorE2.HRV-Monitor.watchkitapp</string>
+					</dict>
+					<key>symbols</key>
+					<true/>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7ZTT37X4QG</string>
+						<key>name</key>
+						<string>Jane Marsden Noonan</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>1.0</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.authentication-services.autofill-credential-provider</key>
+				<true/>
+				<key>com.apple.developer.healthkit</key>
+				<true/>
+				<key>com.apple.developer.healthkit.access</key>
+				<array>
+					<string>health-records</string>
+				</array>
+				<key>com.apple.developer.healthkit.background-delivery</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>7ZTT37X4QG</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array/>
+			</dict>
+			<key>name</key>
+			<string>HRV Monitor.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>86d8de90-4439-4800-8fc8-c4a62af49048</string>
+				<key>dateExpires</key>
+				<string>3/2/23</string>
+				<key>name</key>
+				<string>iOS Team Store Provisioning Profile: com.HRV-MonitorE2.HRV-Monitor</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>7ZTT37X4QG</string>
+				<key>name</key>
+				<string>Jane Marsden Noonan</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,388 @@
+2022-03-19 19:08:04 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fd52b74aae0; archive(resolved)="<IDEArchive: 0x7fd53e4ff9e0>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team(resolved)="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7fd52b74aae0; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionProcessingPipelineContext: 0x7fd5655b6b70; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529eeb880; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529ea3550; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd52b7db220; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529ee8710; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529eedea0; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529ee2350; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd52b4c4810; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd52a465a50; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529e58430; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd529c7cf00; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd52b721d00; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="<IDEProvisioningDisambiguatableBasicTeam: 0x7fd5c716f980; teamID='7ZTT37X4QG', teamName='Jane Marsden Noonan', teamType='Individual', username='ewucompsci@gmail.com', isFreeProvisioningTeam='0'>">
+	<IDEDistributionContext: 0x7fd58deda1c0; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="(null)">
+	<IDEDistributionContext: 0x7fd52a13f8f0; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x7fd5c0feae70>", team="(null)">
+	<IDEDistributionContext: 0x7fd52a6b5590; archive = "<IDEArchive: 0x7fd53e4ff9e0>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7fd52b74aae0>
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCreateDestRootStep
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCopyItemStep
+2022-03-19 19:08:04 +0000  Running /usr/bin/ditto '-V' '/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app'
+2022-03-19 19:08:04 +0000  >>> Copying /Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app 
+2022-03-19 19:08:04 +0000  copying file ./_CodeSignature/CodeResources ... 
+2022-03-19 19:08:04 +0000  6373 bytes for ./_CodeSignature/CodeResources
+2022-03-19 19:08:04 +0000  copying file ./HRV Monitor ... 
+2022-03-19 19:08:04 +0000  2762768 bytes for ./HRV Monitor
+2022-03-19 19:08:04 +0000  copying file ./AppIcon60x60@2x.png ... 
+2022-03-19 19:08:04 +0000  5772 bytes for ./AppIcon60x60@2x.png
+2022-03-19 19:08:04 +0000  copying file ./Assets.car ... 
+2022-03-19 19:08:04 +0000  174344 bytes for ./Assets.car
+2022-03-19 19:08:04 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+2022-03-19 19:08:04 +0000  7405 bytes for ./AppIcon76x76@2x~ipad.png
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/_CodeSignature/CodeResources ... 
+2022-03-19 19:08:04 +0000  4327 bytes for ./Watch/HRV Monitor WatchKit App.app/_CodeSignature/CodeResources
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/_CodeSignature/CodeResources ... 
+2022-03-19 19:08:04 +0000  2112 bytes for ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/_CodeSignature/CodeResources
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension ... 
+2022-03-19 19:08:04 +0000  4445840 bytes for ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/embedded.mobileprovision ... 
+2022-03-19 19:08:04 +0000  25560 bytes for ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/embedded.mobileprovision
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/Info.plist ... 
+2022-03-19 19:08:04 +0000  1368 bytes for ./Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/Info.plist
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/Assets.car ... 
+2022-03-19 19:08:04 +0000  176088 bytes for ./Watch/HRV Monitor WatchKit App.app/Assets.car
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK ... 
+2022-03-19 19:08:04 +0000  133920 bytes for ./Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/embedded.mobileprovision ... 
+2022-03-19 19:08:04 +0000  20589 bytes for ./Watch/HRV Monitor WatchKit App.app/embedded.mobileprovision
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/Info.plist ... 
+2022-03-19 19:08:04 +0000  1259 bytes for ./Watch/HRV Monitor WatchKit App.app/Info.plist
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/PkgInfo ... 
+2022-03-19 19:08:04 +0000  8 bytes for ./Watch/HRV Monitor WatchKit App.app/PkgInfo
+2022-03-19 19:08:04 +0000  copying file ./Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App ... 
+2022-03-19 19:08:04 +0000  135024 bytes for ./Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App
+2022-03-19 19:08:04 +0000  copying file ./embedded.mobileprovision ... 
+2022-03-19 19:08:04 +0000  25559 bytes for ./embedded.mobileprovision
+2022-03-19 19:08:04 +0000  copying file ./Info.plist ... 
+2022-03-19 19:08:04 +0000  1540 bytes for ./Info.plist
+2022-03-19 19:08:04 +0000  copying file ./PkgInfo ... 
+2022-03-19 19:08:04 +0000  8 bytes for ./PkgInfo
+2022-03-19 19:08:04 +0000  /usr/bin/ditto exited with 0
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionEmbedProfileStep
+2022-03-19 19:08:04 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fd55dec9820; bundleID='(null)', path='<DVTFilePath:0x7fd52a783c30:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd53f384c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd5c60d4d90; name='Software Signing', hash='EFDBC9139DD98DBAE5A9C7165A096511B15EAEF9', serialNumber='64EFEAFEC239E8A5', certificateKinds='(
+), issueDate='2020-10-29 18:32:38 +0000''>', entitlements='(null)', teamID='(null)', identifier='com.apple.WK', executablePath='<DVTFilePath:0x7fd52a783c30:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>', hardenedRuntime='0'>'>
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionInfoPlistStep
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionItemRemovalStep
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2022-03-19 19:08:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension' '-l' '-keep_cs' '-o' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension'
+2022-03-19 19:08:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2022-03-19 19:08:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/HRV Monitor' '-l' '-keep_cs' '-o' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/HRV Monitor'
+2022-03-19 19:08:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip exited with 0
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2022-03-19 19:08:04 +0000  Running /usr/bin/ditto '-V' '/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/BCSymbolMaps/1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/BCSymbolMaps/1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap'
+2022-03-19 19:08:04 +0000  >>> Copying /Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/BCSymbolMaps/1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap 
+2022-03-19 19:08:04 +0000  copying file ./1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap ... 
+2022-03-19 19:08:04 +0000  438372 bytes for ./1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap
+2022-03-19 19:08:04 +0000  /usr/bin/ditto exited with 0
+2022-03-19 19:08:04 +0000  Running /usr/bin/ditto '-V' '/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/BCSymbolMaps/4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/BCSymbolMaps/4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap'
+2022-03-19 19:08:04 +0000  >>> Copying /Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/BCSymbolMaps/4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap 
+2022-03-19 19:08:04 +0000  copying file ./4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap ... 
+2022-03-19 19:08:04 +0000  429944 bytes for ./4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap
+2022-03-19 19:08:04 +0000  /usr/bin/ditto exited with 0
+2022-03-19 19:08:04 +0000  Running /usr/bin/ditto '-V' '/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/BCSymbolMaps/5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/BCSymbolMaps/5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap'
+2022-03-19 19:08:04 +0000  >>> Copying /Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/BCSymbolMaps/5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap 
+2022-03-19 19:08:04 +0000  copying file ./5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap ... 
+2022-03-19 19:08:04 +0000  692658 bytes for ./5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap
+2022-03-19 19:08:04 +0000  /usr/bin/ditto exited with 0
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionSymbolsStep
+2022-03-19 19:08:04 +0000  Excluding symbols for HRV Monitor WatchKit Extension.appex
+2022-03-19 19:08:04 +0000  Excluding symbols for WK
+2022-03-19 19:08:04 +0000  Excluding symbols for HRV Monitor WatchKit App.app
+2022-03-19 19:08:04 +0000  Excluding symbols for HRV Monitor.app
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCopyAppleProvidedContentStep
+2022-03-19 19:08:04 +0000  Running /usr/bin/ditto '-V' '/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/WatchKitSupport2' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/WatchKitSupport2'
+2022-03-19 19:08:04 +0000  >>> Copying /Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/WatchKitSupport2 
+2022-03-19 19:08:04 +0000  copying file ./WK ... 
+2022-03-19 19:08:04 +0000  133920 bytes for ./WK
+2022-03-19 19:08:04 +0000  /usr/bin/ditto exited with 0
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionAppThinningStep
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionArchThinningStep
+2022-03-19 19:08:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension' '-verify_arch' 'arm64e'
+2022-03-19 19:08:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-03-19 19:08:04 +0000  Skipping architecture thinning for item "HRV Monitor WatchKit Extension" because arch "arm64e" wasn't found
+2022-03-19 19:08:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK' '-verify_arch' 'arm64e'
+2022-03-19 19:08:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-03-19 19:08:04 +0000  Skipping architecture thinning for item "WK" because arch "arm64e" wasn't found
+2022-03-19 19:08:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App' '-verify_arch' 'arm64e'
+2022-03-19 19:08:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-03-19 19:08:04 +0000  Skipping architecture thinning for item "HRV Monitor WatchKit App" because arch "arm64e" wasn't found
+2022-03-19 19:08:04 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/HRV Monitor' '-verify_arch' 'arm64e'
+2022-03-19 19:08:04 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2022-03-19 19:08:04 +0000  Skipping architecture thinning for item "HRV Monitor" because arch "arm64e" wasn't found
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionODRStep
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionStripXattrsStep
+2022-03-19 19:08:04 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fd52ae0c5b0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', path='<DVTFilePath:0x7fd53a45f1c0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd54912ed50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b8f5790; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', executablePath='<DVTFilePath:0x7fd52be5ccc0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension'>', hardenedRuntime='0'>'>
+2022-03-19 19:08:04 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fd55dec9820; bundleID='(null)', path='<DVTFilePath:0x7fd52a783c30:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd53f384c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b8f5790; name='Software Signing', hash='EFDBC9139DD98DBAE5A9C7165A096511B15EAEF9', serialNumber='64EFEAFEC239E8A5', certificateKinds='(
+), issueDate='2020-10-29 18:32:38 +0000''>', entitlements='(null)', teamID='(null)', identifier='com.apple.WK', executablePath='<DVTFilePath:0x7fd52a783c30:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>', hardenedRuntime='0'>'>
+2022-03-19 19:08:04 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fd52a9aa4d0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', path='<DVTFilePath:0x7fd529c82a20:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd52ae3a640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b8f5790; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', executablePath='<DVTFilePath:0x7fd52be2f250:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App'>', hardenedRuntime='0'>'>
+2022-03-19 19:08:04 +0000  Running /usr/bin/xattr '-crs' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app'
+2022-03-19 19:08:04 +0000  /usr/bin/xattr exited with 0
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCodesignStep
+2022-03-19 19:08:04 +0000  Entitlements for <IDEDistributionItem: 0x7fd52ae0c5b0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', path='<DVTFilePath:0x7fd53a45f1c0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd54912ed50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd54b41c740; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', executablePath='<DVTFilePath:0x7fd52be5ccc0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
+    "beta-reports-active" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 0;
+}
+2022-03-19 19:08:04 +0000  Entitlements for <IDEDistributionItem: 0x7fd52ae0c5b0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', path='<DVTFilePath:0x7fd53a45f1c0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd54912ed50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b8e0be0; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', executablePath='<DVTFilePath:0x7fd52be5ccc0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
+    "beta-reports-active" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 0;
+}
+2022-03-19 19:08:04 +0000  Writing entitlements for <IDEDistributionItem: 0x7fd52ae0c5b0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', path='<DVTFilePath:0x7fd53a45f1c0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd54912ed50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b843b20; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension', executablePath='<DVTFilePath:0x7fd52be5ccc0:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension'>', hardenedRuntime='0'>'> to: /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/entitlements~~~czobRS
+2022-03-19 19:08:04 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DF2825A2A10A0ED88037A157FF213368A3B9D225' '--entitlements' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/entitlements~~~czobRS' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex'
+2022-03-19 19:08:04 +0000  /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex: replacing existing signature
+2022-03-19 19:08:04 +0000  /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex: signed bundle with Mach-O universal (armv7k arm64_32) [com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension]
+2022-03-19 19:08:04 +0000  /usr/bin/codesign exited with 0
+2022-03-19 19:08:04 +0000  Skipping signing of item: <IDEDistributionItem: 0x7fd55dec9820; bundleID='(null)', path='<DVTFilePath:0x7fd52a783c30:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd53f384c30; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b62cb80; name='Software Signing', hash='EFDBC9139DD98DBAE5A9C7165A096511B15EAEF9', serialNumber='64EFEAFEC239E8A5', certificateKinds='(
+), issueDate='2020-10-29 18:32:38 +0000''>', entitlements='(null)', teamID='(null)', identifier='com.apple.WK', executablePath='<DVTFilePath:0x7fd52a783c30:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>', hardenedRuntime='0'>'>
+2022-03-19 19:08:04 +0000  Entitlements for <IDEDistributionItem: 0x7fd52a9aa4d0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', path='<DVTFilePath:0x7fd529c82a20:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd52ae3a640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd5c60d4d90; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', executablePath='<DVTFilePath:0x7fd52be2f250:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 0;
+}
+2022-03-19 19:08:04 +0000  Entitlements for <IDEDistributionItem: 0x7fd52a9aa4d0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', path='<DVTFilePath:0x7fd529c82a20:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd52ae3a640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52a20d830; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', executablePath='<DVTFilePath:0x7fd52be2f250:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 0;
+}
+2022-03-19 19:08:04 +0000  Writing entitlements for <IDEDistributionItem: 0x7fd52a9aa4d0; bundleID='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', path='<DVTFilePath:0x7fd529c82a20:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd52ae3a640; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b8e0be0; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor.watchkitapp', executablePath='<DVTFilePath:0x7fd52be2f250:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App'>', hardenedRuntime='0'>'> to: /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/entitlements~~~enLN8a
+2022-03-19 19:08:04 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DF2825A2A10A0ED88037A157FF213368A3B9D225' '--entitlements' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/entitlements~~~enLN8a' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app'
+2022-03-19 19:08:04 +0000  /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app: replacing existing signature
+2022-03-19 19:08:04 +0000  /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app: signed app bundle with Mach-O universal (armv7k arm64_32) [com.HRV-MonitorE2.HRV-Monitor.watchkitapp]
+2022-03-19 19:08:04 +0000  /usr/bin/codesign exited with 0
+2022-03-19 19:08:04 +0000  Entitlements for <IDEDistributionItem: 0x7fd52be79c90; bundleID='com.HRV-MonitorE2.HRV-Monitor', path='<DVTFilePath:0x7fd57fd30540:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd549a052b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd52b7b0080; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor";
+    "com.apple.developer.authentication-services.autofill-credential-provider" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+        "health-records"
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+    );
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor', executablePath='<DVTFilePath:0x7fd52ae07e50:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/HRV Monitor'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor";
+    "beta-reports-active" = 1;
+    "com.apple.developer.authentication-services.autofill-credential-provider" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+        "health-records"
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 0;
+    "keychain-access-groups" =     (
+    );
+}
+2022-03-19 19:08:04 +0000  Entitlements for <IDEDistributionItem: 0x7fd52be79c90; bundleID='com.HRV-MonitorE2.HRV-Monitor', path='<DVTFilePath:0x7fd57fd30540:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd549a052b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd54dddec40; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor";
+    "com.apple.developer.authentication-services.autofill-credential-provider" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+        "health-records"
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+    );
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor', executablePath='<DVTFilePath:0x7fd52ae07e50:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/HRV Monitor'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor";
+    "beta-reports-active" = 1;
+    "com.apple.developer.authentication-services.autofill-credential-provider" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+        "health-records"
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 0;
+    "keychain-access-groups" =     (
+    );
+}
+2022-03-19 19:08:04 +0000  Writing entitlements for <IDEDistributionItem: 0x7fd52be79c90; bundleID='com.HRV-MonitorE2.HRV-Monitor', path='<DVTFilePath:0x7fd57fd30540:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fd549a052b0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fd529ef9950; name='Apple Development: Jane Marsden Noonan (3TCX49AUQT)', hash='F4A96F66F492400F2D47058A4FD80080DB91942F', serialNumber='1D5346D6D898C33667269B2A39B08183', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2022-03-02 22:13:31 +0000''>', entitlements='{
+    "application-identifier" = "7ZTT37X4QG.com.HRV-MonitorE2.HRV-Monitor";
+    "com.apple.developer.authentication-services.autofill-credential-provider" = 1;
+    "com.apple.developer.healthkit" = 1;
+    "com.apple.developer.healthkit.access" =     (
+        "health-records"
+    );
+    "com.apple.developer.healthkit.background-delivery" = 1;
+    "com.apple.developer.team-identifier" = 7ZTT37X4QG;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+    );
+}', teamID='7ZTT37X4QG', identifier='com.HRV-MonitorE2.HRV-Monitor', executablePath='<DVTFilePath:0x7fd52ae07e50:'/Users/justin/Library/Developer/Xcode/Archives/2022-03-19/HRV Monitor 3-19-22, 12.06 PM.xcarchive/Products/Applications/HRV Monitor.app/HRV Monitor'>', hardenedRuntime='0'>'> to: /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/entitlements~~~1aYcoX
+2022-03-19 19:08:04 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'DF2825A2A10A0ED88037A157FF213368A3B9D225' '--entitlements' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/entitlements~~~1aYcoX' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app'
+2022-03-19 19:08:04 +0000  /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app: replacing existing signature
+2022-03-19 19:08:04 +0000  /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app: signed app bundle with Mach-O thin (arm64) [com.HRV-MonitorE2.HRV-Monitor]
+2022-03-19 19:08:04 +0000  /usr/bin/codesign exited with 0
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionZipODRItemStep
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-03-19 19:08:04 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2022-03-19 19:08:04 +0000  Processing step: IDEDistributionCreateIPAStep
+2022-03-19 19:08:04 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root' '/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Packages/HRV Monitor.ipa'
+2022-03-19 19:08:04 +0000  >>> Copying /var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root 
+2022-03-19 19:08:04 +0000  copying file ./BCSymbolMaps/5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap ... 
+2022-03-19 19:08:04 +0000  692658 bytes for ./BCSymbolMaps/5D2A036B-E8EB-364E-8F50-6628463D4D7F.bcsymbolmap
+2022-03-19 19:08:04 +0000  copying file ./BCSymbolMaps/1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap ... 
+2022-03-19 19:08:04 +0000  438372 bytes for ./BCSymbolMaps/1B4F4E6B-46FC-3830-8EE4-42B54D557D72.bcsymbolmap
+2022-03-19 19:08:04 +0000  copying file ./BCSymbolMaps/4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap ... 
+2022-03-19 19:08:04 +0000  429944 bytes for ./BCSymbolMaps/4566489D-3B7E-3EB5-920B-4AB703EFD913.bcsymbolmap
+2022-03-19 19:08:04 +0000  copying file ./Payload/HRV Monitor.app/_CodeSignature/CodeResources ... 
+2022-03-19 19:08:04 +0000  6373 bytes for ./Payload/HRV Monitor.app/_CodeSignature/CodeResources
+2022-03-19 19:08:04 +0000  copying file ./Payload/HRV Monitor.app/HRV Monitor ... 
+2022-03-19 19:08:05 +0000  2341312 bytes for ./Payload/HRV Monitor.app/HRV Monitor
+copying file ./Payload/HRV Monitor.app/AppIcon60x60@2x.png ... 
+2022-03-19 19:08:05 +0000  5772 bytes for ./Payload/HRV Monitor.app/AppIcon60x60@2x.png
+copying file ./Payload/HRV Monitor.app/Assets.car ... 
+2022-03-19 19:08:05 +0000  174344 bytes for ./Payload/HRV Monitor.app/Assets.car
+copying file ./Payload/HRV Monitor.app/AppIcon76x76@2x~ipad.png ... 
+2022-03-19 19:08:05 +0000  7405 bytes for ./Payload/HRV Monitor.app/AppIcon76x76@2x~ipad.png
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_CodeSignature/CodeResources ... 
+2022-03-19 19:08:05 +0000  4327 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_CodeSignature/CodeResources
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/_CodeSignature/CodeResources ... 
+2022-03-19 19:08:05 +0000  2112 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/_CodeSignature/CodeResources
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension ... 
+2022-03-19 19:08:05 +0000  3930640 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension
+copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/embedded.mobileprovision ... 
+2022-03-19 19:08:05 +0000  14892 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/embedded.mobileprovision
+copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/Info.plist ... 
+2022-03-19 19:08:05 +0000  1368 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex/Info.plist
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/Assets.car ... 
+2022-03-19 19:08:05 +0000  176088 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/Assets.car
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK ... 
+2022-03-19 19:08:05 +0000  133920 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/embedded.mobileprovision ... 
+2022-03-19 19:08:05 +0000  14306 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/embedded.mobileprovision
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/Info.plist ... 
+2022-03-19 19:08:05 +0000  1259 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/Info.plist
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PkgInfo ... 
+2022-03-19 19:08:05 +0000  8 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PkgInfo
+copying file ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App ... 
+2022-03-19 19:08:05 +0000  135088 bytes for ./Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/HRV Monitor WatchKit App
+2022-03-19 19:08:05 +0000  copying file ./Payload/HRV Monitor.app/embedded.mobileprovision ... 
+2022-03-19 19:08:05 +0000  14895 bytes for ./Payload/HRV Monitor.app/embedded.mobileprovision
+copying file ./Payload/HRV Monitor.app/Info.plist ... 
+2022-03-19 19:08:05 +0000  1540 bytes for ./Payload/HRV Monitor.app/Info.plist
+copying file ./Payload/HRV Monitor.app/PkgInfo ... 
+2022-03-19 19:08:05 +0000  8 bytes for ./Payload/HRV Monitor.app/PkgInfo
+2022-03-19 19:08:05 +0000  copying file ./WatchKitSupport2/WK ... 
+2022-03-19 19:08:05 +0000  133920 bytes for ./WatchKitSupport2/WK
+2022-03-19 19:08:05 +0000  /usr/bin/ditto exited with 0
+2022-03-19 19:08:05 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2022-03-19 19:08:05 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2022-03-19 19:08:05 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2022-03-19 19:08:05 +0000  IDEDistributionItem init <DVTFilePath:0x7fd529f5a090:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/PlugIns/HRV Monitor WatchKit Extension.appex'>
+2022-03-19 19:08:05 +0000  IDEDistributionItem init <DVTFilePath:0x7fd53a366480:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>
+2022-03-19 19:08:05 +0000  [OPTIONAL] Didn't find info dictionary for <DVTFilePath:0x7fd53a366480:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>: Error Domain=DVTFoundationNSBundleAdditionsErrorDomain Code=1 "Couldn't load Info dictionary for <DVTFilePath:0x7fd53a366480:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>" UserInfo={NSLocalizedDescription=Couldn't load Info dictionary for <DVTFilePath:0x7fd53a366480:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>}
+2022-03-19 19:08:05 +0000  [OPTIONAL] Can't have a profile, not a bundle at <DVTFilePath:0x7fd53a366480:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app/_WatchKitStub/WK'>
+2022-03-19 19:08:05 +0000  IDEDistributionItem init <DVTFilePath:0x7fd53d1b29b0:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app/Watch/HRV Monitor WatchKit App.app'>
+2022-03-19 19:08:05 +0000  IDEDistributionItem init <DVTFilePath:0x7fd54b60d580:'/var/folders/0z/12nz24jn2g951n43cbw9rjcw0000gn/T/XcodeDistPipeline.~~~7Pj70m/Root/Payload/HRV Monitor.app'>
+2022-03-19 19:08:05 +0000  Processing step: IDEDistributionCreateManifestStep
+2022-03-19 19:08:05 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so

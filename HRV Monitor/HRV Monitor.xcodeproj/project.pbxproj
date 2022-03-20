@@ -30,6 +30,16 @@
 		77A4F68D27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68C27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift */; };
 		77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4F6A927B4775400906DC5 /* HealthKit.framework */; };
 		77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7E04627D8253600EC67D6 /* HRVCalculator.swift */; };
+		D02008D527E5587A00F8A3C4 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D427E5587A00F8A3C4 /* BannerView.swift */; };
+		D02008D727E558E800F8A3C4 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D627E558E800F8A3C4 /* StatisticsView.swift */; };
+		D02008DB27E55F5500F8A3C4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008DA27E55F5500F8A3C4 /* AlertView.swift */; };
+		D02008DF27E55FF100F8A3C4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008DE27E55FF100F8A3C4 /* ChartView.swift */; };
+		D02008E227E5632600F8A3C4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D02008E127E5632600F8A3C4 /* SwiftUICharts */; };
+		D02008E627E568FE00F8A3C4 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008E527E568FE00F8A3C4 /* HealthKitController.swift */; };
+		D02008E827E5744100F8A3C4 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008E727E5744100F8A3C4 /* AboutView.swift */; };
+		D02008ED27E6574600F8A3C4 /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008EC27E6574600F8A3C4 /* TodayChartView.swift */; };
+		D02008F127E6586500F8A3C4 /* SevenDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */; };
+		D02008F327E6589600F8A3C4 /* ThirtyDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */; };
 		D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F6D2727E26E9000EE8D55 /* HapticController.swift */; };
 		D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055E96927BAF3C30026FE92 /* WorkoutManager.swift */; };
 		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
@@ -145,6 +155,15 @@
 		77A4F6A727B4775400906DC5 /* HRV Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor.entitlements"; sourceTree = "<group>"; };
 		77A4F6A927B4775400906DC5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		77C7E04627D8253600EC67D6 /* HRVCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVCalculator.swift; sourceTree = "<group>"; };
+		D02008D427E5587A00F8A3C4 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		D02008D627E558E800F8A3C4 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		D02008DA27E55F5500F8A3C4 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		D02008DE27E55FF100F8A3C4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		D02008E527E568FE00F8A3C4 /* HealthKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitController.swift; sourceTree = "<group>"; };
+		D02008E727E5744100F8A3C4 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		D02008EC27E6574600F8A3C4 /* TodayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayChartView.swift; sourceTree = "<group>"; };
+		D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDayChartView.swift; sourceTree = "<group>"; };
+		D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirtyDayChartView.swift; sourceTree = "<group>"; };
 		D03F6D2727E26E9000EE8D55 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
 		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -163,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02008E227E5632600F8A3C4 /* SwiftUICharts in Frameworks */,
 				777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */,
 				77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */,
 			);
@@ -243,6 +263,15 @@
 				77A4F6A727B4775400906DC5 /* HRV Monitor.entitlements */,
 				77A4F63627B476EA00906DC5 /* HRV_MonitorApp.swift */,
 				77A4F63827B476EA00906DC5 /* ContentView.swift */,
+				D02008E727E5744100F8A3C4 /* AboutView.swift */,
+				D02008D627E558E800F8A3C4 /* StatisticsView.swift */,
+				D02008D427E5587A00F8A3C4 /* BannerView.swift */,
+				D02008DE27E55FF100F8A3C4 /* ChartView.swift */,
+				D02008EC27E6574600F8A3C4 /* TodayChartView.swift */,
+				D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */,
+				D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */,
+				D02008DA27E55F5500F8A3C4 /* AlertView.swift */,
+				D02008E527E568FE00F8A3C4 /* HealthKitController.swift */,
 				77A4F63A27B476EC00906DC5 /* Assets.xcassets */,
 				77A4F63C27B476EC00906DC5 /* Preview Content */,
 			);
@@ -387,6 +416,7 @@
 			);
 			name = "HRV Monitor";
 			packageProductDependencies = (
+				D02008E127E5632600F8A3C4 /* SwiftUICharts */,
 			);
 			productName = "HRV Monitor";
 			productReference = 77A4F63327B476EA00906DC5 /* HRV Monitor.app */;
@@ -549,6 +579,7 @@
 			mainGroup = 77A4F62A27B476EA00906DC5;
 			packageReferences = (
 				D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+				D02008E027E5632600F8A3C4 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 77A4F63427B476EA00906DC5 /* Products */;
 			projectDirPath = "";
@@ -627,8 +658,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02008ED27E6574600F8A3C4 /* TodayChartView.swift in Sources */,
+				D02008F327E6589600F8A3C4 /* ThirtyDayChartView.swift in Sources */,
+				D02008E827E5744100F8A3C4 /* AboutView.swift in Sources */,
+				D02008DB27E55F5500F8A3C4 /* AlertView.swift in Sources */,
 				77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */,
+				D02008E627E568FE00F8A3C4 /* HealthKitController.swift in Sources */,
+				D02008D727E558E800F8A3C4 /* StatisticsView.swift in Sources */,
 				77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */,
+				D02008D527E5587A00F8A3C4 /* BannerView.swift in Sources */,
+				D02008F127E6586500F8A3C4 /* SevenDayChartView.swift in Sources */,
+				D02008DF27E55FF100F8A3C4 /* ChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,7 +898,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -893,7 +933,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -920,7 +960,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -946,7 +986,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -984,13 +1024,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1019,13 +1059,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1274,6 +1314,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D02008E027E5632600F8A3C4 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/spacenation/swiftui-charts.git";
@@ -1285,6 +1333,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D02008E127E5632600F8A3C4 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D02008E027E5632600F8A3C4 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
 		D0E1EE9327B5AA5000037CF9 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */;
