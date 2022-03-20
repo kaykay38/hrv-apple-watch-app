@@ -66,8 +66,8 @@ class HRVCalculator: NSObject, ObservableObject {
         // Unwrap optional HRSamples in table, first and last.
         if let oldestSample = self.HRSampleTable.first {
             
-            // Check if samples spans more than a specified time, if so remove first entry. 20 seconds
-            if curSampleTime.timeIntervalSince(oldestSample.date) > 20 {
+            // Check if samples spans more than a specified time, if so remove first entry. 30 seconds
+            if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
                 HRSampleTable.removeFirst();
             }
             
