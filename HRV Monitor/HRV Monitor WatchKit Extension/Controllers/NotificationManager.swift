@@ -35,6 +35,8 @@ class NotificationManager: ObservableObject {
                                             trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+        
+        _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
     }
     
     func anotherWorkoutStarted() {
