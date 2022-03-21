@@ -124,24 +124,20 @@ class HealthKitController: ObservableObject{
             guard let startDate = calendar.date(byAdding: threeMonthsAgo, to: endDate) else {
                 fatalError("*** Unable to calculate the start date ***")
             }
-            
-            //today.removeAll()
-            
-            // Enumerate over all the statistics objects between the start and end dates.
-            statsCollection.enumerateStatistics(from: startDate, to: endDate)
-            { [self] (statistics, stop) in
-                if let quantity = statistics.averageQuantity() {
-                    let value = quantity.doubleValue(for: self.heartRateUnit)
-                    
-                    // Extract each week's data.
-                    today.append(value)
-                    print(value)
+            DispatchQueue.main.async {
+                self.today.removeAll()
+                
+                // Enumerate over all the statistics objects between the start and end dates.
+                statsCollection.enumerateStatistics(from: startDate, to: endDate)
+                { [self] (statistics, stop) in
+                    if let quantity = statistics.averageQuantity() {
+                        let value = quantity.doubleValue(for: self.heartRateUnit)
+                        
+                        // Extract each week's data.
+                        self.today.append(value)
+                    }
                 }
             }
-//            // Dispatch to the main queue to update the UI.
-//            DispatchQueue.main.async {
-//                myUpdateGraph(weeklyData: weeklyData)
-//            }
         }
         healthStore.execute(query)
     }
@@ -204,22 +200,20 @@ class HealthKitController: ObservableObject{
                 fatalError("*** Unable to calculate the start date ***")
             }
             
-            //last7Days.removeAll()
-            
-            // Enumerate over all the statistics objects between the start and end dates.
-            statsCollection.enumerateStatistics(from: startDate, to: endDate)
-            { [self] (statistics, stop) in
-                if let quantity = statistics.averageQuantity() {
-                    let value = quantity.doubleValue(for: self.heartRateUnit)
-                    
-                    // Extract each week's data.
-                    last7Days.append(value)
+            DispatchQueue.main.async {
+                self.last7Days.removeAll()
+                
+                // Enumerate over all the statistics objects between the start and end dates.
+                statsCollection.enumerateStatistics(from: startDate, to: endDate)
+                { [self] (statistics, stop) in
+                    if let quantity = statistics.averageQuantity() {
+                        let value = quantity.doubleValue(for: self.heartRateUnit)
+                        
+                        // Extract each week's data.
+                        self.last7Days.append(value)
+                    }
                 }
             }
-//            // Dispatch to the main queue to update the UI.
-//            DispatchQueue.main.async {
-//                myUpdateGraph(weeklyData: weeklyData)
-//            }
         }
         healthStore.execute(query)
     }
@@ -282,24 +276,22 @@ class HealthKitController: ObservableObject{
                 fatalError("*** Unable to calculate the start date ***")
             }
             
-            //last30Days.removeAll()
+            DispatchQueue.main.async {
+                self.last30Days.removeAll()
             
-            // Enumerate over all the statistics objects between the start and end dates.
-            statsCollection.enumerateStatistics(from: startDate, to: endDate)
-            { [self] (statistics, stop) in
-                if let quantity = statistics.averageQuantity() {
-                    let value = quantity.doubleValue(for: self.heartRateUnit)
-                    
-                    // Extract each week's data.
-                    
-                    last30Days.append(value)
-                    
+                // Enumerate over all the statistics objects between the start and end dates.
+                statsCollection.enumerateStatistics(from: startDate, to: endDate)
+                { [self] (statistics, stop) in
+                    if let quantity = statistics.averageQuantity() {
+                        let value = quantity.doubleValue(for: self.heartRateUnit)
+                        
+                        // Extract each week's data.
+                        
+                        self.last30Days.append(value)
+                        
+                    }
                 }
             }
-//            // Dispatch to the main queue to update the UI.
-//            DispatchQueue.main.async {
-//                myUpdateGraph(weeklyData: weeklyData)
-//            }
         }
         healthStore.execute(query)
     }
@@ -362,21 +354,18 @@ class HealthKitController: ObservableObject{
                 fatalError("*** Unable to calculate the start date ***")
             }
             
-            
-            // Enumerate over all the statistics objects between the start and end dates.
-            statsCollection.enumerateStatistics(from: startDate, to: endDate)
-            { [self] (statistics, stop) in
-                if let quantity = statistics.averageQuantity() {
-                    let value = quantity.doubleValue(for: self.heartRateUnit)
-                    
-                    // Extract each week's data.
-                    avgHRV = value
+            DispatchQueue.main.async {
+                // Enumerate over all the statistics objects between the start and end dates.
+                statsCollection.enumerateStatistics(from: startDate, to: endDate)
+                { [self] (statistics, stop) in
+                    if let quantity = statistics.averageQuantity() {
+                        let value = quantity.doubleValue(for: self.heartRateUnit)
+                        
+                        // Extract each week's data.
+                        avgHRV = value
+                    }
                 }
             }
-//            // Dispatch to the main queue to update the UI.
-//            DispatchQueue.main.async {
-//                myUpdateGraph(weeklyData: weeklyData)
-//            }
         }
         healthStore.execute(query)
     }
@@ -439,20 +428,18 @@ class HealthKitController: ObservableObject{
                 fatalError("*** Unable to calculate the start date ***")
             }
             
-            // Enumerate over all the statistics objects between the start and end dates.
-            statsCollection.enumerateStatistics(from: startDate, to: endDate)
-            { [self] (statistics, stop) in
-                if let quantity = statistics.minimumQuantity() {
-                    let value = quantity.doubleValue(for: self.heartRateUnit)
-                    
-                    // Extract each week's data.
-                    minHRV = value
+            DispatchQueue.main.async {
+                // Enumerate over all the statistics objects between the start and end dates.
+                statsCollection.enumerateStatistics(from: startDate, to: endDate)
+                { [self] (statistics, stop) in
+                    if let quantity = statistics.minimumQuantity() {
+                        let value = quantity.doubleValue(for: self.heartRateUnit)
+                        
+                        // Extract each week's data.
+                        minHRV = value
+                    }
                 }
             }
-//            // Dispatch to the main queue to update the UI.
-//            DispatchQueue.main.async {
-//                myUpdateGraph(weeklyData: weeklyData)
-//            }
         }
         healthStore.execute(query)
     }
@@ -515,20 +502,18 @@ class HealthKitController: ObservableObject{
                 fatalError("*** Unable to calculate the start date ***")
             }
             
-            // Enumerate over all the statistics objects between the start and end dates.
-            statsCollection.enumerateStatistics(from: startDate, to: endDate)
-            { [self] (statistics, stop) in
-                if let quantity = statistics.maximumQuantity() {
-                    let value = quantity.doubleValue(for: self.heartRateUnit)
-                    
-                    // Extract each week's data.
-                    maxHRV = value
+            DispatchQueue.main.async {
+                // Enumerate over all the statistics objects between the start and end dates.
+                statsCollection.enumerateStatistics(from: startDate, to: endDate)
+                { [self] (statistics, stop) in
+                    if let quantity = statistics.maximumQuantity() {
+                        let value = quantity.doubleValue(for: self.heartRateUnit)
+                        
+                        // Extract each week's data.
+                        maxHRV = value
+                    }
                 }
             }
-//            // Dispatch to the main queue to update the UI.
-//            DispatchQueue.main.async {
-//                myUpdateGraph(weeklyData: weeklyData)
-//            }
         }
         healthStore.execute(query)
     }

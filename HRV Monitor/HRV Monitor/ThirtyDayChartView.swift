@@ -13,6 +13,7 @@ struct ThirtyDayChartView: View {
     var body: some View {
         LineView(data: healthKitController.last30Days, title: "Past 30 Days", legend: "Weekly Average")
             .padding()
+            .onAppear(perform: healthKitController.getLast30Days)
     }
 }
 

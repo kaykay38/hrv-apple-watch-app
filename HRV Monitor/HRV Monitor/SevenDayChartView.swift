@@ -13,6 +13,7 @@ struct SevenDayChartView: View {
     var body: some View {
         LineView(data: healthKitController.last7Days, title: "Past 7 Days", legend: "Daily Average")
             .padding()
+            .onAppear(perform: healthKitController.getLast7Days)
         
     }
 }

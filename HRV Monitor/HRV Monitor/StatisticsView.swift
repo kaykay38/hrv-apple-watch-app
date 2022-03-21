@@ -29,7 +29,9 @@ struct StatisticsView: View {
                 .padding(.leading)
             Spacer()
         }.padding()
-            .onAppear(perform: healthKitController.getStats)
+            .onAppear(perform: healthKitController.getMax)
+            .onAppear(perform: healthKitController.getAVG)
+            .onAppear(perform: healthKitController.getMin)
     }
 }
 
