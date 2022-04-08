@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 class WorkoutManager: NSObject, ObservableObject {
     
@@ -152,32 +153,48 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-               
+                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
+                
+
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
-                
                 self.HRV = self.hrvCalculator.updateHRV()
+                    
                 
-                print("Current HR: \(currentHR)")
+                
+//                print("Current HR: \(currentHR)")
                 
                 if(self.hrvChartArray.count > 60) {
                     self.hrvChartArray.removeFirst()
                 }
+                
                 self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
-
+                
+                if(self.hrvChartArray.count > 6) {
+                    self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
+                    
+                    for _ in 1...2 {
+                        self.prevSampleTime = self.curSampleTime
+                        self.curSampleTime = Date()
+                        
+                        self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+                        self.hrvChartArray.append((self.HRV-30)/50)
+                    }
+                    
+                }
+                
                 
                 if(self.hrvCalculator.hrvTrendPrecentage() >= 0.02) {
                     self.warning = false
                     self.alert = false
                     
                     self.downCount += 1
-                    
                     if(downCount == 15) {
                         self.alert = true
                         self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
                         NotificationManager.instance.scheduleHighNotification()
 
                     }
+                    
                     else {
                         self.warning = true
                     }
@@ -186,12 +203,6 @@ class WorkoutManager: NSObject, ObservableObject {
                     self.downCount = 0
                     self.warning = false
                     self.alert = false
-                }
-                
-
-                
-                if(self.hrvChartArray.count > 6) {
-                    self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
                 }
                 
                 print("\n\n")
@@ -211,11 +222,11 @@ class WorkoutManager: NSObject, ObservableObject {
         
         healthStore.save(hrv) { success, error in
                 if (error != nil) {
-                    print("Error: \(String(describing: error))")
+//                    print("Error: \(String(describing: error))")
                 }
                 if success {
-                    print("📗 Saved: \(success) 📗")
-                    print("Value Stored: \(hrv)")
+//                    print("📗 Saved: \(success) 📗")
+//                    print("Value Stored: \(hrv)")
                 }
         }
     }
