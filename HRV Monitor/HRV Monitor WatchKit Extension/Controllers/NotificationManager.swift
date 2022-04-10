@@ -14,6 +14,8 @@ class NotificationManager: ObservableObject {
     
     static let instance = NotificationManager()
     
+    private let categoryIdentifier = "FalseAlarmOrDismiss"
+    
     func requestAuthorization() {
         let options: UNAuthorizationOptions = [.alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
@@ -27,6 +29,15 @@ class NotificationManager: ObservableObject {
         content.title = "High"
         content.subtitle = "This is a High Alert"
         content.sound = .default
+        content.categoryIdentifier = categoryIdentifier
+        
+        // Notification Buttons/Action
+        let falseAlarm = UNNotificationAction(identifier: "falseAlarm", title: "False Alarm")
+        let dismiss = UNNotificationAction(identifier: "dismiss", title: "Dismiss")
+        let category =  UNNotificationCategory(identifier: categoryIdentifier, actions: [falseAlarm, dismiss], intentIdentifiers: [],
+            options: .customDismissAction)
+    
+        UNUserNotificationCenter.current().setNotificationCategories([category])
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
         
