@@ -177,6 +177,7 @@ class WorkoutManager: NSObject, ObservableObject {
                         self.curSampleTime = Date()
                         
                         self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+                        self.hrvChartArray.removeFirst()
                         self.hrvChartArray.append((self.HRV-30)/50)
                     }
                     
