@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E7CCB192804A2BC00874E9E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7CCB182804A2BC00874E9E /* SurveyView.swift */; };
 		7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */; };
 		776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776151E927C5563C0066BED1 /* ControlsView.swift */; };
 		777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C03E627B47913007F4FE5 /* AuthenticationServices.framework */; };
@@ -114,6 +115,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E7CCB182804A2BC00874E9E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVSimpleView.swift; sourceTree = "<group>"; };
 		776151E927C5563C0066BED1 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		777C03E627B47913007F4FE5 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
@@ -340,6 +342,7 @@
 				D08ED19227D67EDB003F9DA7 /* TableView.swift */,
 				D0E1EE8827B58E9B00037CF9 /* ChartView.swift */,
 				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
+				6E7CCB182804A2BC00874E9E /* SurveyView.swift */,
 				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
 				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
 				7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */,
@@ -657,6 +660,7 @@
 				77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */,
 				77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */,
 				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
+				6E7CCB192804A2BC00874E9E /* SurveyView.swift in Sources */,
 				D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */,
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
 				77A4F66827B476EF00906DC5 /* HRV_MonitorApp.swift in Sources */,
