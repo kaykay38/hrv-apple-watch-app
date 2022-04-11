@@ -10,6 +10,10 @@ import HealthKit
 
 class WorkoutManager: NSObject, ObservableObject {
     
+    // obervable object here 
+    // survey for notifications
+    @Published var survey: Bool = false
+    
     @Published var workout: HKWorkout?
     // The app's workout state.
     @Published var running = false

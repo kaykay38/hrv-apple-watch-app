@@ -27,6 +27,9 @@ struct PagingView: View {
             StatisticsView().tag(Tab.stats)
             TableView().tag(Tab.table)
         }
+        // !!!!!!!!!!!!!!!
+        // https://www.youtube.com/watch?v=cwO7SW76awU
+        // switch out notification view with survey view here?
         .onAppear(perform: workoutManager.requestAuthorization)
         .onAppear(perform: NotificationManager.instance.requestAuthorization)
         .sheet(isPresented: $notificationManager.activeAlert, content: {
