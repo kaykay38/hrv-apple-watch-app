@@ -6,7 +6,7 @@
             "body": "Test message"
         },
         "category": "FalseAlarmOrDismiss",
-        "thread-id": "5280"
+        "thread_id": "5280"
     },
     
     "WatchKit Simulator Actions": [

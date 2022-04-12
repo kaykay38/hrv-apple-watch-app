@@ -32,12 +32,12 @@ class NotificationManager: ObservableObject {
         content.categoryIdentifier = categoryIdentifier
         
         // Notification Buttons/Action
-        let falseAlarm = UNNotificationAction(identifier: "falseAlarm", title: "False Alarm")
+       /* let falseAlarm = UNNotificationAction(identifier: "falseAlarm", title: "False Alarm")
         let dismiss = UNNotificationAction(identifier: "dismiss", title: "Dismiss")
         let category =  UNNotificationCategory(identifier: categoryIdentifier, actions: [falseAlarm, dismiss], intentIdentifiers: [],
             options: .customDismissAction)
     
-        UNUserNotificationCenter.current().setNotificationCategories([category])
+        UNUserNotificationCenter.current().setNotificationCategories([category])*/
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
         

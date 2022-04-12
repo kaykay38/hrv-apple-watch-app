@@ -10,7 +10,44 @@ import SwiftUI
 
 struct SurveyView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView{
+                Text("What's your stress level?").font(.title3).padding(.top, 10)
+                
+                Button {
+                    // workoutManager.endWorkout() // method for survey
+                } label: {
+                    Text("Very High")
+                        .font(.subheadline)
+                }.foregroundColor(.purple)
+                .padding()
+                
+                Button {
+                    // workoutManager.endWorkout() // method for survey
+                } label: {
+                    Text("High")
+                        .font(.subheadline)
+                }.foregroundColor(.red)
+                .padding()
+            
+                Button {
+                    // workoutManager.endWorkout() // method for survey
+                } label: {
+                    Text("Moderate")
+                        .font(.subheadline)
+                }.foregroundColor(.orange)
+                .padding()
+                
+            Button {
+                // workoutManager.endWorkout() // method for survey
+            } label: {
+                Text("Low")
+                    .font(.subheadline)
+            }.foregroundColor(.green)
+            .padding()
+                
+            }
+        }
     }
 }
 
