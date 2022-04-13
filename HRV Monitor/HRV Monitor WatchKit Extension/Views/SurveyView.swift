@@ -10,42 +10,36 @@ import SwiftUI
 
 struct SurveyView: View {
     var body: some View {
-        VStack {
-            ScrollView{
-                Text("What's your stress level?").font(.title3).padding(.top, 10)
+        NavigationView{
+            VStack {
+                ScrollView{
+                    Text("What's your stress level?").font(.title3).padding(.top, 5)
+                    
+                    NavigationLink(destination: ConfirmationView()){
+                        Text("Very High")
+                            .font(.title3)
+                            .foregroundColor(.purple);
+                    }.padding(.top, 10)
+                    
+                    NavigationLink(destination: ConfirmationView()){
+                        Text("High")
+                            .font(.title3)
+                            .foregroundColor(.red);
+                    }.padding(.top, 10)
                 
-                Button {
-                    // workoutManager.endWorkout() // method for survey
-                } label: {
-                    Text("Very High")
-                        .font(.subheadline)
-                }.foregroundColor(.purple)
-                .padding()
-                
-                Button {
-                    // workoutManager.endWorkout() // method for survey
-                } label: {
-                    Text("High")
-                        .font(.subheadline)
-                }.foregroundColor(.red)
-                .padding()
-            
-                Button {
-                    // workoutManager.endWorkout() // method for survey
-                } label: {
-                    Text("Moderate")
-                        .font(.subheadline)
-                }.foregroundColor(.orange)
-                .padding()
-                
-            Button {
-                // workoutManager.endWorkout() // method for survey
-            } label: {
-                Text("Low")
-                    .font(.subheadline)
-            }.foregroundColor(.green)
-            .padding()
-                
+                    NavigationLink(destination: ConfirmationView()){
+                        Text("Moderate")
+                            .font(.title3)
+                            .foregroundColor(.orange);
+                    }.padding(.top, 10)
+                    
+                    NavigationLink(destination: ConfirmationView()){
+                        Text("Low")
+                            .font(.title3)
+                            .foregroundColor(.green);
+                    }.padding(.top, 10)
+                    
+                }
             }
         }
     }

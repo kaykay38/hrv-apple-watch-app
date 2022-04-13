@@ -18,39 +18,36 @@ struct NotificationView: View {
     
     // each if button equals true, go on that route
         var body: some View {
-            // if false alarm, go to graph
-            // if dismiss, go to survey
-            VStack {
-                HStack{
-                    Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
-                 
-                        Text("Episode Detected").font(.title3).padding(.bottom, 10)
+            NavigationView{
+                // if false alarm, go to graph
+                // if dismiss, go to survey
+                VStack {
+                    HStack{
+                        Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
+                     
+                            Text("Episode Detected").font(.title3).padding(.bottom, 10)
+                    }
+                    NavigationLink(destination: SurveyView()){
+                        Text("False Alarm")
+                            .font(.title3)
+                            .foregroundColor(.green);
+                    }
+                    
+                    NavigationLink(destination: PagingView()){
+                        Text("Dismiss")
+                            .font(.title3)
+                            .foregroundColor(.white);
                 }
-                Button {
-                    // workoutManager.endWorkout() // method for survey
-                } label: {
-                    Text("False Alarm")
-                        .font(.subheadline)
-                }.foregroundColor(.green)
-                .padding()
-                
-                Button { // touch dismiss Go back to chart view
-                    workoutManager.resume()
-                } label: {
-                    Text("Dismiss")
-                        .font(.subheadline)
-                }
-                .frame(height: 11.0)
-                .foregroundColor(.white)
-                .padding()
+                .onAppear(perform: hapticController.triggerHaptic)
             }
-            .onAppear(perform: hapticController.triggerHaptic)
         }
 }
+
     
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationView()
     }
+}
 }

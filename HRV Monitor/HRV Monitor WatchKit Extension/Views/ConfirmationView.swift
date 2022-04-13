@@ -9,25 +9,25 @@ import SwiftUI
 
 struct ConfirmationView: View {
     var body: some View {
-        VStack {
-                Text("Are you sure?").font(.title3).padding(.top, 10)
-                
-                Button {
-                    // workoutManager.endWorkout() // method for survey
-                } label: {
-                    Text("Go Back")
-                        .font(.subheadline)
-                }.foregroundColor(.yellow)
-                .padding()
-                
-                Button {
-                    // workoutManager.endWorkout() // method for survey
-                } label: {
+        NavigationView{
+            VStack {
+                    Text("Are you sure?").font(.title3).padding(.top, 10)
+                    
+                    /*Button {
+                        // workoutManager.endWorkout() // method for survey
+                    } label: {
+                        Text("Go Back")
+                            .font(.subheadline)
+                    }.foregroundColor(.yellow)
+                    .padding()*/
+                    
+                NavigationLink(destination: PagingView()){
                     Text("Confirm")
-                        .font(.subheadline)
-                }.foregroundColor(.white)
-                .padding()
-            
+                        .font(.title3)
+                        .foregroundColor(.white);
+                }
+                
+            }
         }
     }
 }
