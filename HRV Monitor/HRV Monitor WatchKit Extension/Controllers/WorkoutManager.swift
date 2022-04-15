@@ -39,7 +39,7 @@ class WorkoutManager: NSObject, ObservableObject {
     private var curSampleTime: Date? = nil
     private var timeDiffMilliSec: Double = 0.0
     
-    private var downCount: Int = 0
+    private var count: Int = 0
     @Published var warning: Bool = false
     @Published var alert: Bool = false
     
@@ -156,11 +156,12 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.HRV = self.hrvCalculator.updateHRV()
                 
                 
-                if(self.hrvChartArray.count > 360) {
-                    self.hrvChartArray.removeFirst()
+
+                if(count > 6) {
+                    self.hrvChartArray.append((self.HRV-30)/50)
+                }else{
+                    count += 1
                 }
-                
-                self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
                 
                 if(self.hrvChartArray.count > 6) {
                     classifyHRV(HR: self.currentHR, HRV: self.HRV/1000);
@@ -172,8 +173,13 @@ class WorkoutManager: NSObject, ObservableObject {
                         self.curSampleTime = Date()
                         
                         self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
-                        self.hrvChartArray.removeFirst()
                         self.hrvChartArray.append((self.HRV-30)/50)
+                    }
+                    
+                    if(self.hrvChartArray.count > 1080) {
+                        self.hrvChartArray.removeFirst()
+                        self.hrvChartArray.removeFirst()
+                        self.hrvChartArray.removeFirst()
                     }
                     
                 }
