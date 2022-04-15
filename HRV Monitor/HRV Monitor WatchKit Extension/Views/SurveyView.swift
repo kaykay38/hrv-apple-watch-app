@@ -16,15 +16,9 @@ struct SurveyView: View {
                     Text("What's your stress level?").font(.title3).padding(.top, 5)
                     
                     NavigationLink(destination: ConfirmationView()){
-                        Text("Very High")
+                        Text("Low")
                             .font(.title3)
-                            .foregroundColor(.purple);
-                    }.padding(.top, 10)
-                    
-                    NavigationLink(destination: ConfirmationView()){
-                        Text("High")
-                            .font(.title3)
-                            .foregroundColor(.red);
+                            .foregroundColor(.green);
                     }.padding(.top, 10)
                 
                     NavigationLink(destination: ConfirmationView()){
@@ -34,9 +28,15 @@ struct SurveyView: View {
                     }.padding(.top, 10)
                     
                     NavigationLink(destination: ConfirmationView()){
-                        Text("Low")
+                        Text("High")
                             .font(.title3)
-                            .foregroundColor(.green);
+                            .foregroundColor(.red);
+                    }.padding(.top, 10)
+                    
+                    NavigationLink(destination: ConfirmationView()){
+                        Text("Very High")
+                            .font(.title3)
+                            .foregroundColor(.purple);
                     }.padding(.top, 10)
                     
                 }
