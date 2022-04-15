@@ -97,7 +97,7 @@ class HRVCalculator: NSObject, ObservableObject {
         guard let hrPredictionOutput = try? hrModel.prediction(T1: HRTable[0], T2: HRTable[1], T3: HRTable[2], T4: HRTable[3], HRV: self.HRV) else {
             fatalError("Unexpected runtime error.")
         }
-        print("Predicted HR: \(hrPredictionOutput.T5)")
+//        print("Predicted HR: \(hrPredictionOutput.T5)")
         addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
         return updateHRV();
     }
@@ -137,7 +137,7 @@ class HRVCalculator: NSObject, ObservableObject {
         self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, {$0 + $1}))/Double(HRVTable.count + 1)
 
 //        print("Sample Size: \(HRSampleTable.count)")
-        print("\(HRTable[1]) \(HRTable[2]) \(HRTable[3]) \(HRTable[4]) \(HRTable[5]) \(self.HRV)")
+//        print("\(HRTable[1]) \(HRTable[2]) \(HRTable[3]) \(HRTable[4]) \(HRTable[5]) \(self.HRV)")
         
         
         return self.HRV

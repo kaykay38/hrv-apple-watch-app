@@ -142,10 +142,6 @@ class WorkoutManager: NSObject, ObservableObject {
         // Run in background thread
         DispatchQueue.main.async { [self] in
             
-            let hour = Calendar.current.component(.hour, from: Date())
-            let minute = Calendar.current.component(.minute, from: Date())
-            let second = Calendar.current.component(.second, from: Date())
-            
             self.prevSampleTime = self.curSampleTime
             self.curSampleTime = Date()
             
@@ -158,18 +154,17 @@ class WorkoutManager: NSObject, ObservableObject {
 
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
                 self.HRV = self.hrvCalculator.updateHRV()
-                    
                 
                 
-//                print("Current HR: \(currentHR)")
-                
-                if(self.hrvChartArray.count > 60) {
+                if(self.hrvChartArray.count > 360) {
                     self.hrvChartArray.removeFirst()
                 }
                 
                 self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
                 
                 if(self.hrvChartArray.count > 6) {
+                    classifyHRV(HR: self.currentHR, HRV: self.HRV/1000);
+                    
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
                     
                     for _ in 1...2 {
@@ -183,34 +178,36 @@ class WorkoutManager: NSObject, ObservableObject {
                     
                 }
                 
-                
-                if(self.hrvCalculator.hrvTrendPrecentage() >= 0.02) {
-                    self.warning = false
-                    self.alert = false
-                    
-                    self.downCount += 1
-                    if(downCount == 15) {
-                        self.alert = true
-                        self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
-                        NotificationManager.instance.scheduleHighNotification()
-
-                    }
-                    
-                    else {
-                        self.warning = true
-                    }
-                }
-                else {
-                    self.downCount = 0
-                    self.warning = false
-                    self.alert = false
-                }
-                
                 print("\n\n")
             default:
                 return
             }
         }
+    }
+    
+    func classifyHRV(HR: Double, HRV: Double) {
+        
+        let hour = Calendar.current.component(.hour, from: Date())
+        let minute = Calendar.current.component(.minute, from: Date())
+        let second = Calendar.current.component(.second, from: Date())
+        
+        let classificationModel = HRV_Classification();
+        guard let classification = try? classificationModel.prediction(HR: HR, RMSSD: HRV) else {
+            fatalError("Unexpected runtime error.")
+        }
+        
+        self.warning = false;
+        self.alert = false;
+        
+        if(classification.label == "moderate") {
+            self.warning = true;
+        }
+        if(classification.label == "high") {
+            self.alert = true;
+            self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
+            NotificationManager.instance.scheduleHighNotification()
+        }
+        print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
     }
     
     func saveHRVData(date: Date, hrv: Double) {

@@ -45,7 +45,7 @@ struct ChartView: View {
                                         .font(.title3)
                                         .foregroundColor(.red);
                                 }else if(workoutManager.warning) {
-                                    Label("Down", systemImage: "hand.thumbsdown.circle")
+                                    Label("Moderate", systemImage: "hand.thumbsdown.circle")
                                         .font(.title3)
                                         .foregroundColor(.yellow);
                                 }else{
@@ -69,10 +69,22 @@ struct ChartView: View {
                         }
                         
                     }else{
-                        Chart(data: workoutManager.hrvChartArray)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
-                            )
+                        if(workoutManager.alert) {
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .red, lineWidth: 4)
+                                )
+                        }else if(workoutManager.warning) {
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .yellow, lineWidth: 4)
+                                )
+                        }else{
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
+                                )
+                        }
                     }
                     
                 }else{
