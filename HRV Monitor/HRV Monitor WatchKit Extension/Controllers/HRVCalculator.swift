@@ -50,12 +50,16 @@ class HRVCalculator: NSObject, ObservableObject {
     private(set) var HRV: Double = 0
     private(set) var PrevHRV: Double = 0
     private var HRVTable: [Double] = []
+    private var HRTable: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    private(set) var currentHR: Double = 0
 
     @Published private(set) var maximumHRV: Double = 0
     @Published private(set) var minimumHRV: Double = 0
     @Published private(set) var averageHRV: Double = 0
 
     private var predictedHRV: Double = 0
+    
+    let hrModel = HeartRatePredictions()
 
     private(set) var notificationThreshold: Double = 0
 
@@ -66,12 +70,14 @@ class HRVCalculator: NSObject, ObservableObject {
         // Unwrap optional HRSamples in table, first and last.
         if let oldestSample = self.HRSampleTable.first {
             
-            // Check if samples spans more than a specified time, if so remove first entry. 20 seconds
-            if curSampleTime.timeIntervalSince(oldestSample.date) > 20 {
+            // Check if samples spans more than a specified time, if so remove first entry. 30 seconds
+            if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
                 HRSampleTable.removeFirst();
             }
             
         }
+        
+        self.currentHR = heartrate;
         
         let timeDiffMilliSec = curSampleTime.timeIntervalSince(prevSampleTime) * 1000
         let HRPerMilliSec = heartrate/6000
@@ -83,20 +89,19 @@ class HRVCalculator: NSObject, ObservableObject {
         )
     }
     
-    func isLow() -> Bool {
-//        if self.HRVTable.count > 1 && self.HRV < 50 {
-//            return true
-//        }
-        return false
+    func hrvTrendPrecentage() -> Double {
+        return (self.PrevHRV - self.HRV)/100
     }
     
-    func isHigh() -> Bool {
-        print((self.PrevHRV - self.HRV)/100)
-        if (((self.PrevHRV - self.HRV)/100) >= 0.001) {
-            return true
+    func predictHRV(curSampleTime: Date, prevSampleTime: Date) -> Double {
+        guard let hrPredictionOutput = try? hrModel.prediction(T1: HRTable[0], T2: HRTable[1], T3: HRTable[2], T4: HRTable[3], HRV: self.HRV) else {
+            fatalError("Unexpected runtime error.")
         }
-        return false
+//        print("Predicted HR: \(hrPredictionOutput.T5)")
+        addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
+        return updateHRV();
     }
+    
     
     // Recalculate and update HRV
     func updateHRV() -> Double {
@@ -104,6 +109,9 @@ class HRVCalculator: NSObject, ObservableObject {
         if HRVTable.first == 0.0 {
             HRVTable.removeFirst()
         }
+        
+        HRTable.removeFirst()
+        HRTable.append(self.currentHR)
         
         self.PrevHRV = self.HRV
 
@@ -122,13 +130,15 @@ class HRVCalculator: NSObject, ObservableObject {
         if self.maximumHRV < newMax {
             self.maximumHRV = newMax
         }
-        if self.minimumHRV > newMin {
+        if self.minimumHRV == 0 || self.minimumHRV > newMin {
             self.minimumHRV = newMin
         }
         
         self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, {$0 + $1}))/Double(HRVTable.count + 1)
 
-        print("Sample Size: \(HRSampleTable.count)")
+//        print("Sample Size: \(HRSampleTable.count)")
+//        print("\(HRTable[1]) \(HRTable[2]) \(HRTable[3]) \(HRTable[4]) \(HRTable[5]) \(self.HRV)")
+        
         
         return self.HRV
     }

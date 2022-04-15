@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 class WorkoutManager: NSObject, ObservableObject {
     
@@ -38,7 +39,9 @@ class WorkoutManager: NSObject, ObservableObject {
     private var curSampleTime: Date? = nil
     private var timeDiffMilliSec: Double = 0.0
     
-    private var downCount: Int = 0
+    private var count: Int = 0
+    @Published var warning: Bool = false
+    @Published var alert: Bool = false
     
     
     // Request authorization to access HealthKit.
@@ -52,6 +55,7 @@ class WorkoutManager: NSObject, ObservableObject {
         // The quantity types to read from the health store.
         let typesToRead: Set = [
             HKQuantityType.quantityType(forIdentifier: .heartRate)!,
+            HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!,
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!,
             HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)!,
             HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!,
@@ -138,10 +142,6 @@ class WorkoutManager: NSObject, ObservableObject {
         // Run in background thread
         DispatchQueue.main.async { [self] in
             
-            let hour = Calendar.current.component(.hour, from: Date())
-            let minute = Calendar.current.component(.minute, from: Date())
-            let second = Calendar.current.component(.second, from: Date())
-            
             self.prevSampleTime = self.curSampleTime
             self.curSampleTime = Date()
             
@@ -149,32 +149,39 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-               
-                self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
+                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
                 
+
+                self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                print("Current HR: \(currentHR)")
                 
-                if(self.hrvChartArray.count > 12) {
-                    self.hrvChartArray.removeFirst()
-                }
-                self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
 
-                if(self.hrvCalculator.isHigh()) {
-                    self.downCount += 1
-                    if(self.downCount == 3) {
-                        self.alertTableArray.append(Alert(direction: "High", time: "\(hour):\(minute):\(second)"))
-                        NotificationManager.instance.scheduleHighNotification()
-                   }
-                } else if(self.hrvCalculator.isLow()) {
-                    self.alertTableArray.append(Alert(direction: "Low", time: "\(hour):\(minute):\(second)"))
-                    NotificationManager.instance.scheduleLowNotification()
+                if(count > 6) {
+                    self.hrvChartArray.append((self.HRV-30)/50)
+                }else{
+                    count += 1
                 }
                 
                 if(self.hrvChartArray.count > 6) {
+                    classifyHRV(HR: self.currentHR, HRV: self.HRV/1000);
+                    
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
+                    
+                    for _ in 1...2 {
+                        self.prevSampleTime = self.curSampleTime
+                        self.curSampleTime = Date()
+                        
+                        self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+                        self.hrvChartArray.append((self.HRV-30)/50)
+                    }
+                    
+                    if(self.hrvChartArray.count > 1080) {
+                        self.hrvChartArray.removeFirst()
+                        self.hrvChartArray.removeFirst()
+                        self.hrvChartArray.removeFirst()
+                    }
+                    
                 }
                 
                 print("\n\n")
@@ -182,6 +189,31 @@ class WorkoutManager: NSObject, ObservableObject {
                 return
             }
         }
+    }
+    
+    func classifyHRV(HR: Double, HRV: Double) {
+        
+        let hour = Calendar.current.component(.hour, from: Date())
+        let minute = Calendar.current.component(.minute, from: Date())
+        let second = Calendar.current.component(.second, from: Date())
+        
+        let classificationModel = HRV_Classification();
+        guard let classification = try? classificationModel.prediction(HR: HR, RMSSD: HRV) else {
+            fatalError("Unexpected runtime error.")
+        }
+        
+        self.warning = false;
+        self.alert = false;
+        
+        if(classification.label == "moderate") {
+            self.warning = true;
+        }
+        if(classification.label == "high") {
+            self.alert = true;
+            self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
+            NotificationManager.instance.scheduleHighNotification()
+        }
+        print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
     }
     
     func saveHRVData(date: Date, hrv: Double) {
@@ -194,11 +226,11 @@ class WorkoutManager: NSObject, ObservableObject {
         
         healthStore.save(hrv) { success, error in
                 if (error != nil) {
-                    print("Error: \(String(describing: error))")
+//                    print("Error: \(String(describing: error))")
                 }
                 if success {
-                    print("📗 Saved: \(success) 📗")
-                    print("Value Stored: \(hrv)")
+//                    print("📗 Saved: \(success) 📗")
+//                    print("Value Stored: \(hrv)")
                 }
         }
     }
@@ -225,7 +257,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        
+        NotificationManager.instance.anotherWorkoutStarted()
     }
 }
 

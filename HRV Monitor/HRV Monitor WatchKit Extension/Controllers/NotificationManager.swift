@@ -35,12 +35,14 @@ class NotificationManager: ObservableObject {
                                             trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+        
+        _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
     }
     
-    func scheduleLowNotification() {
+    func anotherWorkoutStarted() {
         let content = UNMutableNotificationContent()
-        content.title = "Low"
-        content.subtitle = "This is a Low Alert"
+        content.title = "Session Ended"
+        content.body = "Your HRV Monitoring session has ended because it appears that you have started another workout. To begin monitoring please press start again once you are done compleating your workout."
         content.sound = .default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)

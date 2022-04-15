@@ -40,17 +40,17 @@ struct ChartView: View {
                                         )
                                 ).font(.custom("Header", fixedSize: 45));
                                 Spacer()
-                                if(workoutManager.hrvCalculator.isHigh()) {
-                                    Label("High", systemImage: "hand.thumbsdown.circle")
+                                if(workoutManager.alert) {
+                                    Label("Warning", systemImage: "hand.thumbsdown.circle")
                                         .font(.title3)
                                         .foregroundColor(.red);
-                                }else if(workoutManager.hrvCalculator.isLow()) {
-                                    Label("Low", systemImage: "hand.thumbsdown.circle")
+                                }else if(workoutManager.warning) {
+                                    Label("Moderate", systemImage: "hand.thumbsdown.circle")
                                         .font(.title3)
-                                        .foregroundColor(.red);
+                                        .foregroundColor(.yellow);
                                 }else{
                                     Label("Good", systemImage: "hand.thumbsup.circle")
-                                        .font(.title2)
+                                        .font(.title3)
                                         .foregroundColor(.green);
                                 }
                             }
@@ -69,10 +69,22 @@ struct ChartView: View {
                         }
                         
                     }else{
-                        Chart(data: workoutManager.hrvChartArray)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
-                            )
+                        if(workoutManager.alert) {
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .red, lineWidth: 4)
+                                )
+                        }else if(workoutManager.warning) {
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .yellow, lineWidth: 4)
+                                )
+                        }else{
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
+                                )
+                        }
                     }
                     
                 }else{
@@ -93,8 +105,7 @@ struct ChartView: View {
                     }
                 }
             }
-            .padding()
-        }
+        }.padding()
         
     }
 }
