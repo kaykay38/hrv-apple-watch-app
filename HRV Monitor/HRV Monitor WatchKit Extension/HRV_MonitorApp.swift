@@ -20,4 +20,5 @@ struct HRV_MonitorApp: App {
 
         //WKNotificationScene(controller: NotificationManager.self, category: "myCategory")
     }
+    
 }

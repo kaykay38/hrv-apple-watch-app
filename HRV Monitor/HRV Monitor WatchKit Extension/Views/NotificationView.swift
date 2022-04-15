@@ -12,22 +12,42 @@ struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     @ObservedObject var hapticController:HapticController = HapticController.instance
     
-    var body: some View {
-        VStack {
-            HStack{
-                Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
-             
-                    Text("Episode Detected").font(.title3).padding(.bottom, 10)
+    // make a boolean for each button
+    var falseAlarm = false
+    var dismiss = false
+    
+    // each if button equals true, go on that route
+        var body: some View {
+            NavigationView{
+                // if false alarm, go to graph
+                // if dismiss, go to survey
+                VStack {
+                    HStack{
+                        Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
+                     
+                            Text("Episode Detected").font(.title3).padding(.bottom, 10)
+                    }
+                    NavigationLink(destination: SurveyView()){
+                        Text("False Alarm")
+                            .font(.title3)
+                            .foregroundColor(.green);
+                    }
+                    
+                    NavigationLink(destination: PagingView()){
+                        Text("Dismiss")
+                            .font(.title3)
+                            .foregroundColor(.white);
+                }
+                .onAppear(perform: hapticController.triggerHaptic)
             }
-            .padding()
         }
-        .onAppear(perform: hapticController.triggerHaptic)
-    }
 }
+
     
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationView()
     }
+}
 }
