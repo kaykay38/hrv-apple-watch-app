@@ -33,6 +33,8 @@
 		D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F6D2727E26E9000EE8D55 /* HapticController.swift */; };
+		D04E2EF32808F414009DE3BE /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D04E2EF22808F414009DE3BE /* HRV Classification.mlmodel */; };
+		D04E2EF42808F414009DE3BE /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D04E2EF22808F414009DE3BE /* HRV Classification.mlmodel */; };
 		D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055E96927BAF3C30026FE92 /* WorkoutManager.swift */; };
 		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
 		D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08ED19227D67EDB003F9DA7 /* TableView.swift */; };
@@ -149,6 +151,7 @@
 		77C7E04627D8253600EC67D6 /* HRVCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVCalculator.swift; sourceTree = "<group>"; };
 		D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HeartRatePredictions.mlmodel; sourceTree = "<group>"; };
 		D03F6D2727E26E9000EE8D55 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
+		D04E2EF22808F414009DE3BE /* HRV Classification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "HRV Classification.mlmodel"; sourceTree = "<group>"; };
 		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -215,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */,
+				D04E2EF22808F414009DE3BE /* HRV Classification.mlmodel */,
 				77A4F63527B476EA00906DC5 /* HRV Monitor */,
 				77A4F64627B476EC00906DC5 /* HRV MonitorTests */,
 				77A4F65027B476ED00906DC5 /* HRV MonitorUITests */,
@@ -633,6 +637,7 @@
 			files = (
 				77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */,
 				D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
+				D04E2EF32808F414009DE3BE /* HRV Classification.mlmodel in Sources */,
 				77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +664,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */,
+				D04E2EF42808F414009DE3BE /* HRV Classification.mlmodel in Sources */,
 				77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */,
 				77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */,
 				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
