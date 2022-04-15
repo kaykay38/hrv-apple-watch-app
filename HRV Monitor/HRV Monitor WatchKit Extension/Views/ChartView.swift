@@ -38,7 +38,7 @@ struct ChartView: View {
                                         .formatted(
                                             .number.precision(.fractionLength(0))
                                         )
-                                ).font(.custom("Header", fixedSize: 45));
+                                ).font(.largeTitle);
                                 Spacer()
                                 if(workoutManager.alert) {
                                     Label("Warning", systemImage: "hand.thumbsdown.circle")
@@ -93,7 +93,7 @@ struct ChartView: View {
                             .font(.title2)
                         Text("No Data")
                             .font(.title3)
-                        Text("Start Session To Begin Displaying HRV")
+                        Text("Start Session To Display HRV")
                             .foregroundColor(.gray)
                         Spacer()
                         Button {
