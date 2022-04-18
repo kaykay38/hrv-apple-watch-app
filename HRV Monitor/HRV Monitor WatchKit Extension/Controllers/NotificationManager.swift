@@ -20,6 +20,12 @@ class NotificationManager: ObservableObject {
         let options: UNAuthorizationOptions = [.alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
             //Error Handling
+            if let error = error{
+                print("Notification: ERROR")
+            }
+            else{
+                print("Notification: Approved Access")
+            }
         }
     }
     
@@ -32,14 +38,17 @@ class NotificationManager: ObservableObject {
         content.categoryIdentifier = categoryIdentifier
         
         // Notification Buttons/Action
-       /* let falseAlarm = UNNotificationAction(identifier: "falseAlarm", title: "False Alarm")
-        let dismiss = UNNotificationAction(identifier: "dismiss", title: "Dismiss")
-        let category =  UNNotificationCategory(identifier: categoryIdentifier, actions: [falseAlarm, dismiss], intentIdentifiers: [],
+        let falseAlarm = UNNotificationAction(identifier: "falseAlarm", title: "False Alarm", options: UNNotificationActionOptions.foreground)
+//UNNotificationActionOptions.foreground
+        let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [falseAlarm], intentIdentifiers: [],
             options: .customDismissAction)
     
-        UNUserNotificationCenter.current().setNotificationCategories([category])*/
+        UNUserNotificationCenter.current().setNotificationCategories([dismiss])
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
+        
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
+
         
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                                             content: content,
@@ -56,7 +65,8 @@ class NotificationManager: ObservableObject {
         content.body = "Your HRV Monitoring session has ended because it appears that you have started another workout. To begin monitoring please press start again once you are done compleating your workout."
         content.sound = .default
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
+       // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString,
                                             content: content,
