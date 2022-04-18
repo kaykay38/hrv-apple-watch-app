@@ -14,6 +14,7 @@ struct HRV_MonitorApp: App {
         WindowGroup {
             NavigationView {
                 PagingView()
+                //NotificationView()
             }
             .environmentObject(workoutManager)
         }

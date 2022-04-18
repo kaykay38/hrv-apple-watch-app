@@ -12,15 +12,19 @@ struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     @ObservedObject var hapticController:HapticController = HapticController.instance
     
-    // make a boolean for each button
-    var falseAlarm = false
-    var dismiss = false
-    
     // each if button equals true, go on that route
         var body: some View {
             NavigationView{
                 // if false alarm, go to graph
                 // if dismiss, go to survey
+                /*Button("request permission"){
+                    NotificationManager.instance.requestAuthorization()
+                }*/
+                
+                Button("schedule notification"){
+                    NotificationManager.instance.scheduleHighNotification()
+                }
+                
                 VStack {
                     HStack{
                         Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
