@@ -20,6 +20,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var builder: HKLiveWorkoutBuilder?
     
     var hrvCalculator: HRVCalculator = HRVCalculator()
+    var hrvClassificationController: HRVClassificationController = HRVClassificationController()
     
     private var currentHR: Double = 0
     
@@ -32,7 +33,6 @@ class WorkoutManager: NSObject, ObservableObject {
     private var sex: String? = nil
     
     @Published var hrvChartArray: [Double] = []
-    @Published var alertTableArray: [Alert] = []
     
     
     private var prevSampleTime: Date? = nil
@@ -40,8 +40,6 @@ class WorkoutManager: NSObject, ObservableObject {
     private var timeDiffMilliSec: Double = 0.0
     
     private var count: Int = 0
-    @Published var warning: Bool = false
-    @Published var alert: Bool = false
     
     
     // Request authorization to access HealthKit.
@@ -96,7 +94,7 @@ class WorkoutManager: NSObject, ObservableObject {
         session?.startActivity(with: startDate)
         builder?.beginCollection(withStart: startDate) { (success, error) in
             // The workout has started.
-        }   
+        }
     }
     
     func togglePause() {
@@ -126,13 +124,6 @@ class WorkoutManager: NSObject, ObservableObject {
         self.timeDiffMilliSec = 0
         self.currentHR = 0
     }
-    
-    struct Alert: Identifiable {
-        let id = UUID()
-        var direction: String
-        var time: String
-    }
-    
     
 
     
@@ -164,7 +155,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 }
                 
                 if(self.hrvChartArray.count > 6) {
-                    classifyHRV(HR: self.currentHR, HRV: self.HRV/1000);
+                    hrvClassificationController.classifyHRV(HR: self.currentHR, HRV: self.HRV/1000);
                     
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
                     
@@ -189,31 +180,6 @@ class WorkoutManager: NSObject, ObservableObject {
                 return
             }
         }
-    }
-    
-    func classifyHRV(HR: Double, HRV: Double) {
-        
-        let hour = Calendar.current.component(.hour, from: Date())
-        let minute = Calendar.current.component(.minute, from: Date())
-        let second = Calendar.current.component(.second, from: Date())
-        
-        let classificationModel = HRV_Classification();
-        guard let classification = try? classificationModel.prediction(HR: HR, RMSSD: HRV) else {
-            fatalError("Unexpected runtime error.")
-        }
-        
-        self.warning = false;
-        self.alert = false;
-        
-        if(classification.label == "moderate") {
-            self.warning = true;
-        }
-        if(classification.label == "high") {
-            self.alert = true;
-            self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
-            NotificationManager.instance.scheduleHighNotification()
-        }
-        print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
     }
     
     func saveHRVData(date: Date, hrv: Double) {

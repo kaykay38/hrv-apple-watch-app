@@ -17,8 +17,8 @@ struct TableView: View {
                     Label("Alert Log", systemImage: "exclamationmark.bubble")
                         .font(.title2)
                     Spacer()
-                    if(workoutManager.alertTableArray.isEmpty == false) {
-                        ForEach(workoutManager.alertTableArray) { Alert in
+                    if(workoutManager.hrvClassificationController.alertTableArray.isEmpty == false) {
+                        ForEach(workoutManager.hrvClassificationController.alertTableArray) { Alert in
                             HStack{
                                 Text(Alert.direction)
                                     .font(.title3)

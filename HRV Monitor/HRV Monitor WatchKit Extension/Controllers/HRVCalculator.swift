@@ -8,15 +8,6 @@
 import Foundation
 import SwiftUI
 
-struct HRSample: Identifiable, Hashable {
-    let id = UUID()
-    var date: Date
-    var timeDiffMilliSec: Double = 0 // Difference between this and previous sample time.
-    var currentHRPerMilliSec: Double = 0
-    var averageIBI: Double = 0 // Interbeat Interval (IBI/nn).
-    var IBIdiff: Double = 0 // Difference between this and previous IBI.
-    var accuracy: Double = 0
-}
 
 extension Collection where Iterator.Element == HRSample {
     // Standard deviation of IBI/NN samples in 24 hrs. Must have 24hr of data.
@@ -49,8 +40,8 @@ class HRVCalculator: NSObject, ObservableObject {
     
     private(set) var HRV: Double = 0
     private(set) var PrevHRV: Double = 0
-    private var HRVTable: [Double] = []
-    private var HRTable: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    private var HRVTable: [Double] = [Double]()
+    private var HRTable: [Double] = [Double]()
     private(set) var currentHR: Double = 0
 
     @Published private(set) var maximumHRV: Double = 0
@@ -63,7 +54,6 @@ class HRVCalculator: NSObject, ObservableObject {
 
     private(set) var notificationThreshold: Double = 0
 
-    private var isPast24Hrs: Bool = false
     
     // heartrate comes in as beats per second
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
@@ -74,7 +64,6 @@ class HRVCalculator: NSObject, ObservableObject {
             if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
                 HRSampleTable.removeFirst();
             }
-            
         }
         
         self.currentHR = heartrate;
@@ -102,15 +91,14 @@ class HRVCalculator: NSObject, ObservableObject {
         return updateHRV();
     }
     
-    
     // Recalculate and update HRV
     func updateHRV() -> Double {
-        // Remove 0 in first index calculated from when there is only one sample in HRSampleTable
+        // Remove 0 in first index which is default initial value
         if HRVTable.first == 0.0 {
             HRVTable.removeFirst()
         }
         
-        HRTable.removeFirst()
+        // HRTable.removeFirst()
         HRTable.append(self.currentHR)
         
         self.PrevHRV = self.HRV
@@ -125,20 +113,13 @@ class HRVCalculator: NSObject, ObservableObject {
             HRVTable.removeFirst()
         }
         
-        let newMax = self.HRVTable.max() ?? 0
-        let newMin = self.HRVTable.min() ?? 0
-        if self.maximumHRV < newMax {
-            self.maximumHRV = newMax
-        }
-        if self.minimumHRV == 0 || self.minimumHRV > newMin {
-            self.minimumHRV = newMin
-        }
+        //let newMin = self.HRVTable.min() ?? 0
+        
+        self.maximumHRV = self.HRVTable.max() ?? 0
+        
+        self.minimumHRV = self.HRVTable.min() ?? 0
         
         self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, {$0 + $1}))/Double(HRVTable.count + 1)
-
-//        print("Sample Size: \(HRSampleTable.count)")
-//        print("\(HRTable[1]) \(HRTable[2]) \(HRTable[3]) \(HRTable[4]) \(HRTable[5]) \(self.HRV)")
-        
         
         return self.HRV
     }

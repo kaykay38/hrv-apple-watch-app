@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D53FFD6280E0E8B00FD0FE9 /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */; };
+		0D53FFD8280E0FF300FD0FE9 /* HRVClassificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */; };
 		6E7CCB192804A2BC00874E9E /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7CCB182804A2BC00874E9E /* SurveyView.swift */; };
 		6E9ED6492804E33C0058C7C1 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9ED6482804E33C0058C7C1 /* ConfirmationView.swift */; };
 		7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */; };
@@ -120,6 +122,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
+		0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVClassificationController.swift; sourceTree = "<group>"; };
 		6E7CCB182804A2BC00874E9E /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		6E9ED6482804E33C0058C7C1 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVSimpleView.swift; sourceTree = "<group>"; };
@@ -155,7 +159,7 @@
 		77C7E04627D8253600EC67D6 /* HRVCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVCalculator.swift; sourceTree = "<group>"; };
 		D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HeartRatePredictions.mlmodel; sourceTree = "<group>"; };
 		D03F6D2727E26E9000EE8D55 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
-		D04E2EFB2808FE6D009DE3BE /* HRV Classification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "HRV Classification.mlmodel"; path = "../../../Desktop/HRV Classification.mlmodel"; sourceTree = "<group>"; };
+		D04E2EFB2808FE6D009DE3BE /* HRV Classification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "HRV Classification.mlmodel"; path = "./HRV Classification.mlmodel"; sourceTree = "<group>"; };
 		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -366,9 +370,11 @@
 			children = (
 				77A4F66F27B476EF00906DC5 /* ComplicationController.swift */,
 				D055E96927BAF3C30026FE92 /* WorkoutManager.swift */,
+				0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */,
 				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
 				D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */,
 				D03F6D2727E26E9000EE8D55 /* HapticController.swift */,
+				0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -671,6 +677,8 @@
 			files = (
 				D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */,
 				D04E2EFD2808FE6D009DE3BE /* HRV Classification.mlmodel in Sources */,
+				0D53FFD8280E0FF300FD0FE9 /* HRVClassificationController.swift in Sources */,
+				0D53FFD6280E0E8B00FD0FE9 /* DataStructs.swift in Sources */,
 				77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */,
 				77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */,
 				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
