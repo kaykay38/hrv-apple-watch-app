@@ -82,7 +82,7 @@ struct ChartView: View {
                         }else{
                             Chart(data: workoutManager.hrvChartArray)
                                 .chartStyle(
-                                    LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
+                                    LineChartStyle(.quadCurve, lineColor: .green, lineWidth: 4)
                                 )
                         }
                     }
