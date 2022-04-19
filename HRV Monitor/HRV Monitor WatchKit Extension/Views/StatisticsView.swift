@@ -12,13 +12,17 @@ struct StatisticsView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Image(systemName: "bolt.heart").font(.title2).padding(2)
-                VStack(alignment: .leading){
-                    Text("Stats")
-                }
-                .font(.title)
+            //            HStack {
+            //                Image(systemName: "bolt.heart").font(.title2).padding(2)
+            //                VStack(alignment: .leading){
+            //                    Text("Stats")
+            //                }
+            //                .font(.title)
+            //            }
+            VStack(alignment: .leading){
+                Text("Stats")
             }
+            .font(.title)
             Spacer()
             
             VStack(alignment: .leading, spacing: 9.0) {
@@ -48,8 +52,9 @@ struct StatisticsView: View {
                             )
                     )
                 }.font(.title3)
-
+                
             }
+            Spacer()
         }
     }
 }
