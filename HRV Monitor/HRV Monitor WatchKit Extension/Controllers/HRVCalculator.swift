@@ -38,12 +38,13 @@ class HRVCalculator: NSObject, ObservableObject {
     
     private var HRSampleTable: [HRSample] = []
     
-    private(set) var HRV: Double = 0
-    private(set) var PrevHRV: Double = 0
+    private var HRV: Double = 0
+    private var PrevHRV: Double = 0
     private var HRVTable: [Double] = [Double]()
     private var HRTable: [Double] = [Double]()
-    private(set) var currentHR: Double = 0
-
+    private var currentHR: Double = 0
+    private var hasFilledTable: Bool = false
+    
     @Published private(set) var maximumHRV: Double = 0
     @Published private(set) var minimumHRV: Double = 0
     @Published private(set) var averageHRV: Double = 0
@@ -78,19 +79,6 @@ class HRVCalculator: NSObject, ObservableObject {
         )
     }
     
-    func hrvTrendPrecentage() -> Double {
-        return (self.PrevHRV - self.HRV)/100
-    }
-    
-    func predictHRV(curSampleTime: Date, prevSampleTime: Date) -> Double {
-        guard let hrPredictionOutput = try? hrModel.prediction(T1: HRTable[0], T2: HRTable[1], T3: HRTable[2], T4: HRTable[3], HRV: self.HRV) else {
-            fatalError("Unexpected runtime error.")
-        }
-//        print("Predicted HR: \(hrPredictionOutput.T5)")
-        addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
-        return updateHRV();
-    }
-    
     // Recalculate and update HRV
     func updateHRV() -> Double {
         // Remove 0 in first index which is default initial value
@@ -98,7 +86,6 @@ class HRVCalculator: NSObject, ObservableObject {
             HRVTable.removeFirst()
         }
         
-        // HRTable.removeFirst()
         HRTable.append(self.currentHR)
         
         self.PrevHRV = self.HRV
@@ -111,17 +98,38 @@ class HRVCalculator: NSObject, ObservableObject {
         // Maintain the size of HRVTable to be in sync with HRSampleTable
         if (HRVTable.count > HRSampleTable.count) {
             HRVTable.removeFirst()
+            hasFilledTable = true
         }
         
-        //let newMin = self.HRVTable.min() ?? 0
+        // Update maximumHRV and minimumHRV
+        let newMax = self.HRVTable.max() ?? 0
+        let newMin = self.HRVTable.min() ?? 0
+        if self.maximumHRV < newMax {
+            self.maximumHRV = newMax
+        }
+        if self.minimumHRV == 0 || self.minimumHRV > newMin {
+            self.minimumHRV = newMin
+        }
         
-        self.maximumHRV = self.HRVTable.max() ?? 0
-        
-        self.minimumHRV = self.HRVTable.min() ?? 0
-        
-        self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, {$0 + $1}))/Double(HRVTable.count + 1)
-        
+        if (hasFilledTable) {
+            self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, +))/Double(HRVTable.count + 1)
+        }
+        else {
+            self.averageHRV = self.HRVTable.reduce(0, +)/Double(HRVTable.count)
+        }
         return self.HRV
+    }
+    
+    func hrvTrendPrecentage() -> Double {
+        return (self.PrevHRV - self.HRV)/100
+    }
+    
+    func predictHRV(curSampleTime: Date, prevSampleTime: Date) -> Double {
+        guard let hrPredictionOutput = try? hrModel.prediction(T1: HRTable[0], T2: HRTable[1], T3: HRTable[2], T4: HRTable[3], HRV: self.HRV) else {
+            fatalError("Unexpected runtime error.")
+        }
+        addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
+        return updateHRV();
     }
     
     func reset() {
