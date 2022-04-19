@@ -24,8 +24,9 @@ struct PagingView: View {
             SurveyView()
             ConfirmationView()
             ControlsView().tag(Tab.controls)
-            ChartView().tag(Tab.liveHRV)
-            //HRVSimpleView().tag(Tab.liveHRV)
+            // ChartView().tag(Tab.liveHRV)
+            AreaChartView().tag(Tab.liveHRV)
+            // HRVSimpleView().tag(Tab.liveHRV)
             StatisticsView().tag(Tab.stats)
             TableView().tag(Tab.table)
         }
