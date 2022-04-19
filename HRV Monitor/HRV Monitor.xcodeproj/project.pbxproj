@@ -222,6 +222,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D2A10FB280F3A7600C52E95 /* DataStuctures */ = {
+			isa = PBXGroup;
+			children = (
+				0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */,
+			);
+			path = DataStuctures;
+			sourceTree = "<group>";
+		};
 		77A4F62A27B476EA00906DC5 = {
 			isa = PBXGroup;
 			children = (
@@ -303,8 +311,9 @@
 			children = (
 				D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */,
 				77A4F66727B476EF00906DC5 /* HRV_MonitorApp.swift */,
-				D055E96727BAEA310026FE92 /* Views */,
+				0D2A10FB280F3A7600C52E95 /* DataStuctures */,
 				D055E96827BAEA3A0026FE92 /* Controllers */,
+				D055E96727BAEA310026FE92 /* Views */,
 				77A4F67127B476F000906DC5 /* Assets.xcassets */,
 				77A4F67627B476F000906DC5 /* Info.plist */,
 				77A4F67727B476F000906DC5 /* PushNotificationPayload.apns */,
@@ -374,7 +383,6 @@
 				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
 				D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */,
 				D03F6D2727E26E9000EE8D55 /* HapticController.swift */,
-				0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
