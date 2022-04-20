@@ -6,11 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
+defaults:
+  run:
+    working-directory: ./HRV\ Monitor
+
 jobs:
   build:
     runs-on: macos-latest
-    env:
-      working-directory: ./HRV\ Monitor
-      
     steps:
       - uses: mxcl/xcodebuild@v1
+      
