@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    env:
+      working-directory: ./HRV\ Monitor
+      
     steps:
       - uses: mxcl/xcodebuild@v1
-      - working-directory: ./HRV\ Monitor
