@@ -10,4 +10,4 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - use: mxcl/xcodebuild@v1
+      - uses: mxcl/xcodebuild@v1
