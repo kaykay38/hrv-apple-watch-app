@@ -1,14 +1,14 @@
 //
-//  ChartView.swift
+//  AreaChartView.swift
 //  HRV Monitor WatchKit Extension
 //
-//  Created by Justin Plett on 2/10/22.
+//  Created by Mia Hunt on 4/18/22.
 //
 
 import SwiftUI
 import Charts
 
-struct ChartView: View {
+struct AreaChartView: View {
 
     @EnvironmentObject var workoutManager: WorkoutManager
 
@@ -114,9 +114,9 @@ struct ChartView: View {
         }
 }
 
-struct ChartView_Previews: PreviewProvider {
+struct AreaChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        AreaChartView()
     }
 }
 
