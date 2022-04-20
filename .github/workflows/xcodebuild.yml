@@ -10,5 +10,5 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - run: cd HRV\ Monitor
+      - working-directory: ./HRV\ Monitor
       - uses: mxcl/xcodebuild@v1
