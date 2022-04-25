@@ -15,6 +15,7 @@ class NotificationManager: ObservableObject {
     
     static let instance = NotificationManager()
     
+    
     private let categoryIdentifier = "FalseAlarmOrDismiss"
     
     func requestAuthorization() {
@@ -33,14 +34,15 @@ class NotificationManager: ObservableObject {
     func scheduleHighNotification() {
         self.activeAlert = true
         let content = UNMutableNotificationContent()
-        content.title = "High"
-        content.subtitle = "High Alert"
+        content.title = "Warning"
+        content.subtitle = "High stress detected"
         content.sound = .default
         content.categoryIdentifier = categoryIdentifier
         
         // Notification Buttons/Action
         let falseAlarm = UNNotificationAction(identifier: "falseAlarm", title: "False Alarm", options: UNNotificationActionOptions.foreground)
-//UNNotificationActionOptions.foreground
+        
+        //UNNotificationActionOptions.foreground
         let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [falseAlarm], intentIdentifiers: [],
             options: .customDismissAction)
     
