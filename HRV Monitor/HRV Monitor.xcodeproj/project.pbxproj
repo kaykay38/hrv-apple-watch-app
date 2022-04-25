@@ -42,6 +42,8 @@
 		D04E2EFD2808FE6D009DE3BE /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D04E2EFB2808FE6D009DE3BE /* HRV Classification.mlmodel */; };
 		D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055E96927BAF3C30026FE92 /* WorkoutManager.swift */; };
 		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
+		D056CD542817606400CE75AE /* HeartRatePredictionsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */; };
+		D056CD56281760D400CE75AE /* HRVClassificationUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */; };
 		D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08ED19227D67EDB003F9DA7 /* TableView.swift */; };
 		D0D1F4AF27E1A3B300A0DEA8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */; };
 		D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E05E4F27D8791900FBE1F2 /* DotView.swift */; };
@@ -172,6 +174,8 @@
 		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatePredictionsUpdater.swift; sourceTree = "<group>"; };
+		D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVClassificationUpdater.swift; sourceTree = "<group>"; };
 		D08ED19227D67EDB003F9DA7 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D0E05E4F27D8791900FBE1F2 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				D055E96927BAF3C30026FE92 /* WorkoutManager.swift */,
 				0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */,
 				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
+				D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */,
+				D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */,
 				D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */,
 				D03F6D2727E26E9000EE8D55 /* HapticController.swift */,
 			);
@@ -712,11 +718,13 @@
 				6E7CCB192804A2BC00874E9E /* SurveyView.swift in Sources */,
 				D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */,
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
+				D056CD56281760D400CE75AE /* HRVClassificationUpdater.swift in Sources */,
 				77A4F66827B476EF00906DC5 /* HRV_MonitorApp.swift in Sources */,
 				0D7D79B02810B37D00AF5401 /* AreaChartView.swift in Sources */,
 				D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */,
 				D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
 				D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */,
+				D056CD542817606400CE75AE /* HeartRatePredictionsUpdater.swift in Sources */,
 				77A4F66E27B476EF00906DC5 /* NotificationView.swift in Sources */,
 				D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */,
 				6E9ED6492804E33C0058C7C1 /* ConfirmationView.swift in Sources */,

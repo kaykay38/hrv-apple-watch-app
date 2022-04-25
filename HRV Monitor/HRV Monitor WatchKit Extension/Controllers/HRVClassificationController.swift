@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreML
 class HRVClassificationController: NSObject, ObservableObject  {
     
     @Published var warning: Bool = false
@@ -35,6 +36,29 @@ class HRVClassificationController: NSObject, ObservableObject  {
             NotificationManager.instance.scheduleHighNotification()
         }
         print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
+    }
+    
+    func updateHRVClassification(HR: Double, HRV: Double, label: String) {
+        let dataSet: MLBatchProvider = trainingData(HR: HR, HRV: HRV, label: label);
+
+        HRVClassificationUpdater.updateWith(trainingData: dataSet) {
+
+        }
+    }
+
+    func trainingData(HR: Double, HRV: Double, label: String) -> MLBatchProvider {
+        var featureProviders = [MLFeatureProvider]();
+
+
+
+        let dataPointFeatures: [String: MLFeatureValue] = ["HR": MLFeatureValue(double: HR),
+                                                           "RMSSD": MLFeatureValue(double: HRV),
+                                                           "label": MLFeatureValue(string: label)]
+
+        if let provider = try? MLDictionaryFeatureProvider(dictionary: dataPointFeatures) {
+            featureProviders.append(provider)
+        }
+        return MLArrayBatchProvider(array: featureProviders)
     }
 
 }

@@ -129,6 +129,9 @@ class HRVCalculator: NSObject, ObservableObject {
             fatalError("Unexpected runtime error.")
         }
         self.addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
+        
+        HRPredictionUpdater.updateHeartRatePredictions(T1: HRTable[0], T2: HRTable[1], T3: HRTable[2], T4: HRTable[3], T5: HRTable[4], HRV: self.HRV)
+        
         return updateHRV();
     }
     

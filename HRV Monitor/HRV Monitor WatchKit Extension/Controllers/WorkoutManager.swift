@@ -159,6 +159,8 @@ class WorkoutManager: NSObject, ObservableObject {
                     
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
                     
+                    hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
+                    
                     for _ in 1...2 {
                         self.prevSampleTime = self.curSampleTime
                         self.curSampleTime = Date()
