@@ -10,7 +10,9 @@ import WatchKit
 
 struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
-    @ObservedObject var hapticController:HapticController = HapticController.instance
+    @ObservedObject var hapticController: HapticController = HapticController.instance
+    @Environment(\.presentationMode) var presentationMode
+    
     
     // each if button equals true, go on that route
         var body: some View {
@@ -21,15 +23,15 @@ struct NotificationView: View {
                     NotificationManager.instance.requestAuthorization()
                 }*/
                 
-                Button("schedule notification"){
-                    NotificationManager.instance.scheduleHighNotification()
-                }
+//                Button("schedule notification"){
+//                    NotificationManager.instance.scheduleHighNotification()
+//                }
                 
                 VStack {
                     HStack{
                         Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
                      
-                            Text("Episode Detected").font(.title3).padding(.bottom, 10)
+                        Text("Episode Detected").font(.title3).padding(.bottom, 10)
                     }
                     NavigationLink(destination: SurveyView()){
                         Text("False Alarm")
@@ -37,10 +39,9 @@ struct NotificationView: View {
                             .foregroundColor(.green);
                     }
                     
-                    NavigationLink(destination: PagingView()){
-                        Text("Dismiss")
-                            .font(.title3)
-                            .foregroundColor(.white);
+                Button("Dismiss") {
+                    presentationMode.wrappedValue.dismiss()
+                    
                 }
                 .onAppear(perform: hapticController.triggerHaptic)
             }
