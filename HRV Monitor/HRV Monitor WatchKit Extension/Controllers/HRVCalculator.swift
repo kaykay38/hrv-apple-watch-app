@@ -38,13 +38,13 @@ class HRVCalculator: NSObject, ObservableObject {
     
     private var HRSampleTable: [HRSample] = []
     
-    private var HRV: Double = 0
     private var PrevHRV: Double = 0
     private var HRVTable: [Double] = [Double]()
     private var HRTable: [Double] = [Double]()
     private var currentHR: Double = 0
     private var hasFilledTable: Bool = false
     
+    @Published private(set) var HRV: Double = 0
     @Published private(set) var maximumHRV: Double = 0
     @Published private(set) var minimumHRV: Double = 0
     @Published private(set) var averageHRV: Double = 0
@@ -57,7 +57,7 @@ class HRVCalculator: NSObject, ObservableObject {
 
     
     // heartrate comes in as beats per second
-    func addSample(_ curSampleTime: Date, _ prevSampleTime: Date,_ heartrate: Double) {
+    func addSample(_ curSampleTime: Date, _ prevSampleTime: Date, _ heartrate: Double) {
         // Unwrap optional HRSamples in table, first and last.
         if let oldestSample = self.HRSampleTable.first {
             
@@ -128,7 +128,7 @@ class HRVCalculator: NSObject, ObservableObject {
         guard let hrPredictionOutput = try? hrModel.prediction(T1: HRTable[0], T2: HRTable[1], T3: HRTable[2], T4: HRTable[3], HRV: self.HRV) else {
             fatalError("Unexpected runtime error.")
         }
-        addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
+        self.addSample(curSampleTime, prevSampleTime, hrPredictionOutput.T5)
         return updateHRV();
     }
     
@@ -139,6 +139,7 @@ class HRVCalculator: NSObject, ObservableObject {
         self.averageHRV = 0
         self.predictedHRV = 0
         self.HRVTable.removeAll()
+        self.HRTable.removeAll()
         self.HRSampleTable.removeAll()
     }
     
