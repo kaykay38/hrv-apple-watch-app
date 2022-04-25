@@ -20,7 +20,7 @@ class HRVClassificationController: NSObject, ObservableObject  {
         let second = Calendar.current.component(.second, from: Date())
         
         let classificationModel = HRV_Classification();
-        guard let classification = try? classificationModel.prediction(HR: HR, RMSSD: HRV) else {
+        guard let classification = try? classificationModel.prediction(RMSSD: HRV, HR: HR, user: "yes") else {
             fatalError("Unexpected runtime error.")
         }
         
@@ -53,7 +53,8 @@ class HRVClassificationController: NSObject, ObservableObject  {
 
         let dataPointFeatures: [String: MLFeatureValue] = ["HR": MLFeatureValue(double: HR),
                                                            "RMSSD": MLFeatureValue(double: HRV),
-                                                           "label": MLFeatureValue(string: label)]
+                                                           "label": MLFeatureValue(string: label),
+                                                           "user": MLFeatureValue(string: "yes")]
 
         if let provider = try? MLDictionaryFeatureProvider(dictionary: dataPointFeatures) {
             featureProviders.append(provider)
