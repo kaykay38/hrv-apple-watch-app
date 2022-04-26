@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreML
 class HRVClassificationController: NSObject, ObservableObject  {
     
     @Published var warning: Bool = false
@@ -19,7 +20,7 @@ class HRVClassificationController: NSObject, ObservableObject  {
         let second = Calendar.current.component(.second, from: Date())
         
         let classificationModel = HRV_Classification();
-        guard let classification = try? classificationModel.prediction(HR: HR, RMSSD: HRV) else {
+        guard let classification = try? classificationModel.prediction(RMSSD: HRV, HR: HR, user: "yes") else {
             fatalError("Unexpected runtime error.")
         }
         
@@ -35,6 +36,30 @@ class HRVClassificationController: NSObject, ObservableObject  {
             NotificationManager.instance.scheduleHighNotification()
         }
         print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
+    }
+    
+    func updateHRVClassification(HR: Double, HRV: Double, label: String) {
+        let dataSet: MLBatchProvider = trainingData(HR: HR, HRV: HRV, label: label);
+
+        HRVClassificationUpdater.updateWith(trainingData: dataSet) {
+
+        }
+    }
+
+    func trainingData(HR: Double, HRV: Double, label: String) -> MLBatchProvider {
+        var featureProviders = [MLFeatureProvider]();
+
+
+
+        let dataPointFeatures: [String: MLFeatureValue] = ["HR": MLFeatureValue(double: HR),
+                                                           "RMSSD": MLFeatureValue(double: HRV),
+                                                           "label": MLFeatureValue(string: label),
+                                                           "user": MLFeatureValue(string: "yes")]
+
+        if let provider = try? MLDictionaryFeatureProvider(dictionary: dataPointFeatures) {
+            featureProviders.append(provider)
+        }
+        return MLArrayBatchProvider(array: featureProviders)
     }
 
 }
