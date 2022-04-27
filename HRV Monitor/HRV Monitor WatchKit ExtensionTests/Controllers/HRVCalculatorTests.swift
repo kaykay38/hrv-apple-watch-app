@@ -1,8 +1,8 @@
 //
-//  HRV_Monitor_WatchKit_AppTests.swift
-//  HRV Monitor WatchKit AppTests
+//  HRVCalculatorTests.swift
+//  HRV Monitor WatchKit ExtensionTests
 //
-//  Created by Mia on 2/9/22.
+//  Created by Mia Hunt on 4/27/22.
 //
 
 import XCTest
@@ -24,8 +24,15 @@ class HRVCalculatorTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-
     }
+
+    func testPerformanceExample() throws {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
+    }
+
     func test_addSample_givenValidParams() throws {
         // Arrange
         let hrvCalculator: HRVCalculator = HRVCalculator()
@@ -91,5 +98,5 @@ class HRVCalculatorTests: XCTestCase {
     //            // Put the code you want to measure the time of here.
     //        }
     //    }
-
+    
 }
