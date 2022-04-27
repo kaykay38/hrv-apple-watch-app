@@ -51,10 +51,8 @@ class HRVClassificationController: NSObject, ObservableObject  {
 
 
 
-        let dataPointFeatures: [String: MLFeatureValue] = ["HR": MLFeatureValue(double: HR),
-                                                           "RMSSD": MLFeatureValue(double: HRV),
-                                                           "label": MLFeatureValue(string: label),
-                                                           "user": MLFeatureValue(string: "yes")]
+        let dataPointFeatures: [String: MLFeatureValue] = ["RMSSD": MLFeatureValue(double: HRV),
+                                                           "label": MLFeatureValue(string: label)]
 
         if let provider = try? MLDictionaryFeatureProvider(dictionary: dataPointFeatures) {
             featureProviders.append(provider)

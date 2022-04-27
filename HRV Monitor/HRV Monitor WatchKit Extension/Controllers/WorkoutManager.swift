@@ -155,7 +155,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 }
                 
                 if(self.hrvChartArray.count > 6) {
-                    hrvClassificationController.classifyHRV(HR: self.currentHR, HRV: self.HRV/1000);
+                    hrvClassificationController.classifyHRV(HR: self.currentHR, HRV: self.HRV);
                     
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
                     
