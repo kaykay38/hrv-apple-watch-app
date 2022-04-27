@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ControlsView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
+    
     var body: some View {
         VStack {
             // TODO: temporarily disable button for x seconds after function call.
