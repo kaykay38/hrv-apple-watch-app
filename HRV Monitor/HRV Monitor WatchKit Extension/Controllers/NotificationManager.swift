@@ -12,9 +12,7 @@ class NotificationManager: ObservableObject {
     
     @Published var activeAlert: Bool = false
     
-    
     static let instance = NotificationManager()
-    
     
     private let categoryIdentifier = "FalseAlarmOrDismiss"
     

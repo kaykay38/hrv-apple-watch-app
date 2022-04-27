@@ -12,10 +12,14 @@ struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
     @ObservedObject var hapticController: HapticController = HapticController.instance
     @Environment(\.presentationMode) var presentationMode
+    @State private var isToggle : Bool = false
     
+    /*(workoutManager.navigate == true){
+        presentationMode.wrappedValue.dismiss()
+    }*/
     
     // each if button equals true, go on that route
-        var body: some View {
+    var body: some View {
             NavigationView{
                 // if false alarm, go to graph
                 // if dismiss, go to survey
@@ -23,9 +27,9 @@ struct NotificationView: View {
                     NotificationManager.instance.requestAuthorization()
                 }*/
                 
-//                Button("schedule notification"){
-//                    NotificationManager.instance.scheduleHighNotification()
-//                }
+                Button("schedule notification"){
+                 NotificationManager.instance.scheduleHighNotification()
+                }
                 
                 VStack {
                     HStack{
@@ -37,11 +41,10 @@ struct NotificationView: View {
                         Text("False Alarm")
                             .font(.title3)
                             .foregroundColor(.green);
-                    }
-                    
+                    }.navigationBarHidden(true)
+                
                 Button("Dismiss") {
                     presentationMode.wrappedValue.dismiss()
-                    
                 }
                 .onAppear(perform: hapticController.triggerHaptic)
             }

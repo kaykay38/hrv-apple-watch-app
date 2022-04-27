@@ -8,30 +8,31 @@
 import SwiftUI
 
 struct ConfirmationView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationView{
             VStack {
                     Text("Are you sure?").font(.title3).padding(.top, 10)
                     
-                    /*Button {
-                        // workoutManager.endWorkout() // method for survey
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
-                        Text("Go Back")
+                        Text("Confirm")
                             .font(.subheadline)
-                    }.foregroundColor(.yellow)
-                    .padding()*/
+                    }.foregroundColor(.white)
+                    .padding()
                     
-                NavigationLink(destination: PagingView()){
+                /*NavigationLink(destination: PagingView()){
                     Text("Confirm")
                         .font(.title3)
-                        .foregroundColor(.white);
-                }
+                        .foregroundColor(.green);
+                }*/
                 
             }
         }
     }
 }
-
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {

@@ -11,6 +11,8 @@ import SwiftUI
 
 class WorkoutManager: NSObject, ObservableObject {
     
+    //@Published var navigate: Bool = false
+    
     @Published var workout: HKWorkout?
     // The app's workout state.
     @Published var running = false

@@ -21,6 +21,8 @@ struct PagingView: View {
     var body: some View {
         TabView(selection: $selection) {
             SurveyView()
+            NotificationView()
+            SettingView()
             ControlsView().tag(Tab.controls)
             ChartView().tag(Tab.liveHRV)
 //            AreaChartView().tag(Tab.liveHRV)
