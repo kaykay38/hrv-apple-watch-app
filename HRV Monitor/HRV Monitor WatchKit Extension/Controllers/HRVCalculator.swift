@@ -36,7 +36,7 @@ extension Collection where Iterator.Element == HRSample {
 
 class HRVCalculator: NSObject, ObservableObject {
     
-    private var HRSampleTable: [HRSample] = []
+    private(set) var HRSampleTable: [HRSample] = []
     
     private var PrevHRV: Double = 0
     private var HRVTable: [Double] = [Double]()
@@ -61,7 +61,7 @@ class HRVCalculator: NSObject, ObservableObject {
         // Unwrap optional HRSamples in table, first and last.
         if let oldestSample = self.HRSampleTable.first {
             
-            // Check if samples spans more than a specified time, if so remove first entry. 30 seconds
+            // Check if samples spans more than a specified time, if so, remove first entry. 30 seconds
             if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
                 HRSampleTable.removeFirst();
             }
@@ -70,12 +70,12 @@ class HRVCalculator: NSObject, ObservableObject {
         self.currentHR = heartrate;
         
         let timeDiffMilliSec = curSampleTime.timeIntervalSince(prevSampleTime) * 1000
-        let HRPerMilliSec = heartrate/6000
+        let HRPerMilliSec = heartrate/1000
         let beats = HRPerMilliSec * timeDiffMilliSec
         let averageIBI = timeDiffMilliSec/beats
         
         self.HRSampleTable.append(
-            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: self.HRSampleTable.last?.averageIBI ?? averageIBI - averageIBI, accuracy: 0)
+            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: averageIBI - (self.HRSampleTable.last?.averageIBI ?? averageIBI), accuracy: 0)
         )
     }
     
