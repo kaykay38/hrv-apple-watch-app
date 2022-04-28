@@ -32,41 +32,44 @@ struct ContentView: View {
 }
 
 struct ContentView2: View {
+    
     @Binding var rootIsActive : Bool
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        Button("Go Back") {
-            presentationMode.wrappedValue.dismiss()
-        }
-        
-        NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
-            Text("Low")
-                .font(.title3)
-                .foregroundColor(.green);
-        }.padding(.top, 10)
-        .navigationBarHidden(true)
-        
-        NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
-            Text("Moderate")
-                .font(.title3)
-                .foregroundColor(.orange);
-        }.padding(.top, 10)
-        .navigationBarHidden(true)
-        
-        NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
-            Text("High")
-                .font(.title3)
-                .foregroundColor(.red);
-        }.padding(.top, 10)
-        .navigationBarHidden(true)
-        
-        NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
-            Text("Very High")
-                .font(.title3)
-                .foregroundColor(.purple);
-        }.padding(.top, 10)
-        .navigationBarHidden(true)
+        ScrollView{
+            Button("Go Back") {
+                presentationMode.wrappedValue.dismiss()
+            }
+            
+            NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
+                Text("Low")
+                    .font(.title3)
+                    .foregroundColor(.green);
+            }.padding(.top, 10)
+            .navigationBarHidden(true)
+            
+            NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
+                Text("Moderate")
+                    .font(.title3)
+                    .foregroundColor(.orange);
+            }.padding(.top, 10)
+            .navigationBarHidden(true)
+            
+            NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
+                Text("High")
+                    .font(.title3)
+                    .foregroundColor(.red);
+            }.padding(.top, 10)
+            .navigationBarHidden(true)
+            
+            NavigationLink(destination: ContentView3(shouldPopToRootView: self.$rootIsActive)) {
+                Text("Very High")
+                    .font(.title3)
+                    .foregroundColor(.purple);
+            }.padding(.top, 10)
+            .navigationBarHidden(true)
+       }
     }
 }
 
