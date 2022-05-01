@@ -18,7 +18,7 @@ struct ConfirmationView: View {
                     Button {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
-                        Text("Confirm")
+                        Text("Go Back")
                             .font(.subheadline)
                     }.foregroundColor(.white)
                     .padding()

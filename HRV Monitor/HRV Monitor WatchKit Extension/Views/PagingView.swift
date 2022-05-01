@@ -20,9 +20,10 @@ struct PagingView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            SurveyView()
+            SurveyView(navigationManager: NavigationManager())
             NotificationView()
             SettingView()
+            //ContentView()
             ControlsView().tag(Tab.controls)
             ChartView().tag(Tab.liveHRV)
 //            AreaChartView().tag(Tab.liveHRV)

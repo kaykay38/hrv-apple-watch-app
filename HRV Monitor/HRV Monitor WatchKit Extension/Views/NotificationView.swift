@@ -10,9 +10,10 @@ import WatchKit
 
 struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
+    @StateObject var navigationManager = NavigationManager()
     @ObservedObject var hapticController: HapticController = HapticController.instance
     @Environment(\.presentationMode) var presentationMode
-    @State private var isToggle : Bool = false
+    @State private var showingSurvey = false
     
     /*(workoutManager.navigate == true){
         presentationMode.wrappedValue.dismiss()
@@ -37,11 +38,20 @@ struct NotificationView: View {
                      
                         Text("Episode Detected").font(.title3).padding(.bottom, 10)
                     }
-                    NavigationLink(destination: SurveyView()){
+                    
+                    Button {
+                        showingSurvey = true
+                    } label: {
+                        Text("Tap me")
+                            .font(.title3)
+                            .foregroundColor(.green);
+                    }.sheet(isPresented: $showingSurvey) {SurveyView(navigationManager: NavigationManager())}
+                    
+                   /* NavigationLink(destination: SurveyView()){
                         Text("False Alarm")
                             .font(.title3)
                             .foregroundColor(.green);
-                    }.navigationBarHidden(true)
+                    }.navigationBarHidden(true)*/
                 
                 Button("Dismiss") {
                     presentationMode.wrappedValue.dismiss()

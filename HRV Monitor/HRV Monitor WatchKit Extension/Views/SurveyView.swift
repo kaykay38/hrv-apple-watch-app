@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SurveyView: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var navigationManager: NavigationManager
     
     var body: some View {
         NavigationView{
@@ -49,6 +50,6 @@ struct SurveyView: View {
 
 struct SurveyView_Previews: PreviewProvider {
     static var previews: some View {
-        SurveyView()
+        SurveyView(navigationManager: NavigationManager())
     }
 }
