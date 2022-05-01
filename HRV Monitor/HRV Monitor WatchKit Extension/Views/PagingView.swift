@@ -21,9 +21,8 @@ struct PagingView: View {
     var body: some View {
         TabView(selection: $selection) {
             SurveyView()
-            //NotificationView()
+            NotificationView()
             SettingView()
-            ContentView()
             ControlsView().tag(Tab.controls)
             ChartView().tag(Tab.liveHRV)
 //            AreaChartView().tag(Tab.liveHRV)
@@ -34,7 +33,7 @@ struct PagingView: View {
         .onAppear(perform: workoutManager.requestAuthorization)
         .onAppear(perform: NotificationManager.instance.requestAuthorization)
         .sheet(isPresented: $notificationManager.activeAlert, content: {
-            ContentView()
+            NotificationView()
                 })
     }
 }
