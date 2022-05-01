@@ -28,9 +28,9 @@ struct NotificationView: View {
                     NotificationManager.instance.requestAuthorization()
                 }*/
                 
-                Button("schedule notification"){
+                /*Button("schedule notification"){
                  NotificationManager.instance.scheduleHighNotification()
-                }
+                }*/
                 
                 VStack {
                     HStack{
@@ -42,7 +42,7 @@ struct NotificationView: View {
                     Button {
                         showingSurvey = true
                     } label: {
-                        Text("Tap me")
+                        Text("False Alarm")
                             .font(.title3)
                             .foregroundColor(.green);
                     }.sheet(isPresented: $showingSurvey) {SurveyView(navigationManager: NavigationManager())}
