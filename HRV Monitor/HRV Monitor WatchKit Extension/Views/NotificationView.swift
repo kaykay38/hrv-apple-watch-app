@@ -5,7 +5,7 @@
 //  Created by Mia on 2/9/22.
 //
 
-import SwiftUI
+/*import SwiftUI
 import WatchKit
 
 struct NotificationView: View {
@@ -60,13 +60,74 @@ struct NotificationView: View {
             }
         }
  
- }
+ }*/
 
+import SwiftUI
+
+struct NotificationView: View {
+    @EnvironmentObject var workoutManager: WorkoutManager
+    @ObservedObject var modalState: ModalState
+    @ObservedObject var hapticController: HapticController = HapticController.instance
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
+    
+    var body: some View {
+        Button("schedule notification"){
+         NotificationManager.instance.scheduleHighNotification()
+        }
+        
+        Button("Notification Page: got to survey") {
+            self.modalState.isModal1Presented = true
+            
+        }.sheet(isPresented: $modalState.isModal1Presented) {
+            ModalView(modalState: self.modalState)
+        }
+        
+        Button("Dismiss") {
+            NotificationManager.instance.activeAlert = false
+        }.onAppear(perform: hapticController.triggerHaptic)
+    }
+}
+// modal 1
+struct ModalView: View {
+    @ObservedObject var modalState: ModalState
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
+    var body: some View {
+        VStack {
+            Text("Inside Modal View")
+                .padding()
+            Button("Survey Page: got to Confirmation") {
+                self.modalState.isModal2Presented = true
+            }.sheet(isPresented: $modalState.isModal2Presented) {
+                Modal2(modalState: self.modalState)
+            }
+            Button("Dismiss") {
+                self.modalState.isModal1Presented = false
+                NotificationManager.instance.activeAlert = false
+            }
+        }
+    }
+}
+// modal 2
+struct Modal2: View {
+    @ObservedObject var modalState: ModalState
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
+    var body: some View {
+        VStack {
+            Text("Confirmation Page: go to root")
+                .padding()
+            Button("Dismiss") {
+                NotificationManager.instance.activeAlert = false
+                self.modalState.isModal1Presented = false
+                //self.modalState.isModal2Presented = false
+            }
+        }
+    }
+}
     
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationView()
+        NotificationView(modalState: ModalState())
     }
 }
-}
+

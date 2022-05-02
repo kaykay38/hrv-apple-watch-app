@@ -8,6 +8,11 @@
 import Foundation
 import UserNotifications
 
+class ModalState: ObservableObject {
+    @Published var isModal1Presented: Bool = false
+    @Published var isModal2Presented: Bool = false
+}
+
 class NotificationManager: ObservableObject {
     
     @Published var activeAlert: Bool = false

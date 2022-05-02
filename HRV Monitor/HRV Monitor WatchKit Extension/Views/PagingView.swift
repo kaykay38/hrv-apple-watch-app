@@ -13,6 +13,7 @@ struct PagingView: View {
     @State private var selection: Tab = .liveHRV
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     @EnvironmentObject var workoutManager: WorkoutManager
+    @StateObject var modalState = ModalState()
     
     enum Tab {
         case controls, liveHRV, stats, table
@@ -20,9 +21,9 @@ struct PagingView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            SurveyView(surveyManager: SurveyManager())
-            NotificationView()
-            SettingView()
+            //SurveyView(surveyManager: SurveyManager())
+            NotificationView(modalState: ModalState())
+            //SettingView()
             //ContentView()
             ControlsView().tag(Tab.controls)
             ChartView().tag(Tab.liveHRV)
@@ -34,7 +35,7 @@ struct PagingView: View {
         .onAppear(perform: workoutManager.requestAuthorization)
         .onAppear(perform: NotificationManager.instance.requestAuthorization)
         .sheet(isPresented: $notificationManager.activeAlert, content: {
-            NotificationView()
+            NotificationView(modalState: ModalState())
                 })
     }
 }
