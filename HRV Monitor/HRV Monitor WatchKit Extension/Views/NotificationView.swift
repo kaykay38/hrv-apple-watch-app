@@ -28,9 +28,9 @@ struct NotificationView: View {
                     NotificationManager.instance.requestAuthorization()
                 }*/
                 
-                /*Button("schedule notification"){
+                Button("schedule notification"){
                  NotificationManager.instance.scheduleHighNotification()
-                }*/
+                }
                 
                 VStack {
                     HStack{
