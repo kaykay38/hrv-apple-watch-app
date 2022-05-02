@@ -22,7 +22,7 @@ struct PagingView: View {
     var body: some View {
         TabView(selection: $selection) {
             //SurveyView(surveyManager: SurveyManager())
-            NotificationView(modalState: ModalState())
+            //NotificationView(modalState: ModalState())
             //SettingView()
             //ContentView()
             ControlsView().tag(Tab.controls)

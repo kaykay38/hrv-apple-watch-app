@@ -71,9 +71,9 @@ struct NotificationView: View {
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     
     var body: some View {
-        Button("schedule notification"){
+        /*Button("schedule notification"){
          NotificationManager.instance.scheduleHighNotification()
-        }
+        }*/
         
         VStack {
             HStack{
