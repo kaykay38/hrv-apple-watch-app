@@ -71,9 +71,9 @@ struct NotificationView: View {
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     
     var body: some View {
-        /*Button("schedule notification"){
+        Button("schedule notification"){
          NotificationManager.instance.scheduleHighNotification()
-        }*/
+        }
         
         VStack {
             HStack{
@@ -95,7 +95,7 @@ struct NotificationView: View {
         
         Button("Dismiss") {
             NotificationManager.instance.activeAlert = false
-        }//.onAppear(perform: hapticController.triggerHaptic)
+        }.onAppear(perform: hapticController.triggerHaptic)
     }
  }
 }
