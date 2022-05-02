@@ -9,12 +9,11 @@ import Foundation
 import SwiftUI
 import UserNotifications
 
-class NavigationManager: ObservableObject {
+class SurveyManager: ObservableObject {
     
-    @Published var NavActive: Bool = false
+}
+
+class ConfirmationManager: ObservableObject {
     
-    func openSurvey() {
-        self.NavActive = true
-    }
 }
 

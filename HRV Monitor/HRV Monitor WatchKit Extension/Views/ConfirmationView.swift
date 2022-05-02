@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConfirmationView: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var confirmationManager: ConfirmationManager
     
     var body: some View {
         NavigationView{
@@ -36,6 +37,6 @@ struct ConfirmationView: View {
 
 struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmationView()
+        ConfirmationView(confirmationManager: ConfirmationManager())
     }
 }

@@ -10,7 +10,7 @@ import WatchKit
 
 struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
-    @StateObject var navigationManager = NavigationManager()
+    @StateObject var surveyManager = SurveyManager()
     @ObservedObject var hapticController: HapticController = HapticController.instance
     @Environment(\.presentationMode) var presentationMode
     @State private var showingSurvey = false
@@ -45,7 +45,7 @@ struct NotificationView: View {
                         Text("False Alarm")
                             .font(.title3)
                             .foregroundColor(.green);
-                    }.sheet(isPresented: $showingSurvey) {SurveyView(navigationManager: NavigationManager())}
+                    }.sheet(isPresented: $showingSurvey) {SurveyView(surveyManager: SurveyManager())}
                     
                    /* NavigationLink(destination: SurveyView()){
                         Text("False Alarm")

@@ -10,21 +10,27 @@ import SwiftUI
 
 struct SurveyView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var navigationManager: NavigationManager
+    @ObservedObject var surveyManager: SurveyManager
+    @StateObject var confirmationManager = ConfirmationManager()
+    @State var showingConfirmation = false
+    //@Binding var showingSurvey: Bool
     
     var body: some View {
-        NavigationView{
             VStack {
                 ScrollView{
                     Text("What's your stress level?").font(.title3).padding(.top, 5)
                     
-                    NavigationLink(destination: ConfirmationView()){
+                    Button {
+                        showingConfirmation = true
+                        //showingSurvey = false
+                    } label: {
                         Text("Low")
                             .font(.title3)
-                            .foregroundColor(.green);
+                            .foregroundColor(.orange);
                     }.padding(.top, 10)
+                        .sheet(isPresented: $showingConfirmation) {ConfirmationView(confirmationManager: ConfirmationManager())}
                 
-                    NavigationLink(destination: ConfirmationView()){
+                    /*NavigationLink(destination: ConfirmationView()){
                         Text("Moderate")
                             .font(.title3)
                             .foregroundColor(.orange);
@@ -40,16 +46,15 @@ struct SurveyView: View {
                         Text("Very High")
                             .font(.title3)
                             .foregroundColor(.purple);
-                    }.padding(.top, 10)
+                    }.padding(.top, 10)*/
                     
                 }
             }
         }
     }
-}
 
 struct SurveyView_Previews: PreviewProvider {
     static var previews: some View {
-        SurveyView(navigationManager: NavigationManager())
+        SurveyView(surveyManager: SurveyManager())
     }
 }
