@@ -17,6 +17,8 @@ class NotificationManager: ObservableObject {
     
     @Published var activeAlert: Bool = false
     
+    //@Published var activeSurvey: Bool = false
+    
     static let instance = NotificationManager()
     
     private let categoryIdentifier = "FalseAlarmOrDismiss"
@@ -25,14 +27,45 @@ class NotificationManager: ObservableObject {
         let options: UNAuthorizationOptions = [.alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { success, error in
             //Error Handling
-            if let error = error{
+            /*if let error = error{
                 print("Notification: ERROR")
             }
             else{
                 print("Notification: Approved Access")
-            }
+            }*/
         }
     }
+    
+    // trigger the survey on a calendar
+    /*func scheduleSurvey(){
+        self.activeSurvey = true
+        let content = UNMutableNotificationContent()
+        content.title = "How are you feeling?"
+        content.subtitle = "Select your stress level"
+        content.sound = .default
+        
+        // Notification Buttons/Action
+        let reply = UNNotificationAction(identifier: "reply", title: "Reply", options: UNNotificationActionOptions.foreground)
+        
+        //UNNotificationActionOptions.foreground
+        let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [reply], intentIdentifiers: [],
+            options: .customDismissAction)
+    
+        UNUserNotificationCenter.current().setNotificationCategories([dismiss])
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 11
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                            content: content,
+                                            trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+        
+        _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+    }*/
     
     func scheduleHighNotification() {
         self.activeAlert = true

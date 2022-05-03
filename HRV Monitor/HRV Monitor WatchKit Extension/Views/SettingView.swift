@@ -8,40 +8,21 @@
 import SwiftUI
 
 struct SettingView: View {
-    @State private var firstToggle = false
-    @State private var secondToggle = false
-    @State private var isToggle : Bool = false
+    @State private var showSurvey = false
 
-       var body: some View {
-          /* VStack {
-                    Toggle(isOn: $isToggle){
-                           Text("Survey Notifications ")
-                               .font(.title)
-                               .foregroundColor(Color.white)
-                          
-                       }
-                   }.padding()
-                       .background(isToggle ? Color.orange : Color.purple)
-               }*/
-           
-           let firstBinding = Binding(
-               get: { self.firstToggle },
-               set: {
-                   self.firstToggle = $0
+        var body: some View {
+            VStack(alignment: .leading) {
+                Label("Settings", systemImage: "hand.tap")
+                    .font(.title3)
+                Divider()
+                Toggle("Survey Notifications", isOn: $showSurvey)
+                    .toggleStyle(SwitchToggleStyle(tint: .green))
 
-                   if $0 == true {
-                       self.secondToggle = false
-                   }
-               }
-           )
-
-           return VStack {
-               Toggle(isOn: firstBinding) {
-                   Text("Survey Notifications")
-               }.padding()
-
-            }
-       }
+                if showSurvey {
+                    //Text("Hello World!")
+                }
+            }.padding()
+      }
 }
 
 struct SettingView_Previews: PreviewProvider {

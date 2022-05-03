@@ -38,7 +38,8 @@ struct NotificationView: View {
         
         Button("Dismiss") {
             NotificationManager.instance.activeAlert = false
-        }.onAppear(perform: hapticController.triggerHaptic)
+        }.font(.title3)
+                .onAppear(perform: hapticController.triggerHaptic)
     }
  }
 }
