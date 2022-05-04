@@ -53,11 +53,10 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/HRV Monitor">
+      allowLocationSimulation = "YES"
+      notificationPayloadFile = "HRV Monitor WatchKit Extension/PushNotificationPayload.apns">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4F65627B476ED00906DC5"
@@ -65,7 +64,7 @@
             BlueprintName = "HRV Monitor WatchKit App"
             ReferencedContainer = "container:HRV Monitor.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -73,10 +72,8 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.Carousel"
-         RemotePath = "/HRV Monitor">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4F65627B476ED00906DC5"
@@ -84,16 +81,7 @@
             BlueprintName = "HRV Monitor WatchKit App"
             ReferencedContainer = "container:HRV Monitor.xcodeproj">
          </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "77A4F65627B476ED00906DC5"
-            BuildableName = "HRV Monitor WatchKit App.app"
-            BlueprintName = "HRV Monitor WatchKit App"
-            ReferencedContainer = "container:HRV Monitor.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

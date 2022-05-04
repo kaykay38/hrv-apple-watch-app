@@ -126,6 +126,14 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
 
+    var testI: Int = 0
+    let testBadHR: [Double] = [181, 185, 154, 181, 156, 191, 183, 155, 194, 170, 200, 192, 186, 160, 154, 189, 163, 182, 188, 152, 163, 181, 192, 187, 181]
+    
+    let testModerateHR: [Double] = [141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 130, 135]
+    
+    let testGoodHR: [Double] = [62, 64, 80, 60, 98, 93, 104, 86, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87]
+    
+    let testfullHR: [Double] = [62, 64, 80, 60, 98, 93, 104, 86, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87, 141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 130, 135, 181, 185, 154, 181, 156, 191, 183, 155, 194, 170, 200, 192, 186, 160, 154, 189, 163, 182, 188, 152, 163, 181, 192, 187, 181, 141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87]
     
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
@@ -140,7 +148,11 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
+                //self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
+                
+                //UI testing purpoes only
+                self.currentHR = testfullHR[testI];
+                testI += 1
                 
 
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
@@ -161,18 +173,18 @@ class WorkoutManager: NSObject, ObservableObject {
                     
                     hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
                     
-                    for _ in 1...2 {
-                        self.prevSampleTime = self.curSampleTime
-                        self.curSampleTime = Date()
-                        
-                        self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
-                        self.hrvChartArray.append((self.HRV-30)/50)
-                    }
+//                    for _ in 1...1 {
+//                        self.prevSampleTime = self.curSampleTime
+//                        self.curSampleTime = Date()
+//                        
+//                        self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+//                        self.hrvChartArray.append((self.HRV-30)/50)
+//                    }
                     
-                    if(self.hrvChartArray.count > 1080) {
+                    if(self.hrvChartArray.count > 60) {
                         self.hrvChartArray.removeFirst()
-                        self.hrvChartArray.removeFirst()
-                        self.hrvChartArray.removeFirst()
+//                        self.hrvChartArray.removeFirst()
+//                        self.hrvChartArray.removeFirst()
                     }
                     
                 }
