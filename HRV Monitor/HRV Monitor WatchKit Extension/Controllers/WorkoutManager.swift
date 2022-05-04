@@ -148,11 +148,16 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-                //self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
+//                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
                 
                 //UI testing purpoes only
                 self.currentHR = testfullHR[testI];
-                testI += 1
+                if(testI < testfullHR.count) {
+                    testI += 1
+                }
+                else {
+                    testI = 0
+                }
                 
 
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
@@ -161,7 +166,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 
 
                 if(count > 6) {
-                    self.hrvChartArray.append((self.HRV-30)/50)
+                    self.hrvChartArray.append((self.HRV)/300)
                 }else{
                     count += 1
                 }
@@ -178,9 +183,9 @@ class WorkoutManager: NSObject, ObservableObject {
 //                        self.curSampleTime = Date()
 //                        
 //                        self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
-//                        self.hrvChartArray.append((self.HRV-30)/50)
+//                        self.hrvChartArray.append((self.HRV)/300)
 //                    }
-                    
+//                    
                     if(self.hrvChartArray.count > 60) {
                         self.hrvChartArray.removeFirst()
 //                        self.hrvChartArray.removeFirst()

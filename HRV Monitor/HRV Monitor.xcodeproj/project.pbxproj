@@ -414,7 +414,6 @@
 				D0E1EE8827B58E9B00037CF9 /* ChartView.swift */,
 				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
 				D0E1EE8427B58A7F00037CF9 /* PagingView.swift */,
-				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
 				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
 				7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */,
 				6E5C179F2818D67E006768A4 /* SettingView.swift */,
@@ -434,6 +433,7 @@
 				D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */,
 				D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */,
 				D03F6D2727E26E9000EE8D55 /* HapticController.swift */,
+				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

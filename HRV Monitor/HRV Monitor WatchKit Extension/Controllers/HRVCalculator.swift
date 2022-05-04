@@ -62,20 +62,24 @@ class HRVCalculator: NSObject, ObservableObject {
         if let oldestSample = self.HRSampleTable.first {
             
             // Check if samples spans more than a specified time, if so, remove first entry. 30 seconds
-            if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
+            if curSampleTime.timeIntervalSince(oldestSample.date) > 300 {
                 HRSampleTable.removeFirst();
             }
         }
         
         self.currentHR = heartrate;
         
-        let timeDiffMilliSec = curSampleTime.timeIntervalSince(prevSampleTime) * 1000
-        let HRPerMilliSec = heartrate/1000
+        let timeDiffMilliSec = abs(prevSampleTime.timeIntervalSinceNow)*1000
+        print(timeDiffMilliSec)
+        let HRPerMilliSec = heartrate/60000
+        print("current HR \(currentHR)")
+        print("HR/Milli \(HRPerMilliSec)")
         let beats = HRPerMilliSec * timeDiffMilliSec
         let averageIBI = timeDiffMilliSec/beats
+        print("averageIBI: \(averageIBI)")
         
         self.HRSampleTable.append(
-            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: averageIBI - (self.HRSampleTable.last?.averageIBI ?? averageIBI), accuracy: 0)
+            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: (self.HRSampleTable.last?.averageIBI ?? averageIBI) - averageIBI, accuracy: 0)
         )
     }
     
