@@ -35,7 +35,7 @@ class HRVClassificationController: NSObject, ObservableObject  {
             alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
             NotificationManager.instance.scheduleHighNotification()
         }
-        print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
+//        print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")
     }
     
     func updateHRVClassification(HR: Double, HRV: Double, label: String) {

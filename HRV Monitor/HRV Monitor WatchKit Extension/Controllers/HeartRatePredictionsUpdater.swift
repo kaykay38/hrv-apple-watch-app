@@ -88,9 +88,9 @@ struct HRPredictionUpdater {
             _ = try fileManager.replaceItemAt(updatedModelURL,
                                               withItemAt: tempUpdatedModelURL)
             
-            print("Updated model saved to:\n\t\(updatedModelURL)")
+//            print("Updated model saved to:\n\t\(updatedModelURL)")
         } catch let error {
-            print("Could not save updated model to the file system: \(error)")
+//            print("Could not save updated model to the file system: \(error)")
             return
         }
     }
@@ -123,7 +123,7 @@ extension HeartRatePredictions {
                                            configuration: nil,
                                            completionHandler: completionHandler)
             else {
-                print("Could't create an MLUpdateTask.")
+//                print("Could't create an MLUpdateTask.")
                 return
         }
         

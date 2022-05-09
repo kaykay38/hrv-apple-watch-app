@@ -131,9 +131,12 @@ class WorkoutManager: NSObject, ObservableObject {
     
     let testModerateHR: [Double] = [141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 130, 135]
     
-    let testGoodHR: [Double] = [62, 64, 80, 60, 98, 93, 104, 86, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87]
+    let testGoodHR: [Double] = [55, 57, 57, 57, 58, 58, 58, 56, 58, 60, 61, 62, 64]
     
-    let testfullHR: [Double] = [62, 64, 80, 60, 98, 93, 104, 86, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87, 141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 130, 135, 181, 185, 154, 181, 156, 191, 183, 155, 194, 170, 200, 192, 186, 160, 154, 189, 163, 182, 188, 152, 163, 181, 192, 187, 181, 141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87]
+    let testfullHR: [Double] = [74.0, 78.0, 73.0, 71.0, 71.0, 71.0, 73.0, 78.0, 72.0, 72.0, 74.0, 74.0, 74.0, 76.0, 76.0, 75.0, 79.0, 79.0, 80.0, 80.0, 81.0, 79.0, 79.0, 75.0, 75.0, 73.0, 73.0, 74.0, 74.0, 69.0, 67.0, 66.0, 69.0, 69.0, 70.0, 74.0, 79.0, 79.0, 80, 82, 83, 85, 85, 87, 87, 88, 88, 89, 92, 92, 93, 94, 95, 97, 98, 100, 102, 103, 104, 104, 107, 108, 110, 110, 111, 115, 116, 116, 118, 119, 121, 123, 125, 125, 125, 124, 126, 129, 130, 132, 134, 130, 132, 130, 134, 134, 136, 138, 138, 140, 140, 142, 140, 138, 136, 133, 133, 130, 130, 128, 128, 127, 126, 126, 125, 122, 118, 121, 123, 125, 127, 128, 130, 126, 124, 120, 119, 77.0, 77.0, 79.0, 81.0, 79.0, 78.0, 77.0, 75.0, 73.0, 74.0, 76.0, 78.0, 80.0, 78.0, 74.0, 71.0, 71.0, 72.0, 76.0, 76.0, 75.0, 75.0, 77.0, 76.0, 73.0, 73.0, 75.0, 73.0, 73.0, 73.0, 74.0, 74.0, 74.0, 75.0, 75.0, 75.0, 76.0, 78.0, 78.0, 78.0, 77.0, 78.0, 78.0, 79.0, 78.0, 72.0, 70.0, 69.0, 71.0, 72.0, 71.0, 73.0, 73.0, 74.0, 73.0, ]
+
+    
+    var HRArr: [Double] = []
     
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
@@ -150,9 +153,11 @@ class WorkoutManager: NSObject, ObservableObject {
                 
 //                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
                 
-                //UI testing purpoes only
+//                HRArr.append(self.currentHR)
+//                print(HRArr)
+//                UI testing purpoes only
                 self.currentHR = testfullHR[testI];
-                if(testI < testfullHR.count) {
+                if(testI < testfullHR.count - 1) {
                     testI += 1
                 }
                 else {
@@ -166,7 +171,7 @@ class WorkoutManager: NSObject, ObservableObject {
                 
 
                 if(count > 6) {
-                    self.hrvChartArray.append((self.HRV)/300)
+                    self.hrvChartArray.append((self.HRV-30)/50)
                 }else{
                     count += 1
                 }
@@ -178,17 +183,19 @@ class WorkoutManager: NSObject, ObservableObject {
                     
                     hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
                     
-//                    for _ in 1...1 {
-//                        self.prevSampleTime = self.curSampleTime
-//                        self.curSampleTime = Date()
-//                        
-//                        self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
-//                        self.hrvChartArray.append((self.HRV)/300)
-//                    }
+                    for _ in 1...1 {
+                        _ = Timer(timeInterval: 2.5, repeats: false) {_ in
+                            self.prevSampleTime = self.curSampleTime
+                            self.curSampleTime = Date()
+
+                            self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+                            self.hrvChartArray.append((self.HRV-30)/50)
+                        }
+                    }
 //                    
-                    if(self.hrvChartArray.count > 60) {
+                    if(self.hrvChartArray.count > 240) {
                         self.hrvChartArray.removeFirst()
-//                        self.hrvChartArray.removeFirst()
+                        self.hrvChartArray.removeFirst()
 //                        self.hrvChartArray.removeFirst()
                     }
                     
