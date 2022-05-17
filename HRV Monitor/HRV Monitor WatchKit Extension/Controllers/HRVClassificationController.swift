@@ -15,9 +15,9 @@ class HRVClassificationController: NSObject, ObservableObject  {
     
     func classifyHRV(HR: Double, HRV: Double) {
         
-        let hour = Calendar.current.component(.hour, from: Date())
-        let minute = Calendar.current.component(.minute, from: Date())
-        let second = Calendar.current.component(.second, from: Date())
+//        let hour = Calendar.current.component(.hour, from: Date())
+//        let minute = Calendar.current.component(.minute, from: Date())
+//        let second = Calendar.current.component(.second, from: Date())
         
         let classificationModel = HRV_Classification();
         guard let classification = try? classificationModel.prediction(RMSSD: HRV, HR: HR, user: "yes") else {

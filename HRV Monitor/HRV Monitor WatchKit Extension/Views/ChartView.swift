@@ -41,11 +41,11 @@ struct ChartView: View {
                                 ).font(.largeTitle);
                                 Spacer()
                                 if(workoutManager.hrvClassificationController.alert) {
-                                    Label("Warning", systemImage: "hand.thumbsdown.circle")
+                                    Label("Warning", systemImage: "questionmark.circle")
                                         .font(.title3)
                                         .foregroundColor(.red);
                                 }else if(workoutManager.hrvClassificationController.warning) {
-                                    Label("Moderate", systemImage: "hand.thumbsdown.circle")
+                                    Label("Moderate", systemImage: "minus.circle")
                                         .font(.title3)
                                         .foregroundColor(.yellow);
                                 }else{
