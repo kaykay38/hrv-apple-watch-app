@@ -32,7 +32,7 @@ class HRVClassificationController: NSObject, ObservableObject  {
         }
         if(classification.label == "high") {
             self.alert = true;
-            alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
+//            alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
             NotificationManager.instance.scheduleHighNotification()
         }
 //        print("HR: \(HR) HRV: \(HRV) Classification: \(classification.label)")

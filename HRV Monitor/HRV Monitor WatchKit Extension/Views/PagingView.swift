@@ -28,7 +28,7 @@ struct PagingView: View {
 //            AreaChartView().tag(Tab.liveHRV)
             // HRVSimpleView().tag(Tab.liveHRV)
             StatisticsView().tag(Tab.stats)
-            TableView().tag(Tab.table)
+//            TableView().tag(Tab.table)
             SettingView()
         }
         .onAppear(perform: workoutManager.requestAuthorization)
