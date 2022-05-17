@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1E442B281A0CE800EF0FA7 /* HRVCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E442A281A0CE800EF0FA7 /* HRVCalculatorTests.swift */; };
+		0D23FEC5281A0A4F00E9E0F7 /* HRV_Monitor_WatchKit_ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D23FEC4281A0A4F00E9E0F7 /* HRV_Monitor_WatchKit_ExtensionTests.swift */; };
+		0D53FFD6280E0E8B00FD0FE9 /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */; };
+		0D53FFD8280E0FF300FD0FE9 /* HRVClassificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */; };
+		0D7D79B02810B37D00AF5401 /* AreaChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D79AF2810B37D00AF5401 /* AreaChartView.swift */; };
+		6E5C17A02818D67E006768A4 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5C179F2818D67E006768A4 /* SettingView.swift */; };
+		6ED6B6B72820D0AF006127CC /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6B6B62820D0AF006127CC /* SurveyView.swift */; };
 		7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */; };
 		776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776151E927C5563C0066BED1 /* ControlsView.swift */; };
 		777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C03E627B47913007F4FE5 /* AuthenticationServices.framework */; };
@@ -25,7 +32,6 @@
 		77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F66F27B476EF00906DC5 /* ComplicationController.swift */; };
 		77A4F67227B476F000906DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4F67127B476F000906DC5 /* Assets.xcassets */; };
 		77A4F67527B476F000906DC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4F67427B476F000906DC5 /* Preview Assets.xcassets */; };
-		77A4F68127B476F000906DC5 /* HRV_Monitor_WatchKit_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68027B476F000906DC5 /* HRV_Monitor_WatchKit_AppTests.swift */; };
 		77A4F68B27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68A27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITests.swift */; };
 		77A4F68D27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68C27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift */; };
 		77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4F6A927B4775400906DC5 /* HealthKit.framework */; };
@@ -40,9 +46,18 @@
 		D02008ED27E6574600F8A3C4 /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008EC27E6574600F8A3C4 /* TodayChartView.swift */; };
 		D02008F127E6586500F8A3C4 /* SevenDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */; };
 		D02008F327E6589600F8A3C4 /* ThirtyDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */; };
+		D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
+		D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F6D2727E26E9000EE8D55 /* HapticController.swift */; };
+		D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */; };
+		D046828E282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */; };
 		D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D055E96927BAF3C30026FE92 /* WorkoutManager.swift */; };
 		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
+		D056CD542817606400CE75AE /* HeartRatePredictionsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */; };
+		D056CD56281760D400CE75AE /* HRVClassificationUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */; };
+		D05D761F2833443C00E63158 /* ThankYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D761E2833443C00E63158 /* ThankYouView.swift */; };
+		D075175128284B3100BD2AC8 /* Tester_HRVCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075175028284B3100BD2AC8 /* Tester_HRVCalculator.swift */; };
+		D075175328284D6800BD2AC8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075175228284D6800BD2AC8 /* TestView.swift */; };
 		D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08ED19227D67EDB003F9DA7 /* TableView.swift */; };
 		D0D1F4AF27E1A3B300A0DEA8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */; };
 		D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E05E4F27D8791900FBE1F2 /* DotView.swift */; };
@@ -54,6 +69,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0D139BE128174F7E0005BE13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77A4F62B27B476EA00906DC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77A4F63227B476EA00906DC5;
+			remoteInfo = "HRV Monitor";
+		};
+		0D23FEC6281A0A4F00E9E0F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 77A4F62B27B476EA00906DC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77A4F66127B476EF00906DC5;
+			remoteInfo = "HRV Monitor WatchKit Extension";
+		};
 		77A4F64427B476EC00906DC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 77A4F62B27B476EA00906DC5 /* Project object */;
@@ -124,6 +153,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D1E442A281A0CE800EF0FA7 /* HRVCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVCalculatorTests.swift; sourceTree = "<group>"; };
+		0D23FEC2281A0A4E00E9E0F7 /* HRV Monitor WatchKit ExtensionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV Monitor WatchKit ExtensionTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D23FEC4281A0A4F00E9E0F7 /* HRV_Monitor_WatchKit_ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRV_Monitor_WatchKit_ExtensionTests.swift; sourceTree = "<group>"; };
+		0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
+		0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVClassificationController.swift; sourceTree = "<group>"; };
+		0D7D79AF2810B37D00AF5401 /* AreaChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaChartView.swift; sourceTree = "<group>"; };
+		6E5C179F2818D67E006768A4 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		6ED6B6B62820D0AF006127CC /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVSimpleView.swift; sourceTree = "<group>"; };
 		776151E927C5563C0066BED1 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
 		777C03E627B47913007F4FE5 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/AuthenticationServices.framework; sourceTree = DEVELOPER_DIR; };
@@ -148,7 +185,6 @@
 		77A4F67627B476F000906DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77A4F67727B476F000906DC5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		77A4F67C27B476F000906DC5 /* HRV Monitor WatchKit AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV Monitor WatchKit AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		77A4F68027B476F000906DC5 /* HRV_Monitor_WatchKit_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRV_Monitor_WatchKit_AppTests.swift; sourceTree = "<group>"; };
 		77A4F68627B476F000906DC5 /* HRV Monitor WatchKit AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV Monitor WatchKit AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A4F68A27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRV_Monitor_WatchKit_AppUITests.swift; sourceTree = "<group>"; };
 		77A4F68C27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -164,10 +200,17 @@
 		D02008EC27E6574600F8A3C4 /* TodayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayChartView.swift; sourceTree = "<group>"; };
 		D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDayChartView.swift; sourceTree = "<group>"; };
 		D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirtyDayChartView.swift; sourceTree = "<group>"; };
+		D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HeartRatePredictions.mlmodel; sourceTree = "<group>"; };
 		D03F6D2727E26E9000EE8D55 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
+		D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "HRV Classification.mlmodel"; path = "../Machine Learning Files/HRV Classification/HRV Classification.mlmodel"; sourceTree = "<group>"; };
 		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatePredictionsUpdater.swift; sourceTree = "<group>"; };
+		D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVClassificationUpdater.swift; sourceTree = "<group>"; };
+		D05D761E2833443C00E63158 /* ThankYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouView.swift; sourceTree = "<group>"; };
+		D075175028284B3100BD2AC8 /* Tester_HRVCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester_HRVCalculator.swift; sourceTree = "<group>"; };
+		D075175228284D6800BD2AC8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		D08ED19227D67EDB003F9DA7 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D0E05E4F27D8791900FBE1F2 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -178,6 +221,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0D23FEBF281A0A4E00E9E0F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77A4F63027B476EA00906DC5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,16 +278,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1E4429281A0C6500EF0FA7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D1E442A281A0CE800EF0FA7 /* HRVCalculatorTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0D23FEC3281A0A4F00E9E0F7 /* HRV Monitor WatchKit ExtensionTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D1E4429281A0C6500EF0FA7 /* Controllers */,
+				0D23FEC4281A0A4F00E9E0F7 /* HRV_Monitor_WatchKit_ExtensionTests.swift */,
+			);
+			path = "HRV Monitor WatchKit ExtensionTests";
+			sourceTree = "<group>";
+		};
+		0D2A10FB280F3A7600C52E95 /* DataStuctures */ = {
+			isa = PBXGroup;
+			children = (
+				0D53FFD5280E0E8B00FD0FE9 /* DataStructs.swift */,
+			);
+			path = DataStuctures;
+			sourceTree = "<group>";
+		};
 		77A4F62A27B476EA00906DC5 = {
 			isa = PBXGroup;
 			children = (
+				D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */,
+				D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */,
 				77A4F63527B476EA00906DC5 /* HRV Monitor */,
 				77A4F64627B476EC00906DC5 /* HRV MonitorTests */,
 				77A4F65027B476ED00906DC5 /* HRV MonitorUITests */,
 				77A4F65B27B476ED00906DC5 /* HRV Monitor WatchKit App */,
-				77A4F66627B476EF00906DC5 /* HRV Monitor WatchKit Extension */,
 				77A4F67F27B476F000906DC5 /* HRV Monitor WatchKit AppTests */,
 				77A4F68927B476F000906DC5 /* HRV Monitor WatchKit AppUITests */,
+				77A4F66627B476EF00906DC5 /* HRV Monitor WatchKit Extension */,
+				0D23FEC3281A0A4F00E9E0F7 /* HRV Monitor WatchKit ExtensionTests */,
 				77A4F63427B476EA00906DC5 /* Products */,
 				77A4F6A827B4775400906DC5 /* Frameworks */,
 			);
@@ -253,6 +331,7 @@
 				77A4F66227B476EF00906DC5 /* HRV Monitor WatchKit Extension.appex */,
 				77A4F67C27B476F000906DC5 /* HRV Monitor WatchKit AppTests.xctest */,
 				77A4F68627B476F000906DC5 /* HRV Monitor WatchKit AppUITests.xctest */,
+				0D23FEC2281A0A4E00E9E0F7 /* HRV Monitor WatchKit ExtensionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,10 +393,12 @@
 		77A4F66627B476EF00906DC5 /* HRV Monitor WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D075174F28284B0E00BD2AC8 /* Testers */,
 				D055E96B27BAFC020026FE92 /* HRV Monitor WatchKit Extension.entitlements */,
 				77A4F66727B476EF00906DC5 /* HRV_MonitorApp.swift */,
-				D055E96727BAEA310026FE92 /* Views */,
+				0D2A10FB280F3A7600C52E95 /* DataStuctures */,
 				D055E96827BAEA3A0026FE92 /* Controllers */,
+				D055E96727BAEA310026FE92 /* Views */,
 				77A4F67127B476F000906DC5 /* Assets.xcassets */,
 				77A4F67627B476F000906DC5 /* Info.plist */,
 				77A4F67727B476F000906DC5 /* PushNotificationPayload.apns */,
@@ -337,7 +418,6 @@
 		77A4F67F27B476F000906DC5 /* HRV Monitor WatchKit AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				77A4F68027B476F000906DC5 /* HRV_Monitor_WatchKit_AppTests.swift */,
 			);
 			path = "HRV Monitor WatchKit AppTests";
 			sourceTree = "<group>";
@@ -364,14 +444,19 @@
 		D055E96727BAEA310026FE92 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0D7D79AF2810B37D00AF5401 /* AreaChartView.swift */,
+				D075175228284D6800BD2AC8 /* TestView.swift */,
 				776151E927C5563C0066BED1 /* ControlsView.swift */,
-				D0E1EE8427B58A7F00037CF9 /* PagingView.swift */,
 				D08ED19227D67EDB003F9DA7 /* TableView.swift */,
 				D0E1EE8827B58E9B00037CF9 /* ChartView.swift */,
 				D0E1EE9027B5993900037CF9 /* StatisticsView.swift */,
+				D0E1EE8427B58A7F00037CF9 /* PagingView.swift */,
 				77A4F66D27B476EF00906DC5 /* NotificationView.swift */,
-				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
 				7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */,
+				6E5C179F2818D67E006768A4 /* SettingView.swift */,
+				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
+				6ED6B6B62820D0AF006127CC /* SurveyView.swift */,
+				D05D761E2833443C00E63158 /* ThankYouView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -381,11 +466,22 @@
 			children = (
 				77A4F66F27B476EF00906DC5 /* ComplicationController.swift */,
 				D055E96927BAF3C30026FE92 /* WorkoutManager.swift */,
-				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
+				0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */,
+				D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */,
+				D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */,
 				D0D1F4AE27E1A3B300A0DEA8 /* NotificationManager.swift */,
 				D03F6D2727E26E9000EE8D55 /* HapticController.swift */,
+				77C7E04627D8253600EC67D6 /* HRVCalculator.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D075174F28284B0E00BD2AC8 /* Testers */ = {
+			isa = PBXGroup;
+			children = (
+				D075175028284B3100BD2AC8 /* Tester_HRVCalculator.swift */,
+			);
+			path = Testers;
 			sourceTree = "<group>";
 		};
 		D0E05E5327D87D9100FBE1F2 /* Loading Dots */ = {
@@ -400,6 +496,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0D23FEC1281A0A4E00E9E0F7 /* HRV Monitor WatchKit ExtensionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D23FEC8281A0A4F00E9E0F7 /* Build configuration list for PBXNativeTarget "HRV Monitor WatchKit ExtensionTests" */;
+			buildPhases = (
+				0D23FEBE281A0A4E00E9E0F7 /* Sources */,
+				0D23FEBF281A0A4E00E9E0F7 /* Frameworks */,
+				0D23FEC0281A0A4E00E9E0F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D23FEC7281A0A4F00E9E0F7 /* PBXTargetDependency */,
+			);
+			name = "HRV Monitor WatchKit ExtensionTests";
+			productName = "HRV Monitor WatchKit ExtensionTests";
+			productReference = 0D23FEC2281A0A4E00E9E0F7 /* HRV Monitor WatchKit ExtensionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		77A4F63227B476EA00906DC5 /* HRV Monitor */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77A4F69827B476F000906DC5 /* Build configuration list for PBXNativeTarget "HRV Monitor" */;
@@ -525,6 +639,7 @@
 			);
 			dependencies = (
 				77A4F68827B476F000906DC5 /* PBXTargetDependency */,
+				0D139BE228174F7E0005BE13 /* PBXTargetDependency */,
 			);
 			name = "HRV Monitor WatchKit AppUITests";
 			productName = "HRV Monitor WatchKit AppUITests";
@@ -538,9 +653,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					0D23FEC1281A0A4E00E9E0F7 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 77A4F66127B476EF00906DC5;
+					};
 					77A4F63227B476EA00906DC5 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -564,7 +683,7 @@
 					};
 					77A4F68527B476F000906DC5 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 77A4F65627B476ED00906DC5;
+						TestTargetID = 77A4F63227B476EA00906DC5;
 					};
 				};
 			};
@@ -589,14 +708,22 @@
 				77A4F64227B476EC00906DC5 /* HRV MonitorTests */,
 				77A4F64C27B476ED00906DC5 /* HRV MonitorUITests */,
 				77A4F65627B476ED00906DC5 /* HRV Monitor WatchKit App */,
-				77A4F66127B476EF00906DC5 /* HRV Monitor WatchKit Extension */,
 				77A4F67B27B476F000906DC5 /* HRV Monitor WatchKit AppTests */,
 				77A4F68527B476F000906DC5 /* HRV Monitor WatchKit AppUITests */,
+				77A4F66127B476EF00906DC5 /* HRV Monitor WatchKit Extension */,
+				0D23FEC1281A0A4E00E9E0F7 /* HRV Monitor WatchKit ExtensionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D23FEC0281A0A4E00E9E0F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77A4F63127B476EA00906DC5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -654,6 +781,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0D23FEBE281A0A4E00E9E0F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D1E442B281A0CE800EF0FA7 /* HRVCalculatorTests.swift in Sources */,
+				0D23FEC5281A0A4F00E9E0F7 /* HRV_Monitor_WatchKit_ExtensionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		77A4F62F27B476EA00906DC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +801,8 @@
 				77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */,
 				D02008E627E568FE00F8A3C4 /* HealthKitController.swift in Sources */,
 				D02008D727E558E800F8A3C4 /* StatisticsView.swift in Sources */,
+				D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
+				D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */,
 				77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */,
 				D02008D527E5587A00F8A3C4 /* BannerView.swift in Sources */,
 				D02008F127E6586500F8A3C4 /* SevenDayChartView.swift in Sources */,
@@ -694,20 +832,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */,
+				0D53FFD8280E0FF300FD0FE9 /* HRVClassificationController.swift in Sources */,
+				0D53FFD6280E0E8B00FD0FE9 /* DataStructs.swift in Sources */,
 				77A4F67027B476EF00906DC5 /* ComplicationController.swift in Sources */,
 				77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */,
 				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
+				D046828E282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */,
+				6E5C17A02818D67E006768A4 /* SettingView.swift in Sources */,
 				D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */,
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
+				D056CD56281760D400CE75AE /* HRVClassificationUpdater.swift in Sources */,
 				77A4F66827B476EF00906DC5 /* HRV_MonitorApp.swift in Sources */,
+				0D7D79B02810B37D00AF5401 /* AreaChartView.swift in Sources */,
 				D0E1EE8527B58A7F00037CF9 /* PagingView.swift in Sources */,
+				D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
 				D055E96A27BAF3C30026FE92 /* WorkoutManager.swift in Sources */,
+				D075175128284B3100BD2AC8 /* Tester_HRVCalculator.swift in Sources */,
+				D056CD542817606400CE75AE /* HeartRatePredictionsUpdater.swift in Sources */,
 				77A4F66E27B476EF00906DC5 /* NotificationView.swift in Sources */,
 				D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */,
 				7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */,
+				6ED6B6B72820D0AF006127CC /* SurveyView.swift in Sources */,
 				D0D1F4AF27E1A3B300A0DEA8 /* NotificationManager.swift in Sources */,
 				D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */,
+				D075175328284D6800BD2AC8 /* TestView.swift in Sources */,
 				776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */,
+				D05D761F2833443C00E63158 /* ThankYouView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,7 +865,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A4F68127B476F000906DC5 /* HRV_Monitor_WatchKit_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +880,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0D139BE228174F7E0005BE13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77A4F63227B476EA00906DC5 /* HRV Monitor */;
+			targetProxy = 0D139BE128174F7E0005BE13 /* PBXContainerItemProxy */;
+		};
+		0D23FEC7281A0A4F00E9E0F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77A4F66127B476EF00906DC5 /* HRV Monitor WatchKit Extension */;
+			targetProxy = 0D23FEC6281A0A4F00E9E0F7 /* PBXContainerItemProxy */;
+		};
 		77A4F64527B476EC00906DC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 77A4F63227B476EA00906DC5 /* HRV Monitor */;
@@ -764,6 +923,47 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0D23FEC9281A0A4F00E9E0F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7ZTT37X4QG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor-WatchKit-ExtensionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		0D23FECA281A0A4F00E9E0F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7ZTT37X4QG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor-WatchKit-ExtensionTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV Monitor WatchKit Extension.appex/HRV Monitor WatchKit Extension";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 		77A4F68E27B476F000906DC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -957,7 +1157,7 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit App";
+				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
 				MARKETING_VERSION = 1.0.1;
@@ -983,7 +1183,7 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor WatchKit App";
+				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
 				MARKETING_VERSION = 1.0.1;
@@ -1026,7 +1226,7 @@
 				);
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "HRV Monitor";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1211,7 +1411,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "HRV Monitor WatchKit App";
+				TEST_TARGET_NAME = "HRV Monitor";
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
@@ -1230,7 +1430,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "HRV Monitor WatchKit App";
+				TEST_TARGET_NAME = "HRV Monitor";
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
@@ -1239,6 +1439,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D23FEC8281A0A4F00E9E0F7 /* Build configuration list for PBXNativeTarget "HRV Monitor WatchKit ExtensionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D23FEC9281A0A4F00E9E0F7 /* Debug */,
+				0D23FECA281A0A4F00E9E0F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		77A4F62E27B476EA00906DC5 /* Build configuration list for PBXProject "HRV Monitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
