@@ -112,7 +112,7 @@ class HRVCalculator: NSObject, ObservableObject {
         if self.maximumHRV < newMax {
             self.maximumHRV = newMax
         }
-        if self.minimumHRV > newMin {
+        if self.minimumHRV == 0 || self.minimumHRV > newMin {
             self.minimumHRV = newMin
         }
         

@@ -31,7 +31,7 @@
       "size" : "29x29"
     },
     {
-      "filename" : "80-1.png",
+      "filename" : "80.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
@@ -67,7 +67,7 @@
       "size" : "60x60"
     },
     {
-      "filename" : "1024.png",
+      "filename" : "appstore.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
@@ -110,7 +110,7 @@
       "subtype" : "45mm"
     },
     {
-      "filename" : "80.png",
+      "filename" : "80-1.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -179,7 +179,7 @@
       "subtype" : "45mm"
     },
     {
-      "filename" : "appstore.png",
+      "filename" : "appstore-1.png",
       "idiom" : "watch-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
