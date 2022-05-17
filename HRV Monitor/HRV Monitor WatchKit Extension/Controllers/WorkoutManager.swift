@@ -151,18 +151,18 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-//                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
+                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
                 
 //                HRArr.append(self.currentHR)
 //                print(HRArr)
 //                UI testing purpoes only
-                self.currentHR = testfullHR[testI];
-                if(testI < testfullHR.count - 1) {
-                    testI += 1
-                }
-                else {
-                    testI = 0
-                }
+//                self.currentHR = testfullHR[testI];
+//                if(testI < testfullHR.count - 1) {
+//                    testI += 1
+//                }
+//                else {
+//                    testI = 0
+//                }
                 
 
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)

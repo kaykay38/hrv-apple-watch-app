@@ -36,6 +36,8 @@
 		77A4F68D27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F68C27B476F000906DC5 /* HRV_Monitor_WatchKit_AppUITestsLaunchTests.swift */; };
 		77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A4F6A927B4775400906DC5 /* HealthKit.framework */; };
 		77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7E04627D8253600EC67D6 /* HRVCalculator.swift */; };
+		D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
+		D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D02008D527E5587A00F8A3C4 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D427E5587A00F8A3C4 /* BannerView.swift */; };
 		D02008D727E558E800F8A3C4 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D627E558E800F8A3C4 /* StatisticsView.swift */; };
 		D02008DB27E55F5500F8A3C4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008DA27E55F5500F8A3C4 /* AlertView.swift */; };
@@ -46,8 +48,6 @@
 		D02008ED27E6574600F8A3C4 /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008EC27E6574600F8A3C4 /* TodayChartView.swift */; };
 		D02008F127E6586500F8A3C4 /* SevenDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */; };
 		D02008F327E6589600F8A3C4 /* ThirtyDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */; };
-		D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
-		D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F6D2727E26E9000EE8D55 /* HapticController.swift */; };
 		D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */; };
 		D046828E282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */; };
@@ -191,6 +191,7 @@
 		77A4F6A727B4775400906DC5 /* HRV Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HRV Monitor.entitlements"; sourceTree = "<group>"; };
 		77A4F6A927B4775400906DC5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		77C7E04627D8253600EC67D6 /* HRVCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVCalculator.swift; sourceTree = "<group>"; };
+		D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HeartRatePredictions.mlmodel; sourceTree = "<group>"; };
 		D02008D427E5587A00F8A3C4 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		D02008D627E558E800F8A3C4 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		D02008DA27E55F5500F8A3C4 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
@@ -200,7 +201,6 @@
 		D02008EC27E6574600F8A3C4 /* TodayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayChartView.swift; sourceTree = "<group>"; };
 		D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenDayChartView.swift; sourceTree = "<group>"; };
 		D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirtyDayChartView.swift; sourceTree = "<group>"; };
-		D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HeartRatePredictions.mlmodel; sourceTree = "<group>"; };
 		D03F6D2727E26E9000EE8D55 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
 		D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "HRV Classification.mlmodel"; path = "../Machine Learning Files/HRV Classification/HRV Classification.mlmodel"; sourceTree = "<group>"; };
 		D055E96927BAF3C30026FE92 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
@@ -1081,7 +1081,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1116,7 +1116,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1153,7 +1153,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
@@ -1179,7 +1179,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
@@ -1206,7 +1206,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor/HRV Monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1217,6 +1217,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1241,7 +1242,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor/HRV Monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1252,6 +1253,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
