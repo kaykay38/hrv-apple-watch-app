@@ -11,6 +11,7 @@ import SwiftUI
 // try to connect notification view modals with this modal and a possible Confirmation View
 
 struct SurveyView: View {
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     var body: some View {
             VStack {
                 ScrollView{
@@ -18,6 +19,7 @@ struct SurveyView: View {
                     
                     Button {
                         //self.modalState.isModal2Presented = true
+                        NotificationManager.instance.thankYou = true
                     } label: {
                         Text("Low")
                             .font(.title3)
@@ -30,6 +32,8 @@ struct SurveyView: View {
                     Button {
                     ///
                         //self.modalState.isModal2Presented = true
+
+                        NotificationManager.instance.thankYou = true
                     } label: {
                         Text("Moderate")
                             .font(.title3)
@@ -41,6 +45,8 @@ struct SurveyView: View {
                     
                     Button {
                         //self.modalState.isModal2Presented = true
+   
+                        NotificationManager.instance.thankYou = true
                     } label: {
                         Text("High")
                             .font(.title3)
@@ -52,6 +58,9 @@ struct SurveyView: View {
                     
                     Button {
                         //self.modalState.isModal2Presented = true
+                        NotificationManager.instance.activeSurvey = false
+                        NotificationManager.instance.thankYou = true
+                        
                     } label: {
                         Text("Very High")
                             .font(.title3)

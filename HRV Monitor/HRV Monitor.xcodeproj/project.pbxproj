@@ -45,6 +45,7 @@
 		D055E96D27BAFC030026FE92 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D055E96C27BAFC030026FE92 /* HealthKit.framework */; };
 		D056CD542817606400CE75AE /* HeartRatePredictionsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */; };
 		D056CD56281760D400CE75AE /* HRVClassificationUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */; };
+		D05D761F2833443C00E63158 /* ThankYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D761E2833443C00E63158 /* ThankYouView.swift */; };
 		D075175128284B3100BD2AC8 /* Tester_HRVCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075175028284B3100BD2AC8 /* Tester_HRVCalculator.swift */; };
 		D075175328284D6800BD2AC8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D075175228284D6800BD2AC8 /* TestView.swift */; };
 		D08ED19327D67EDB003F9DA7 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08ED19227D67EDB003F9DA7 /* TableView.swift */; };
@@ -188,6 +189,7 @@
 		D055E96C27BAFC030026FE92 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		D056CD532817606400CE75AE /* HeartRatePredictionsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRatePredictionsUpdater.swift; sourceTree = "<group>"; };
 		D056CD55281760D400CE75AE /* HRVClassificationUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVClassificationUpdater.swift; sourceTree = "<group>"; };
+		D05D761E2833443C00E63158 /* ThankYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouView.swift; sourceTree = "<group>"; };
 		D075175028284B3100BD2AC8 /* Tester_HRVCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester_HRVCalculator.swift; sourceTree = "<group>"; };
 		D075175228284D6800BD2AC8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		D08ED19227D67EDB003F9DA7 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 				6E5C179F2818D67E006768A4 /* SettingView.swift */,
 				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
 				6ED6B6B62820D0AF006127CC /* SurveyView.swift */,
+				D05D761E2833443C00E63158 /* ThankYouView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 				D0E05E5027D8791900FBE1F2 /* DotView.swift in Sources */,
 				D075175328284D6800BD2AC8 /* TestView.swift in Sources */,
 				776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */,
+				D05D761F2833443C00E63158 /* ThankYouView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

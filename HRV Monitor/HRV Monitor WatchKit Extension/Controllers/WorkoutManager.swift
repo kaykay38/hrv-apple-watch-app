@@ -156,8 +156,8 @@ class WorkoutManager: NSObject, ObservableObject {
 //                HRArr.append(self.currentHR)
 //                print(HRArr)
 //                UI testing purpoes only
-                self.currentHR = testfullHR[testI];
-                if(testI < testfullHR.count - 1) {
+                self.currentHR = testBadHR[testI];
+                if(testI < testBadHR.count - 1) {
                     testI += 1
                 }
                 else {
