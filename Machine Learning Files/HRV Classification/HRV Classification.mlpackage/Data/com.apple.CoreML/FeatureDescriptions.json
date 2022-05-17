@@ -1,0 +1,24 @@
+{
+  "Outputs" : {
+    "label" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "labelProbability" : {
+      "MLFeatureShortDescription" : "--"
+    }
+  },
+  "Inputs" : {
+    "RMSSD" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "HR" : {
+      "MLFeatureShortDescription" : "--"
+    },
+    "user" : {
+      "MLFeatureShortDescription" : "--"
+    }
+  },
+  "TrainingInputs" : {
+
+  }
+}

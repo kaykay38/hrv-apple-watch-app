@@ -28,9 +28,25 @@ extension Collection where Iterator.Element == HRSample {
     
     // Root mean square of successive IBI/NN differences.
     var RMSSD: Double {
+        // 1. square diffs
+        // 2. sum diffs
+        // 3. average the sum of squared diffs
+        // 4. squareroot of the average
+        let diffs: [Double] = self.map {$0.IBIdiff}
+        print("diffs:",diffs)
         let length = Double(self.count)
-        let avgOfSumOfSquaredDiffs = self.map {pow($0.IBIdiff, 2.0)}.reduce(0, {$0 + $1}) / length
-        return sqrt(avgOfSumOfSquaredDiffs)
+        print("length:",length)
+//        let avgOfSumOfSquaredDiffs = self.map {pow($0.IBIdiff, 2.0)}.reduce(0, {$0 + $1}) / length
+//        return sqrt(avgOfSumOfSquaredDiffs)
+        let squares: [Double] = self.map {pow($0.IBIdiff,2)}
+        print("squares:",squares)
+        let sum = squares.reduce(0, {$0 + $1})
+        print("sum:",sum)
+        let avg = sum/length
+        print("avg:",avg)
+        let sqrt = sqrt(avg)
+        print("RMSSD sqrt:",sqrt)
+        return sqrt
     }
 }
 
@@ -56,26 +72,30 @@ class HRVCalculator: NSObject, ObservableObject {
     private(set) var notificationThreshold: Double = 0
 
     
-    // heartrate comes in as beats per second
+    // heartrate comes in as beats per minute
     func addSample(_ curSampleTime: Date, _ prevSampleTime: Date, _ heartrate: Double) {
         // Unwrap optional HRSamples in table, first and last.
         if let oldestSample = self.HRSampleTable.first {
             
             // Check if samples spans more than a specified time, if so, remove first entry. 30 seconds
-            if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
+            if curSampleTime.timeIntervalSince(oldestSample.date) > 300 {
                 HRSampleTable.removeFirst();
             }
         }
         
         self.currentHR = heartrate;
         
-        let timeDiffMilliSec = curSampleTime.timeIntervalSince(prevSampleTime) * 1000
-        let HRPerMilliSec = heartrate/1000
+        let timeDiffMilliSec = abs(prevSampleTime.timeIntervalSinceNow)*1000
+        print(timeDiffMilliSec)
+        let HRPerMilliSec = heartrate/60000
+        print("current HR \(currentHR)")
+        print("HR/Milli \(HRPerMilliSec)")
         let beats = HRPerMilliSec * timeDiffMilliSec
         let averageIBI = timeDiffMilliSec/beats
+        print("averageIBI: \(averageIBI)")
         
         self.HRSampleTable.append(
-            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: averageIBI - (self.HRSampleTable.last?.averageIBI ?? averageIBI), accuracy: 0)
+            HRSample(date: curSampleTime, timeDiffMilliSec: timeDiffMilliSec, currentHRPerMilliSec: HRPerMilliSec, averageIBI: averageIBI, IBIdiff: (self.HRSampleTable.last?.averageIBI ?? averageIBI) - averageIBI, accuracy: 0)
         )
     }
     
