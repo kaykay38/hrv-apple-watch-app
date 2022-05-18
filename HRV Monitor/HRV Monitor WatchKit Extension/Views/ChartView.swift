@@ -38,14 +38,14 @@ struct ChartView: View {
                                         .formatted(
                                             .number.precision(.fractionLength(0))
                                         )
-                                ).font(.custom("Header", fixedSize: 45));
+                                ).font(.largeTitle);
                                 Spacer()
-                                if(workoutManager.alert) {
-                                    Label("Warning", systemImage: "hand.thumbsdown.circle")
+                                if(workoutManager.hrvClassificationController.alert) {
+                                    Label("Warning", systemImage: "questionmark.circle")
                                         .font(.title3)
                                         .foregroundColor(.red);
-                                }else if(workoutManager.warning) {
-                                    Label("Down", systemImage: "hand.thumbsdown.circle")
+                                }else if(workoutManager.hrvClassificationController.warning) {
+                                    Label("Moderate", systemImage: "minus.circle")
                                         .font(.title3)
                                         .foregroundColor(.yellow);
                                 }else{
@@ -69,10 +69,22 @@ struct ChartView: View {
                         }
                         
                     }else{
-                        Chart(data: workoutManager.hrvChartArray)
-                            .chartStyle(
-                                LineChartStyle(.quadCurve, lineColor: .blue, lineWidth: 4)
-                            )
+                        if(workoutManager.hrvClassificationController.alert) {
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .red, lineWidth: 4)
+                                )
+                        }else if(workoutManager.hrvClassificationController.warning) {
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .yellow, lineWidth: 4)
+                                )
+                        }else{
+                            Chart(data: workoutManager.hrvChartArray)
+                                .chartStyle(
+                                    LineChartStyle(.quadCurve, lineColor: .green, lineWidth: 4)
+                                )
+                        }
                     }
                     
                 }else{
@@ -81,7 +93,7 @@ struct ChartView: View {
                             .font(.title2)
                         Text("No Data")
                             .font(.title3)
-                        Text("Start Session To Begin Displaying HRV")
+                        Text("Start Session To Display HRV")
                             .foregroundColor(.gray)
                         Spacer()
                         Button {

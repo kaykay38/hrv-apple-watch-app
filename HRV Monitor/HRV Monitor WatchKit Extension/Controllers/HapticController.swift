@@ -12,7 +12,6 @@ class HapticController: ObservableObject {
     static let instance = HapticController()
     
     
-    
     func triggerHaptic () {
         WKInterfaceDevice.current().play(.notification)
     }

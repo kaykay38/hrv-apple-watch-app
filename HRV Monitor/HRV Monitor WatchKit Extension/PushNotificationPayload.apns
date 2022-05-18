@@ -1,12 +1,12 @@
 {
     "aps": {
         "alert": {
-            "body": "Test message",
-            "title": "Optional title",
-            "subtitle": "Optional subtitle"
+            "title": "Episode Detected",
+            "subtitle": "Optional subtitle",
+            "body": "Test message"
         },
-        "category": "myCategory",
-        "thread-id": "5280"
+        "category": "FalseAlarmOrDismiss",
+        "thread_id": "5280"
     },
     
     "WatchKit Simulator Actions": [

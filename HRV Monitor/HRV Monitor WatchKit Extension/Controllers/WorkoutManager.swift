@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 class WorkoutManager: NSObject, ObservableObject {
     
@@ -19,6 +20,7 @@ class WorkoutManager: NSObject, ObservableObject {
     var builder: HKLiveWorkoutBuilder?
     
     var hrvCalculator: HRVCalculator = HRVCalculator()
+    var hrvClassificationController: HRVClassificationController = HRVClassificationController()
     
     private var currentHR: Double = 0
     
@@ -31,16 +33,13 @@ class WorkoutManager: NSObject, ObservableObject {
     private var sex: String? = nil
     
     @Published var hrvChartArray: [Double] = []
-    @Published var alertTableArray: [Alert] = []
     
     
     private var prevSampleTime: Date? = nil
     private var curSampleTime: Date? = nil
     private var timeDiffMilliSec: Double = 0.0
     
-    private var downCount: Int = 0
-    @Published var warning: Bool = false
-    @Published var alert: Bool = false
+    private var count: Int = 0
     
     
     // Request authorization to access HealthKit.
@@ -95,7 +94,7 @@ class WorkoutManager: NSObject, ObservableObject {
         session?.startActivity(with: startDate)
         builder?.beginCollection(withStart: startDate) { (success, error) in
             // The workout has started.
-        }   
+        }
     }
     
     func togglePause() {
@@ -126,24 +125,24 @@ class WorkoutManager: NSObject, ObservableObject {
         self.currentHR = 0
     }
     
-    struct Alert: Identifiable {
-        let id = UUID()
-        var direction: String
-        var time: String
-    }
-    
-    
 
+    var testI: Int = 0
+    let testBadHR: [Double] = [181, 185, 154, 181, 156, 191, 183, 155, 194, 170, 200, 192, 186, 160, 154, 189, 163, 182, 188, 152, 163, 181, 192, 187, 181]
+    
+    let testModerateHR: [Double] = [141, 117, 124, 135, 115, 142, 125, 129, 134, 115, 146, 114, 148, 130, 118, 148, 109, 147, 139, 116, 140, 127, 117, 130, 135]
+    
+    let testGoodHR: [Double] = [55, 57, 57, 57, 58, 58, 58, 56, 58, 60, 61, 62, 64]
+    
+    let testfullHR: [Double] = [74.0, 78.0, 73.0, 71.0, 71.0, 71.0, 73.0, 78.0, 72.0, 72.0, 74.0, 74.0, 74.0, 76.0, 76.0, 75.0, 79.0, 79.0, 80.0, 80.0, 81.0, 79.0, 79.0, 75.0, 75.0, 73.0, 73.0, 74.0, 74.0, 69.0, 67.0, 66.0, 69.0, 69.0, 70.0, 74.0, 79.0, 79.0, 80, 82, 83, 85, 85, 87, 87, 88, 88, 89, 92, 92, 93, 94, 95, 97, 98, 100, 102, 103, 104, 104, 107, 108, 110, 110, 111, 115, 116, 116, 118, 119, 121, 123, 125, 125, 125, 124, 126, 129, 130, 132, 134, 130, 132, 130, 134, 134, 136, 138, 138, 140, 140, 142, 140, 138, 136, 133, 133, 130, 130, 128, 128, 127, 126, 126, 125, 122, 118, 121, 123, 125, 127, 128, 130, 126, 124, 120, 119, 77.0, 77.0, 79.0, 81.0, 79.0, 78.0, 77.0, 75.0, 73.0, 74.0, 76.0, 78.0, 80.0, 78.0, 74.0, 71.0, 71.0, 72.0, 76.0, 76.0, 75.0, 75.0, 77.0, 76.0, 73.0, 73.0, 75.0, 73.0, 73.0, 73.0, 74.0, 74.0, 74.0, 75.0, 75.0, 75.0, 76.0, 78.0, 78.0, 78.0, 77.0, 78.0, 78.0, 79.0, 78.0, 72.0, 70.0, 69.0, 71.0, 72.0, 71.0, 73.0, 73.0, 74.0, 73.0, ]
+
+    
+    var HRArr: [Double] = []
     
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
         
         // Run in background thread
         DispatchQueue.main.async { [self] in
-            
-            let hour = Calendar.current.component(.hour, from: Date())
-            let minute = Calendar.current.component(.minute, from: Date())
-            let second = Calendar.current.component(.second, from: Date())
             
             self.prevSampleTime = self.curSampleTime
             self.curSampleTime = Date()
@@ -152,46 +151,54 @@ class WorkoutManager: NSObject, ObservableObject {
             case HKQuantityType.quantityType(forIdentifier: .heartRate):
                 let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                 
-                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-               
-                self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
+                self.currentHR = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0 //sensor value for first value
                 
+//                HRArr.append(self.currentHR)
+//                print(HRArr)
+//                UI testing purpoes only
+//                self.currentHR = testfullHR[testI];
+//                if(testI < testfullHR.count - 1) {
+//                    testI += 1
+//                }
+//                else {
+//                    testI = 0
+//                }
+                
+
+                self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                print("Current HR: \(currentHR)")
-                
-                if(self.hrvChartArray.count > 60) {
-                    self.hrvChartArray.removeFirst()
-                }
-                self.hrvChartArray.append((self.HRV-30)/50)  //Scaled for male 10-29 53+-18
-
-                
-                if(self.hrvCalculator.hrvTrendPrecentage() >= 0.02) {
-                    self.warning = false
-                    self.alert = false
-                    
-                    self.downCount += 1
-                    
-                    if(downCount == 15) {
-                        self.alert = true
-                        self.alertTableArray.append(Alert(direction: "Alert", time: "\(hour):\(minute):\(second)"))
-                        NotificationManager.instance.scheduleHighNotification()
-
-                    }
-                    else {
-                        self.warning = true
-                    }
-                }
-                else {
-                    self.downCount = 0
-                    self.warning = false
-                    self.alert = false
-                }
                 
 
+                if(count > 6) {
+                    self.hrvChartArray.append((self.HRV-30)/50)
+                }else{
+                    count += 1
+                }
                 
                 if(self.hrvChartArray.count > 6) {
+                    hrvClassificationController.classifyHRV(HR: self.currentHR, HRV: self.HRV);
+                    
                     self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
+                    
+                    hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
+                    
+                    for _ in 1...1 {
+                        _ = Timer(timeInterval: 2.5, repeats: false) {_ in
+                            self.prevSampleTime = self.curSampleTime
+                            self.curSampleTime = Date()
+
+                            self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+                            self.hrvChartArray.append((self.HRV-30)/50)
+                        }
+                    }
+//                    
+                    if(self.hrvChartArray.count > 240) {
+                        self.hrvChartArray.removeFirst()
+                        self.hrvChartArray.removeFirst()
+//                        self.hrvChartArray.removeFirst()
+                    }
+                    
                 }
                 
                 print("\n\n")
@@ -211,11 +218,11 @@ class WorkoutManager: NSObject, ObservableObject {
         
         healthStore.save(hrv) { success, error in
                 if (error != nil) {
-                    print("Error: \(String(describing: error))")
+//                    print("Error: \(String(describing: error))")
                 }
                 if success {
-                    print("📗 Saved: \(success) 📗")
-                    print("Value Stored: \(hrv)")
+//                    print("📗 Saved: \(success) 📗")
+//                    print("Value Stored: \(hrv)")
                 }
         }
     }

@@ -30,11 +30,11 @@ struct HRVSimpleView: View {
                         
                         Spacer()
                         
-                        if(workoutManager.warning) {
+                        if(workoutManager.hrvClassificationController.warning) {
                             Label("Warning", systemImage: "hand.thumbsdown.circle")
                                 .font(.title3)
                                 .foregroundColor(.red);
-                        }else if(workoutManager.alert) {
+                        }else if(workoutManager.hrvClassificationController.alert) {
                             Label("Down", systemImage: "hand.thumbsdown.circle")
                                 .font(.title3)
                                 .foregroundColor(.yellow);
