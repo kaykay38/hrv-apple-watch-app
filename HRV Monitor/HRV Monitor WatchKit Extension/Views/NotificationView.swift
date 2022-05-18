@@ -21,8 +21,10 @@ struct NotificationView: View {
         VStack {
             HStack{
                 Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
-             
-                Text("Episode Detected").font(.title3).padding(.bottom, 10)
+                VStack(alignment: .leading){
+                    Text("High Stress")
+                    Text("Detected")
+                }.font(.title3)
             }
         
             Button {
@@ -135,7 +137,11 @@ struct NotificationView: View {
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationView()
+        Group {
+            NotificationView()
+            NotificationView()
+                .previewDevice("Apple Watch Series 5 - 40mm")
+        }
     }
 }
 
