@@ -32,7 +32,7 @@ struct NotificationView: View {
             } label: {
                 Text("False Alarm")
                     .font(.title3)
-                    .foregroundColor(.green);
+                    .foregroundColor(.red);
             }.padding(.top, 10)
                 
         
