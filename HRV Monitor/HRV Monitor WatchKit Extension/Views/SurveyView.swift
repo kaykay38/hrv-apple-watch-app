@@ -15,7 +15,7 @@ struct SurveyView: View {
     var body: some View {
             VStack {
                 ScrollView{
-                    Text("What's your stress level?").font(.title3).padding(.top, 5)
+                    Text("What's your stress level?").font(.title3)
                     
                     Button {
                         //self.modalState.isModal2Presented = true
@@ -24,7 +24,7 @@ struct SurveyView: View {
                         Text("Low")
                             .font(.title3)
                             .foregroundColor(.green);
-                    }.padding(.top, 10)
+                    }.padding(.top, 2)
                         /*.sheet(isPresented: $modalState.isModal2Presented) {
                             Modal2(modalState: self.modalState)
                         }*/
@@ -38,7 +38,7 @@ struct SurveyView: View {
                         Text("Moderate")
                             .font(.title3)
                             .foregroundColor(.yellow);
-                    }.padding(.top, 10)
+                    }.padding(.top, 2)
                         /*.sheet(isPresented: $modalState.isModal2Presented) {
                             Modal2(modalState: self.modalState)
                         }*/
@@ -51,7 +51,7 @@ struct SurveyView: View {
                         Text("High")
                             .font(.title3)
                             .foregroundColor(.red);
-                    }.padding(.top, 10)
+                    }.padding(.top, 2)
                         /*.sheet(isPresented: $modalState.isModal2Presented) {
                             Modal2(modalState: self.modalState)
                         }*/
@@ -67,7 +67,11 @@ struct SurveyView: View {
 
 struct SurveyView_Previews: PreviewProvider {
     static var previews: some View {
-        SurveyView()
+        Group {
+            SurveyView()
+            SurveyView()
+                .previewDevice("Apple Watch Series 5 - 40mm")
+        }
     }
 }
 }
