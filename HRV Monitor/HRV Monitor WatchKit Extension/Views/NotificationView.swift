@@ -32,13 +32,14 @@ struct NotificationView: View {
             } label: {
                 Text("False Alarm")
                     .font(.title3)
-                    .foregroundColor(.red);
-            }.padding(.top, 10)
+            }.padding(.top, 10).tint(.red)
                 
         
         Button("Dismiss") {
             NotificationManager.instance.activeAlert = false
         }.font(.title3)
+                .tint(.gray)
+                .foregroundColor(.white)
                 .onAppear(perform: hapticController.triggerHaptic)
     }
  }
