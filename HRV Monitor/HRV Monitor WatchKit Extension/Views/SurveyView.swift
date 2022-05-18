@@ -56,19 +56,6 @@ struct SurveyView: View {
                             Modal2(modalState: self.modalState)
                         }*/
                     
-                    Button {
-                        //self.modalState.isModal2Presented = true
-                        NotificationManager.instance.activeSurvey = false
-                        NotificationManager.instance.thankYou = true
-                        
-                    } label: {
-                        Text("Very High")
-                            .font(.title3)
-                            .foregroundColor(.purple);
-                    }.padding(.top, 10)
-                        /*.sheet(isPresented: $modalState.isModal2Presented) {
-                            Modal2(modalState: self.modalState)
-                        }*/
                     
                /* Button("Dismiss") {
                     self.modalState.isModal1Presented = false
