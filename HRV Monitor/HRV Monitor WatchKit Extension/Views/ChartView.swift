@@ -19,7 +19,7 @@ struct ChartView: View {
                     if (workoutManager.HRV == 0) {
                         VStack{
                             Spacer()
-                            Text("Initalizing HRV Data")
+                            Text("Initalizing HRV")
                                 .font(.title3)
                                 .foregroundColor(.gray)
                             
@@ -41,7 +41,7 @@ struct ChartView: View {
                                 ).font(.largeTitle);
                                 Spacer()
                                 if(workoutManager.hrvClassificationController.alert) {
-                                    Label("Warning", systemImage: "questionmark.circle")
+                                    Label("Warning", systemImage: "exclamationmark.circle")
                                         .font(.title3)
                                         .foregroundColor(.red);
                                 }else if(workoutManager.hrvClassificationController.warning) {
@@ -102,6 +102,7 @@ struct ChartView: View {
                             Text("Start")
                                 .font(.title3)
                         }.foregroundColor(.green).frame(height: 20)
+                            .tint(.green)
                     }
                 }
             }

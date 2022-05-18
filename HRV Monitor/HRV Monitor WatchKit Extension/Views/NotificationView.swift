@@ -20,9 +20,11 @@ struct NotificationView: View {
         
         VStack {
             HStack{
-                Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
-             
-                Text("Episode Detected").font(.title3).padding(.bottom, 10)
+                Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.red).padding(.bottom, 5);
+                VStack(alignment: .leading){
+                    Text("High Stress")
+                    Text("Detected")
+                }.font(.title3)
             }
         
             Button {
@@ -30,13 +32,14 @@ struct NotificationView: View {
             } label: {
                 Text("False Alarm")
                     .font(.title3)
-                    .foregroundColor(.green);
-            }.padding(.top, 10)
+            }.padding(.top, 10).tint(.yellow)
                 
         
         Button("Dismiss") {
             NotificationManager.instance.activeAlert = false
         }.font(.title3)
+                .tint(.gray)
+                .foregroundColor(.white)
                 .onAppear(perform: hapticController.triggerHaptic)
     }
  }
@@ -135,7 +138,11 @@ struct NotificationView: View {
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationView()
+        Group {
+            NotificationView()
+            NotificationView()
+                .previewDevice("Apple Watch Series 5 - 40mm")
+        }
     }
 }
 

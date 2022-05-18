@@ -16,7 +16,7 @@ struct ThankYouView: View {
             HStack{
                 Text("Are you sure?").font(.title3).padding(.top, 30)
             }
-            Text("Please confirm your input").font(.caption2).padding(.bottom, 10).padding()
+
         
         Button("Confirm") {
             NotificationManager.instance.activeAlert = false
@@ -26,7 +26,7 @@ struct ThankYouView: View {
         
         Button("Go Back") {
             NotificationManager.instance.thankYou = false
-        }.font(.title3).tint(.red)
+        }.font(.title3).tint(.gray).foregroundColor(.white)
     }
     
   }
@@ -34,6 +34,10 @@ struct ThankYouView: View {
 
 struct ThankYouView_Previews: PreviewProvider {
     static var previews: some View {
-        ThankYouView()
+        Group {
+            ThankYouView()
+            ThankYouView()
+                .previewDevice("Apple Watch Series 5 - 40mm")
+        }
     }
 }
