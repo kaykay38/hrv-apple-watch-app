@@ -20,7 +20,7 @@ struct NotificationView: View {
         
         VStack {
             HStack{
-                Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.yellow).padding(.bottom, 5);
+                Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.red).padding(.bottom, 5);
                 VStack(alignment: .leading){
                     Text("High Stress")
                     Text("Detected")
@@ -32,7 +32,7 @@ struct NotificationView: View {
             } label: {
                 Text("False Alarm")
                     .font(.title3)
-            }.padding(.top, 10).tint(.red)
+            }.padding(.top, 10).tint(.yellow)
                 
         
         Button("Dismiss") {

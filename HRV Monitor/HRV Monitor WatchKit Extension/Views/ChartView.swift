@@ -102,6 +102,7 @@ struct ChartView: View {
                             Text("Start")
                                 .font(.title3)
                         }.foregroundColor(.green).frame(height: 20)
+                            .tint(.green)
                     }
                 }
             }

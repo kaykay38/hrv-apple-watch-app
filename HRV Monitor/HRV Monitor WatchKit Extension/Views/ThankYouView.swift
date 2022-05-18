@@ -26,7 +26,7 @@ struct ThankYouView: View {
         
         Button("Go Back") {
             NotificationManager.instance.thankYou = false
-        }.font(.title3).tint(.red)
+        }.font(.title3).tint(.gray).foregroundColor(.white)
     }
     
   }

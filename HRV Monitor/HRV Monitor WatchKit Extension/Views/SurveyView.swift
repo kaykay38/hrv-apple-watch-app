@@ -25,6 +25,7 @@ struct SurveyView: View {
                             .font(.title3)
                             .foregroundColor(.green);
                     }.padding(.top, 2)
+                        .tint(.green)
                         /*.sheet(isPresented: $modalState.isModal2Presented) {
                             Modal2(modalState: self.modalState)
                         }*/
@@ -39,6 +40,7 @@ struct SurveyView: View {
                             .font(.title3)
                             .foregroundColor(.yellow);
                     }.padding(.top, 2)
+                        .tint(.yellow)
                         /*.sheet(isPresented: $modalState.isModal2Presented) {
                             Modal2(modalState: self.modalState)
                         }*/
@@ -52,6 +54,7 @@ struct SurveyView: View {
                             .font(.title3)
                             .foregroundColor(.red);
                     }.padding(.top, 2)
+                        .tint(.red)
                         /*.sheet(isPresented: $modalState.isModal2Presented) {
                             Modal2(modalState: self.modalState)
                         }*/
