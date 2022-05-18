@@ -19,7 +19,7 @@ struct ChartView: View {
                     if (workoutManager.HRV == 0) {
                         VStack{
                             Spacer()
-                            Text("Initalizing HRV Data")
+                            Text("Initalizing HRV")
                                 .font(.title3)
                                 .foregroundColor(.gray)
                             
