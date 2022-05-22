@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SettingView: View {
     @State private var showSurvey = false
-
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
+    
         var body: some View {
             VStack(alignment: .leading) {
                 Label("Settings", systemImage: "hand.tap")
@@ -17,10 +18,9 @@ struct SettingView: View {
                 Divider()
                 Toggle("Survey Notifications", isOn: $showSurvey)
                     .toggleStyle(SwitchToggleStyle(tint: .green))
-
-                if showSurvey {
-                    //Text("Hello World!")
-                }
+                    .onChange(of: showSurvey) { value in
+                        NotificationManager.instance.SettingSurveyOn.toggle()
+                    }
             }.padding()
       }
 }
