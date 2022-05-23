@@ -20,6 +20,9 @@ struct SettingView: View {
                     .toggleStyle(SwitchToggleStyle(tint: .green))
                     .onChange(of: showSurvey) { value in
                         NotificationManager.instance.SettingSurveyOn.toggle()
+                    }///do something with this to open the UpdatedSettingsView
+                    .onChange(of: showSurvey) { value in
+                        NotificationManager.instance.SettingsUpdated = true
                     }
             }.padding()
       }
