@@ -13,6 +13,7 @@ class NotificationManager: ObservableObject {
     @Published var activeAlert: Bool = false
     @Published var activeSurvey: Bool = false
     @Published var thankYou: Bool = false
+    @Published var SettingsUpdated: Bool = false
     @Published var SettingSurveyOn: Bool = false
     
     static let instance = NotificationManager()

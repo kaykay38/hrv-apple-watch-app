@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct UpdatedSettingsView: View {
+    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            HStack{
+                Text("Settings Updated!").font(.title3).padding(.top, 30)
+            }
+        
+        Button("Close") {
+            NotificationManager.instance.SettingsUpdated = false
+        }.font(.title3).tint(.green)
     }
-}
+    
+  }
+ }
 
 struct UpdatedSettingsView_Previews: PreviewProvider {
     static var previews: some View {
