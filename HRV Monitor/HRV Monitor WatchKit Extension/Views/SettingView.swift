@@ -11,22 +11,19 @@ struct SettingView: View {
     @State private var showSurvey = false
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     
+    @AppStorage("survey") var surveyActivated = false
+    
         var body: some View {
+            
             VStack(alignment: .leading) {
                 Label("Settings", systemImage: "hand.tap")
                     .font(.title3)
                 Divider()
-                Toggle("Survey Notifications", isOn: $showSurvey)
-                    .onChange(of: showSurvey, perform: { newValue in
-                        NotificationManager.instance.settingsUpdated = true
-                    })
-                    .onChange(of: showSurvey) { value in
-                        NotificationManager.instance.settingSurveyOn.toggle()
+                Form {
+                    Toggle(isOn: $surveyActivated) {
+                        Text("Setting Activated")
                     }
-                    .toggleStyle(SwitchToggleStyle(tint: .green))
-                    /*.onChange(of: showSurvey) { value in
-                        NotificationManager.instance.SettingSurveyOn.toggle()
-                    }*/
+                }
             }.padding()
       }
 }

@@ -14,7 +14,7 @@ class NotificationManager: ObservableObject {
     @Published var activeSurvey: Bool = false
     @Published var thankYou: Bool = false
     @Published var settingsUpdated: Bool = false
-    @Published var settingSurveyOn: Bool = false
+    
     
     static let instance = NotificationManager()
     
@@ -33,9 +33,12 @@ class NotificationManager: ObservableObject {
         }
     }
     
+    var prevSurvey: Date? = nil
+    
     // trigger the survey on a calendar
     func scheduleSurvey(){
-        if(settingSurveyOn == true){
+        if(UserDefaults.standard.bool(forKey: "survey")){
+            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < -300) {
         self.activeSurvey = true
         let content = UNMutableNotificationContent()
         content.title = "How are you feeling?"
@@ -51,9 +54,7 @@ class NotificationManager: ObservableObject {
     
         UNUserNotificationCenter.current().setNotificationCategories([dismiss])
         
-        var dateComponents = DateComponents()
-        dateComponents.hour = 11
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
 
         
         let request = UNNotificationRequest(identifier: UUID().uuidString,
@@ -61,8 +62,13 @@ class NotificationManager: ObservableObject {
                                             trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+            
+        prevSurvey = Date();
+            
+            self.activeSurvey = true
         
         _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+            }
         }
         else{
             self.activeSurvey = false
@@ -90,9 +96,8 @@ class NotificationManager: ObservableObject {
         
             UNUserNotificationCenter.current().setNotificationCategories([dismiss])
             
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
             
-            //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
 
             
             let request = UNNotificationRequest(identifier: UUID().uuidString,
