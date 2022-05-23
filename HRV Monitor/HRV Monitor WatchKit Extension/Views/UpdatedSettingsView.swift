@@ -17,8 +17,8 @@ struct UpdatedSettingsView: View {
                 Text("Settings Updated!").font(.title3).padding(.top, 30)
             }
         
-        Button("Close") {
-            NotificationManager.instance.SettingsUpdated = false
+        Button("Dismiss") {
+            NotificationManager.instance.settingsUpdated = false
         }.font(.title3).tint(.green)
     }
     

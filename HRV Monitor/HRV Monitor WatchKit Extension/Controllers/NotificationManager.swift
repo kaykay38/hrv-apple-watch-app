@@ -13,8 +13,8 @@ class NotificationManager: ObservableObject {
     @Published var activeAlert: Bool = false
     @Published var activeSurvey: Bool = false
     @Published var thankYou: Bool = false
-    @Published var SettingsUpdated: Bool = false
-    @Published var SettingSurveyOn: Bool = false
+    @Published var settingsUpdated: Bool = false
+    @Published var settingSurveyOn: Bool = false
     
     static let instance = NotificationManager()
     
@@ -35,7 +35,7 @@ class NotificationManager: ObservableObject {
     
     // trigger the survey on a calendar
     func scheduleSurvey(){
-        if(SettingSurveyOn == true){
+        if(settingSurveyOn == true){
         self.activeSurvey = true
         let content = UNMutableNotificationContent()
         content.title = "How are you feeling?"

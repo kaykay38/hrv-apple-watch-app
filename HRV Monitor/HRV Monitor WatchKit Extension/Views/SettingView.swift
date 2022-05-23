@@ -17,13 +17,16 @@ struct SettingView: View {
                     .font(.title3)
                 Divider()
                 Toggle("Survey Notifications", isOn: $showSurvey)
-                    .toggleStyle(SwitchToggleStyle(tint: .green))
+                    .onChange(of: showSurvey, perform: { newValue in
+                        NotificationManager.instance.settingsUpdated = true
+                    })
                     .onChange(of: showSurvey) { value in
-                        NotificationManager.instance.SettingSurveyOn.toggle()
-                    }///do something with this to open the UpdatedSettingsView
-                    .onChange(of: showSurvey) { value in
-                        NotificationManager.instance.SettingsUpdated = true
+                        NotificationManager.instance.settingSurveyOn.toggle()
                     }
+                    .toggleStyle(SwitchToggleStyle(tint: .green))
+                    /*.onChange(of: showSurvey) { value in
+                        NotificationManager.instance.SettingSurveyOn.toggle()
+                    }*/
             }.padding()
       }
 }

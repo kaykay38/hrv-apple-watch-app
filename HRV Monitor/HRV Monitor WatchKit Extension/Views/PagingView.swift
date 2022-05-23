@@ -36,6 +36,9 @@ struct PagingView: View {
         .sheet(isPresented: $notificationManager.thankYou) {
             ThankYouView()
         }
+        .sheet(isPresented: $notificationManager.settingsUpdated) {
+            UpdatedSettingsView()
+        }
         .sheet(isPresented: $notificationManager.activeSurvey, content: {SurveyView()})
         .sheet(isPresented: $notificationManager.activeAlert, content: {
             NotificationView()
