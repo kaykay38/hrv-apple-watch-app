@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-/// !!!!!!!!!!!!!!!!
-// try to connect notification view modals with this modal and a possible Confirmation View
-
 struct SurveyView: View {
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     var body: some View {
