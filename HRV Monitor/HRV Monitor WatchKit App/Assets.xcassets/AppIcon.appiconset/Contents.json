@@ -19,13 +19,13 @@
       "size" : "29x29"
     },
     {
-      "filename" : "58.png",
+      "filename" : "58-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "87.png",
+      "filename" : "87-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
@@ -89,14 +89,14 @@
       "subtype" : "42mm"
     },
     {
-      "filename" : "58-1.png",
+      "filename" : "58.png",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "87-1.png",
+      "filename" : "87.png",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "3x",

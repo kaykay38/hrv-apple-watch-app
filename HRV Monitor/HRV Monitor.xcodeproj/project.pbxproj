@@ -19,7 +19,6 @@
 		776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776151E927C5563C0066BED1 /* ControlsView.swift */; };
 		777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C03E627B47913007F4FE5 /* AuthenticationServices.framework */; };
 		77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63627B476EA00906DC5 /* HRV_MonitorApp.swift */; };
-		77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63827B476EA00906DC5 /* ContentView.swift */; };
 		77A4F63B27B476EC00906DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4F63A27B476EC00906DC5 /* Assets.xcassets */; };
 		77A4F63E27B476EC00906DC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4F63D27B476EC00906DC5 /* Preview Assets.xcassets */; };
 		77A4F64827B476EC00906DC5 /* HRV_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F64727B476EC00906DC5 /* HRV_MonitorTests.swift */; };
@@ -57,6 +56,8 @@
 		D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8827B58E9B00037CF9 /* ChartView.swift */; };
 		D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE9027B5993900037CF9 /* StatisticsView.swift */; };
 		D0E1EE9427B5AA5000037CF9 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D0E1EE9327B5AA5000037CF9 /* Charts */; };
+		D0E9ED57283D961800889ED3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D02008E127E5632600F8A3C4 /* SwiftUICharts */; };
+		D0E9ED58283D967200889ED3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63827B476EA00906DC5 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E9ED57283D961800889ED3 /* SwiftUICharts in Frameworks */,
 				777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */,
 				77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */,
 			);
@@ -504,6 +506,7 @@
 			);
 			name = "HRV Monitor";
 			packageProductDependencies = (
+				D02008E127E5632600F8A3C4 /* SwiftUICharts */,
 			);
 			productName = "HRV Monitor";
 			productReference = 77A4F63327B476EA00906DC5 /* HRV Monitor.app */;
@@ -671,6 +674,7 @@
 			mainGroup = 77A4F62A27B476EA00906DC5;
 			packageReferences = (
 				D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */,
+				D02008E027E5632600F8A3C4 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 77A4F63427B476EA00906DC5 /* Products */;
 			projectDirPath = "";
@@ -766,7 +770,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */,
+				D0E9ED58283D967200889ED3 /* ContentView.swift in Sources */,
 				D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
 				D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */,
 				77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */,
@@ -1045,7 +1049,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1062,7 +1066,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1080,7 +1084,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1097,7 +1101,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1117,14 +1121,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1143,14 +1147,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
 				INFOPLIST_KEY_CFBundleDisplayName = "HRV Monitor";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.HRV-MonitorE2.HRV-Monitor";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1170,7 +1174,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor/HRV Monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1181,6 +1185,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1188,13 +1193,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
 				PRODUCT_NAME = "HRV Monitor";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1205,7 +1210,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor/HRV Monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1216,6 +1221,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1223,13 +1229,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HRV-MonitorE2.HRV-Monitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1487,6 +1493,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D02008E027E5632600F8A3C4 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/spacenation/swiftui-charts.git";
@@ -1498,6 +1512,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D02008E127E5632600F8A3C4 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D02008E027E5632600F8A3C4 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
 		D0E1EE9327B5AA5000037CF9 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0E1EE9227B5AA5000037CF9 /* XCRemoteSwiftPackageReference "swiftui-charts" */;
