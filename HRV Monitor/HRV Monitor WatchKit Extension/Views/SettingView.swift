@@ -11,10 +11,10 @@ struct SettingView: View {
     @State private var showSurvey = false
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     
-    @AppStorage("survey") var surveyActivated = false
+    @AppStorage("survey") var surveyActivated = true
     
-    @AppStorage("surveryInterval") var surveyInterval = -3600
-    @AppStorage("surveryIntervalIndex") var surveyIntervalIndex = 1
+    @AppStorage("surveryInterval") var surveyInterval = -1800
+    @AppStorage("surveryIntervalIndex") var surveyIntervalIndex = 0
     
     var frameworks = ["30 Min.", "1 Hr.", "2 Hr.", "3 Hr."]
     @State private var selectedFrameworkIndex = UserDefaults.standard.integer(forKey: "surveryIntervalIndex")
@@ -38,7 +38,7 @@ struct SettingView: View {
                                         }
                                     }.onChange(of: selectedFrameworkIndex) { newValue in
                                         if(selectedFrameworkIndex == 0) {
-                                            surveyInterval = -30
+                                            surveyInterval = -1800
                                             surveyIntervalIndex = 0
                                         }
                                         if(selectedFrameworkIndex == 1)

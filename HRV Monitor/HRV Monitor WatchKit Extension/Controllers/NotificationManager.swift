@@ -39,35 +39,35 @@ class NotificationManager: ObservableObject {
     func scheduleSurvey(){
         if(UserDefaults.standard.bool(forKey: "survey")){
             if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < UserDefaults.standard.double(forKey: "surveryInterval")) {
-        self.activeSurvey = true
-        let content = UNMutableNotificationContent()
-        content.title = "How are you feeling?"
-        content.subtitle = "Select your stress level"
-        content.sound = .default
-        
-        // Notification Buttons/Action
-        let reply = UNNotificationAction(identifier: "reply", title: "Reply", options: UNNotificationActionOptions.foreground)
-        
-        //UNNotificationActionOptions.foreground
-        let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [reply], intentIdentifiers: [],
-            options: .customDismissAction)
-    
-        UNUserNotificationCenter.current().setNotificationCategories([dismiss])
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
+                prevSurvey = Date();
+                self.activeSurvey = true
+                let content = UNMutableNotificationContent()
+                content.title = "How are you feeling?"
+                content.subtitle = "Log your stess level in app."
+                content.sound = .default
+                
+                // Notification Buttons/Action
+                let reply = UNNotificationAction(identifier: "reply", title: "Reply", options: UNNotificationActionOptions.foreground)
+                
+                //UNNotificationActionOptions.foreground
+                let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [reply], intentIdentifiers: [],
+                    options: .customDismissAction)
+            
+                UNUserNotificationCenter.current().setNotificationCategories([dismiss])
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
 
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
-                                            content: content,
-                                            trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request)
-            
-        prevSurvey = Date();
-            
-            self.activeSurvey = true
-        
-        _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+                
+                let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                                    content: content,
+                                                    trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request)
+                    
+                    
+                    self.activeSurvey = true
+                
+                _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
             }
         }
         else{
@@ -80,6 +80,7 @@ class NotificationManager: ObservableObject {
     func scheduleHighNotification() {
         if(prevAlert == nil || prevAlert!.timeIntervalSinceNow < -300)
         {
+            prevAlert = Date()
             self.activeAlert = true
             let content = UNMutableNotificationContent()
             content.title = "Warning"
@@ -107,7 +108,6 @@ class NotificationManager: ObservableObject {
             UNUserNotificationCenter.current().add(request)
             
             _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
-            prevAlert = Date()
         }
     }
         
