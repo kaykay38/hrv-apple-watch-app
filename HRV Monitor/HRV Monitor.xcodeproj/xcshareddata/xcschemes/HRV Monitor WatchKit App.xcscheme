@@ -85,8 +85,10 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       notificationPayloadFile = "HRV Monitor WatchKit Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/HRV Monitor">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4F65627B476ED00906DC5"
@@ -94,7 +96,7 @@
             BlueprintName = "HRV Monitor WatchKit App"
             ReferencedContainer = "container:HRV Monitor.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -102,8 +104,10 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/HRV Monitor">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77A4F65627B476ED00906DC5"
@@ -111,7 +115,16 @@
             BlueprintName = "HRV Monitor WatchKit App"
             ReferencedContainer = "container:HRV Monitor.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "77A4F65627B476ED00906DC5"
+            BuildableName = "HRV Monitor WatchKit App.app"
+            BlueprintName = "HRV Monitor WatchKit App"
+            ReferencedContainer = "container:HRV Monitor.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

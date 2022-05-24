@@ -39,15 +39,8 @@
 		D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D01C572B27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D01C572927FFEC4D00609FB5 /* HeartRatePredictions.mlmodel */; };
 		D02008D527E5587A00F8A3C4 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D427E5587A00F8A3C4 /* BannerView.swift */; };
-		D02008D727E558E800F8A3C4 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D627E558E800F8A3C4 /* StatisticsView.swift */; };
-		D02008DB27E55F5500F8A3C4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008DA27E55F5500F8A3C4 /* AlertView.swift */; };
 		D02008DF27E55FF100F8A3C4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008DE27E55FF100F8A3C4 /* ChartView.swift */; };
-		D02008E227E5632600F8A3C4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D02008E127E5632600F8A3C4 /* SwiftUICharts */; };
-		D02008E627E568FE00F8A3C4 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008E527E568FE00F8A3C4 /* HealthKitController.swift */; };
-		D02008E827E5744100F8A3C4 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008E727E5744100F8A3C4 /* AboutView.swift */; };
-		D02008ED27E6574600F8A3C4 /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008EC27E6574600F8A3C4 /* TodayChartView.swift */; };
 		D02008F127E6586500F8A3C4 /* SevenDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F027E6586500F8A3C4 /* SevenDayChartView.swift */; };
-		D02008F327E6589600F8A3C4 /* ThirtyDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */; };
 		D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F6D2727E26E9000EE8D55 /* HapticController.swift */; };
 		D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */; };
 		D046828E282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D046828C282216A2001BBCC1 /* HRV Classification.mlmodel */; };
@@ -68,6 +61,12 @@
 		D0E1EE9427B5AA5000037CF9 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D0E1EE9327B5AA5000037CF9 /* Charts */; };
 		D0E9ED57283D961800889ED3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D02008E127E5632600F8A3C4 /* SwiftUICharts */; };
 		D0E9ED58283D967200889ED3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63827B476EA00906DC5 /* ContentView.swift */; };
+		D0E9ED59283D9DA600889ED3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008E727E5744100F8A3C4 /* AboutView.swift */; };
+		D0E9ED5A283D9DA600889ED3 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008D627E558E800F8A3C4 /* StatisticsView.swift */; };
+		D0E9ED5B283D9DA600889ED3 /* TodayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008EC27E6574600F8A3C4 /* TodayChartView.swift */; };
+		D0E9ED5C283D9DA600889ED3 /* ThirtyDayChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008F227E6589600F8A3C4 /* ThirtyDayChartView.swift */; };
+		D0E9ED5D283D9DA600889ED3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008DA27E55F5500F8A3C4 /* AlertView.swift */; };
+		D0E9ED5E283D9DA600889ED3 /* HealthKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02008E527E568FE00F8A3C4 /* HealthKitController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,7 +314,6 @@
 				77A4F64627B476EC00906DC5 /* HRV MonitorTests */,
 				77A4F65027B476ED00906DC5 /* HRV MonitorUITests */,
 				77A4F65B27B476ED00906DC5 /* HRV Monitor WatchKit App */,
-				77A4F67F27B476F000906DC5 /* HRV Monitor WatchKit AppTests */,
 				77A4F68927B476F000906DC5 /* HRV Monitor WatchKit AppUITests */,
 				77A4F66627B476EF00906DC5 /* HRV Monitor WatchKit Extension */,
 				0D23FEC3281A0A4F00E9E0F7 /* HRV Monitor WatchKit ExtensionTests */,
@@ -416,13 +414,6 @@
 				77A4F67427B476F000906DC5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		77A4F67F27B476F000906DC5 /* HRV Monitor WatchKit AppTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "HRV Monitor WatchKit AppTests";
 			sourceTree = "<group>";
 		};
 		77A4F68927B476F000906DC5 /* HRV Monitor WatchKit AppUITests */ = {
@@ -798,6 +789,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E9ED59283D9DA600889ED3 /* AboutView.swift in Sources */,
+				D0E9ED5A283D9DA600889ED3 /* StatisticsView.swift in Sources */,
+				D0E9ED5B283D9DA600889ED3 /* TodayChartView.swift in Sources */,
+				D0E9ED5C283D9DA600889ED3 /* ThirtyDayChartView.swift in Sources */,
+				D0E9ED5D283D9DA600889ED3 /* AlertView.swift in Sources */,
+				D0E9ED5E283D9DA600889ED3 /* HealthKitController.swift in Sources */,
 				D0E9ED58283D967200889ED3 /* ContentView.swift in Sources */,
 				D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
 				D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */,
