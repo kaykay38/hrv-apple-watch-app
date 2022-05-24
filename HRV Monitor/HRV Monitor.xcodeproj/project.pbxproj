@@ -13,12 +13,12 @@
 		0D53FFD8280E0FF300FD0FE9 /* HRVClassificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */; };
 		0D7D79B02810B37D00AF5401 /* AreaChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7D79AF2810B37D00AF5401 /* AreaChartView.swift */; };
 		6E5C17A02818D67E006768A4 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5C179F2818D67E006768A4 /* SettingView.swift */; };
+		6E60E12C283B10DD0073D2FB /* UpdatedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E60E12B283B10DD0073D2FB /* UpdatedSettingsView.swift */; };
 		6ED6B6B72820D0AF006127CC /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6B6B62820D0AF006127CC /* SurveyView.swift */; };
 		7722F23727DFEC8C00E99E8D /* HRVSimpleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */; };
 		776151EA27C5563C0066BED1 /* ControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776151E927C5563C0066BED1 /* ControlsView.swift */; };
 		777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777C03E627B47913007F4FE5 /* AuthenticationServices.framework */; };
 		77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63627B476EA00906DC5 /* HRV_MonitorApp.swift */; };
-		77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63827B476EA00906DC5 /* ContentView.swift */; };
 		77A4F63B27B476EC00906DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4F63A27B476EC00906DC5 /* Assets.xcassets */; };
 		77A4F63E27B476EC00906DC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4F63D27B476EC00906DC5 /* Preview Assets.xcassets */; };
 		77A4F64827B476EC00906DC5 /* HRV_MonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F64727B476EC00906DC5 /* HRV_MonitorTests.swift */; };
@@ -66,6 +66,8 @@
 		D0E1EE8927B58E9B00037CF9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE8827B58E9B00037CF9 /* ChartView.swift */; };
 		D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E1EE9027B5993900037CF9 /* StatisticsView.swift */; };
 		D0E1EE9427B5AA5000037CF9 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = D0E1EE9327B5AA5000037CF9 /* Charts */; };
+		D0E9ED57283D961800889ED3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = D02008E127E5632600F8A3C4 /* SwiftUICharts */; };
+		D0E9ED58283D967200889ED3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4F63827B476EA00906DC5 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,7 @@
 		0D53FFD7280E0FF300FD0FE9 /* HRVClassificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVClassificationController.swift; sourceTree = "<group>"; };
 		0D7D79AF2810B37D00AF5401 /* AreaChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaChartView.swift; sourceTree = "<group>"; };
 		6E5C179F2818D67E006768A4 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		6E60E12B283B10DD0073D2FB /* UpdatedSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedSettingsView.swift; sourceTree = "<group>"; };
 		6ED6B6B62820D0AF006127CC /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
 		7722F23627DFEC8C00E99E8D /* HRVSimpleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HRVSimpleView.swift; sourceTree = "<group>"; };
 		776151E927C5563C0066BED1 /* ControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlsView.swift; sourceTree = "<group>"; };
@@ -232,7 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D02008E227E5632600F8A3C4 /* SwiftUICharts in Frameworks */,
+				D0E9ED57283D961800889ED3 /* SwiftUICharts in Frameworks */,
 				777C03E727B47913007F4FE5 /* AuthenticationServices.framework in Frameworks */,
 				77A4F6AA27B4775400906DC5 /* HealthKit.framework in Frameworks */,
 			);
@@ -457,6 +460,7 @@
 				D0E05E5327D87D9100FBE1F2 /* Loading Dots */,
 				6ED6B6B62820D0AF006127CC /* SurveyView.swift */,
 				D05D761E2833443C00E63158 /* ThankYouView.swift */,
+				6E60E12B283B10DD0073D2FB /* UpdatedSettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -794,13 +798,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D02008ED27E6574600F8A3C4 /* TodayChartView.swift in Sources */,
-				D02008F327E6589600F8A3C4 /* ThirtyDayChartView.swift in Sources */,
-				D02008E827E5744100F8A3C4 /* AboutView.swift in Sources */,
-				D02008DB27E55F5500F8A3C4 /* AlertView.swift in Sources */,
-				77A4F63927B476EA00906DC5 /* ContentView.swift in Sources */,
-				D02008E627E568FE00F8A3C4 /* HealthKitController.swift in Sources */,
-				D02008D727E558E800F8A3C4 /* StatisticsView.swift in Sources */,
+				D0E9ED58283D967200889ED3 /* ContentView.swift in Sources */,
 				D01C572A27FFEC4D00609FB5 /* HeartRatePredictions.mlmodel in Sources */,
 				D046828D282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */,
 				77A4F63727B476EA00906DC5 /* HRV_MonitorApp.swift in Sources */,
@@ -838,6 +836,7 @@
 				77C7E04727D8253600EC67D6 /* HRVCalculator.swift in Sources */,
 				D0E05E5227D8794800FBE1F2 /* LoadingView.swift in Sources */,
 				D046828E282216A2001BBCC1 /* HRV Classification.mlmodel in Sources */,
+				6E60E12C283B10DD0073D2FB /* UpdatedSettingsView.swift in Sources */,
 				6E5C17A02818D67E006768A4 /* SettingView.swift in Sources */,
 				D03F6D2827E26E9000EE8D55 /* HapticController.swift in Sources */,
 				D0E1EE9127B5993900037CF9 /* StatisticsView.swift in Sources */,
@@ -1081,7 +1080,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1116,7 +1115,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor WatchKit Extension/HRV Monitor WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1153,7 +1152,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
@@ -1179,7 +1178,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HRV_Monitor_WatchKit_Extension;
@@ -1206,7 +1205,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor/HRV Monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
@@ -1242,7 +1241,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HRV Monitor/HRV Monitor.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"HRV Monitor/Preview Content\"";
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;

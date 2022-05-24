@@ -25,6 +25,7 @@ struct ControlsView: View {
                     Text("Stop")
                         .font(.title)
                 }.foregroundColor(.red)
+                    .tint(.red)
             }
             else {
                 Spacer(minLength: 5)
@@ -38,6 +39,7 @@ struct ControlsView: View {
                     Text("Start")
                         .font(.title)
                 }.foregroundColor(.green)
+                    .tint(.green)
             }
         }
         .padding()
