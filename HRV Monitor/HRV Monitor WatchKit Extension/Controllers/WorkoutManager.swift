@@ -183,6 +183,8 @@ class WorkoutManager: NSObject, ObservableObject {
                     
                     hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
                     
+                    NotificationManager.instance.scheduleSurvey();
+                    
                     for _ in 1...1 {
                         _ = Timer(timeInterval: 2.5, repeats: false) {_ in
                             self.prevSampleTime = self.curSampleTime
