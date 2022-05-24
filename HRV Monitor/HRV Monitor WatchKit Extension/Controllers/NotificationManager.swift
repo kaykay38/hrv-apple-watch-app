@@ -38,7 +38,7 @@ class NotificationManager: ObservableObject {
     // trigger the survey on a calendar
     func scheduleSurvey(){
         if(UserDefaults.standard.bool(forKey: "survey")){
-            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < -300) {
+            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < UserDefaults.standard.double(forKey: "surveryInterval")) {
         self.activeSurvey = true
         let content = UNMutableNotificationContent()
         content.title = "How are you feeling?"
