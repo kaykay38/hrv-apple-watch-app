@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingView: View {
+struct SettingsView: View {
     @State private var showSurvey = false
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     
@@ -26,12 +26,13 @@ struct SettingView: View {
                     .font(.title3)
                 Divider()
                 Form {
-                    Section(footer: Text("Improves accuracy for stress dectection.")){
+                    Section(footer: Text("Popup survey to improve accuracy of stress prediction.")){
                         Toggle(isOn: $surveyActivated) {
                             Text("Stress Survey")
                         }
                     }
-                    Section(footer: Text("Time interval for reminder to log your current stress level.")){
+                    if (surveyActivated) {
+                    Section(footer: Text("Time interval between survey occurence.")){
                                     Picker(selection: $selectedFrameworkIndex, label: Text("Survey Interval")) {
                                         ForEach(0 ..< frameworks.count) {
                                             Text(self.frameworks[$0])
@@ -59,12 +60,13 @@ struct SettingView: View {
                                     }
                                 }
                 }
+                }
             }
       }
 }
 
-struct SettingView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingsView()
     }
 }

@@ -17,7 +17,7 @@ struct PagingView: View {
 
     
     enum Tab {
-        case survey, controls, liveHRV, stats, table, setting
+        case survey, controls, liveHRV, stats, table, settings
     }
     
     
@@ -32,9 +32,9 @@ struct PagingView: View {
                 // HRVSimpleView().tag(Tab.liveHRV)
                 StatisticsView().tag(Tab.stats)
     //            TableView().tag(Tab.table)
-                SettingView().tag(Tab.setting)
+                SettingsView().tag(Tab.settings)
             }
-            .sheet(isPresented: $notificationManager.thankYou) { ThankYouView()}
+            .sheet(isPresented: $notificationManager.thankYou) { ConfirmationView()}
             .sheet(isPresented: $notificationManager.activeSurvey, content: {SurveyView()})
             .sheet(isPresented: $notificationManager.activeAlert, content: {
                 NotificationView()
@@ -43,7 +43,7 @@ struct PagingView: View {
     else {
         TabView(selection: $notRunningSelection) {
             ChartView().tag(Tab.liveHRV)
-            SettingView()
+            SettingsView().tag(Tab.settings)
         }
         .onAppear(perform: workoutManager.requestAuthorization)
         .onAppear(perform: NotificationManager.instance.requestAuthorization)

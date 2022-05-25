@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ThankYouView: View {
+struct ConfirmationView: View {
     @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
     
     var body: some View {
@@ -32,11 +32,10 @@ struct ThankYouView: View {
   }
  }
 
-struct ThankYouView_Previews: PreviewProvider {
+struct ConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ThankYouView()
-            ThankYouView()
+            ConfirmationView()
                 .previewDevice("Apple Watch Series 5 - 40mm")
         }
     }
