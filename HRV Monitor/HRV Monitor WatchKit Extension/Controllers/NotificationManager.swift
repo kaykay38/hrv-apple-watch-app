@@ -35,39 +35,59 @@ class NotificationManager: ObservableObject {
     
     var prevSurvey: Date? = nil
     
+    func surveyFirstTime() {
+        UserDefaults.standard.set(1, forKey: "surveyIntervalIndex")
+        UserDefaults.standard.set(-3600, forKey: "surveyInterval")
+        UserDefaults.standard.set(false, forKey: "isFirstTime")
+        UserDefaults.standard.synchronize()
+        
+        print("surveyIntervalIndex:", UserDefaults.standard.integer(forKey: "surveyIntervalIndex"))
+        print("isFirstTime:", UserDefaults.standard.bool(forKey: "isFirstTime"))
+        print("surveyInterval:", UserDefaults.standard.integer(forKey: "surveyInterval"))
+    }
+    
     // trigger the survey on a calendar
     func scheduleSurvey(){
         if(UserDefaults.standard.bool(forKey: "survey")){
-            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < UserDefaults.standard.double(forKey: "surveryInterval")) {
-                prevSurvey = Date();
-                self.activeSurvey = true
-                let content = UNMutableNotificationContent()
-                content.title = "How are you feeling?"
-                content.subtitle = "Log your stess level in app."
-                content.sound = .default
-                
-                // Notification Buttons/Action
-                let reply = UNNotificationAction(identifier: "reply", title: "Reply", options: UNNotificationActionOptions.foreground)
-                
-                //UNNotificationActionOptions.foreground
-                let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [reply], intentIdentifiers: [],
-                    options: .customDismissAction)
-            
-                UNUserNotificationCenter.current().setNotificationCategories([dismiss])
-                
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
-
-                
-                let request = UNNotificationRequest(identifier: UUID().uuidString,
-                                                    content: content,
-                                                    trigger: trigger)
-                
-                UNUserNotificationCenter.current().add(request)
+            print(UserDefaults.standard.double(forKey: "surveyInterval"))
+            if(UserDefaults.standard.double(forKey: "surveyInterval") != 0) {
+                if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < UserDefaults.standard.double(forKey: "surveyInterval"))
+                {
+                    prevSurvey = Date();
                     
+                    print(UserDefaults.standard.double(forKey: "surveyInterval"))
+                    print(prevSurvey!.timeIntervalSinceNow)
+                    print(prevSurvey!.timeIntervalSinceNow < UserDefaults.standard.double(forKey: "surveyInterval"))
                     
                     self.activeSurvey = true
+                    let content = UNMutableNotificationContent()
+                    content.title = "How are you feeling?"
+                    content.subtitle = "Log your stess level in app."
+                    content.sound = .default
+                    
+                    // Notification Buttons/Action
+                    let reply = UNNotificationAction(identifier: "reply", title: "Reply", options: UNNotificationActionOptions.foreground)
+                    
+                    //UNNotificationActionOptions.foreground
+                    let dismiss =  UNNotificationCategory(identifier: categoryIdentifier, actions: [reply], intentIdentifiers: [],
+                        options: .customDismissAction)
                 
-                _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+                    UNUserNotificationCenter.current().setNotificationCategories([dismiss])
+                    
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.0001, repeats: false)
+
+                    
+                    let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                                        content: content,
+                                                        trigger: trigger)
+                    
+                    UNUserNotificationCenter.current().add(request)
+                        
+                        
+                        self.activeSurvey = true
+                    
+                    _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+                }
             }
         }
         else{
