@@ -10,6 +10,9 @@ import XCTest
 
 class HRVCalculatorTests: XCTestCase {
 
+    var prevSampleTime: Date? = nil
+    var curSampleTime: Date? = nil
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -60,41 +63,36 @@ class HRVCalculatorTests: XCTestCase {
         ]
 
 
-        if (actualTable.elementsEqual(expectedTable)) {
-            print("test_addSample_givenValidParams: PASS", )
-        }
-        else {
-            print("test_addSample_givenValidParams: FAIL", )
-        }
+//        if (actualTable.elementsEqual(expectedTable)) {
+//            print("test_addSample_givenValidParams: PASS")
+//        }
+//        else {
+//            print("test_addSample_givenValidParams: FAIL")
+//        }
+        XCTAssertEqual(actualTable, expectedTable)
     }
-
-
-    
-    
-    @Published var passed = false;
-    var hrvCalculator: HRVCalculator = HRVCalculator()
-    
-    private var prevSampleTime: Date? = nil
-    private var curSampleTime: Date? = nil
     
     func test_updateHRV_givenGoodHR() {
+        let hrvCalculator: HRVCalculator = HRVCalculator()
+    
         let testGoodHR: [Double] = [62, 64, 80, 60, 98, 93, 104, 86, 116, 115, 96, 87, 89, 69, 95, 67, 111, 96, 113, 109, 68, 114, 100, 92, 70, 84, 101, 86, 82, 89, 111, 114, 82, 87]
         
         let expectedHRV: [Double] = [0]
         
-        self.prevSampleTime = self.curSampleTime
-        self.curSampleTime = Date()
+        prevSampleTime =  curSampleTime
+        curSampleTime = Date()
         
-        var currentHR = testGoodHR[1];
-        self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), currentHR)
+        let currentHR = testGoodHR[1];
+        hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), currentHR)
         
-        if(hrvCalculator.updateHRV() == expectedHRV[0]) {
-            passed = true
-        }
-        else
-        {
-            passed = false
-        }
+//        if(hrvCalculator.updateHRV() == expectedHRV[0]) {
+//            print("test_updateHRV_givenGoodHR: PASS")
+//        }
+//        else
+//        {
+//            print("test_updateHRV_givenGoodHR: FAIL")
+//        }
+        XCTAssertEqual(hrvCalculator.updateHRV(), expectedHRV[0])
     }
         
     //    func test_updateHRV_givenEmptyList() throws {
