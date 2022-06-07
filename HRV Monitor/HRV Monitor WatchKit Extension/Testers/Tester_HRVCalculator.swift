@@ -33,6 +33,5 @@ class Tester_HRVCalculator: NSObject, ObservableObject {
             passed = false
         }
         
-    
     }
 }

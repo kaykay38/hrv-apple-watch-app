@@ -19,13 +19,13 @@ struct ConfirmationView: View {
 
         
         Button("Confirm") {
-            NotificationManager.instance.activeAlert = false
-            NotificationManager.instance.activeSurvey = false
-            NotificationManager.instance.thankYou = false
+            NotificationManager.instance.isAlertActive = false
+            NotificationManager.instance.isSurveyActive = false
+            NotificationManager.instance.isConfirmed = false
         }.font(.title3).tint(.green)
         
         Button("Go Back") {
-            NotificationManager.instance.thankYou = false
+            NotificationManager.instance.isConfirmed = false
         }.font(.title3).tint(.gray).foregroundColor(.white)
     }
     

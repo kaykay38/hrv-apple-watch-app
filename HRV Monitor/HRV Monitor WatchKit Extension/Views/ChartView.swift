@@ -16,7 +16,7 @@ struct ChartView: View {
         TimelineView(MetricsTimelineSchedule(from: workoutManager.builder?.startDate ?? Date())) { context in
             VStack {
                 if(workoutManager.running) {
-                    if (workoutManager.HRV == 0) {
+                    if (!workoutManager.hrvCalculator.canWriteToHealthKit) {
                         VStack{
                             Spacer()
                             Text("Initalizing HRV")

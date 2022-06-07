@@ -28,7 +28,7 @@ struct NotificationView: View {
             }
         
             Button {
-                notificationManager.activeSurvey = true
+                notificationManager.isSurveyActive = true
             } label: {
                 Text("False Alarm")
                     .font(.title3)
@@ -36,7 +36,7 @@ struct NotificationView: View {
                 
         
         Button("Dismiss") {
-            NotificationManager.instance.activeAlert = false
+            NotificationManager.instance.isAlertActive = false
         }.font(.title3)
                 .tint(.gray)
                 .foregroundColor(.white)

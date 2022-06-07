@@ -45,6 +45,7 @@ class HRVCalculator: NSObject, ObservableObject {
     private var HRTable: [Double] = [Double]()
     private var currentHR: Double = 0
     private var hasFilledTable: Bool = false
+    private(set) var canWriteToHealthKit: Bool = false
     
     @Published private(set) var HRV: Double = 0
     @Published private(set) var maximumHRV: Double = 0
@@ -65,7 +66,8 @@ class HRVCalculator: NSObject, ObservableObject {
             
             // Check if samples spans more than a specified time, if so, remove first entry. 30 seconds
             if curSampleTime.timeIntervalSince(oldestSample.date) > 30 {
-                HRSampleTable.removeFirst();
+                HRSampleTable.removeFirst()
+                canWriteToHealthKit = true
             }
         }
         
@@ -88,14 +90,21 @@ class HRVCalculator: NSObject, ObservableObject {
         }
         
         HRTable.append(self.currentHR)
-        
-        self.PrevHRV = self.HRV
 
         // Calculate new HRV
-        self.HRV = HRSampleTable.RMSSD
+        if (canWriteToHealthKit) {
+            self.PrevHRV = self.HRV
+            self.HRV = HRSampleTable.RMSSD
+            HRVTable.append(self.HRV)
+            
+            if (hasFilledTable) {
+                self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, +))/Double(HRVTable.count + 1)
+            }
+            else {
+                self.averageHRV = self.HRVTable.reduce(0, +)/Double(HRVTable.count)
+            }
+        }
 
-        HRVTable.append(self.HRV)
-        
         // Maintain the size of HRVTable to be in sync with HRSampleTable
         if (HRVTable.count > HRSampleTable.count) {
             HRVTable.removeFirst()
@@ -112,12 +121,6 @@ class HRVCalculator: NSObject, ObservableObject {
             self.minimumHRV = newMin
         }
         
-        if (hasFilledTable) {
-            self.averageHRV = (self.averageHRV + self.HRVTable.reduce(0, +))/Double(HRVTable.count + 1)
-        }
-        else {
-            self.averageHRV = self.HRVTable.reduce(0, +)/Double(HRVTable.count)
-        }
         return self.HRV
     }
     
@@ -145,6 +148,7 @@ class HRVCalculator: NSObject, ObservableObject {
         self.HRVTable.removeAll()
         self.HRTable.removeAll()
         self.HRSampleTable.removeAll()
+        self.canWriteToHealthKit = false
     }
     
 }

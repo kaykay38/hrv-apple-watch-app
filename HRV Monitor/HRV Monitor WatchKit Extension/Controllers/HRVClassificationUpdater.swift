@@ -90,7 +90,7 @@ struct HRVClassificationUpdater {
             
 //            print("Updated model saved to:\n\t\(updatedModelURL)")
         } catch let error {
-//            print("Could not save updated model to the file system: \(error)")
+            print("Could not save updated model to the file system: \(error)")
             return
         }
     }

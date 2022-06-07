@@ -168,37 +168,38 @@ class WorkoutManager: NSObject, ObservableObject {
                 self.hrvCalculator.addSample(self.curSampleTime ?? Date(), self.prevSampleTime ?? Date(), self.currentHR)
                 self.HRV = self.hrvCalculator.updateHRV()
                 
-                
-
-                if(count > 6) {
-                    self.hrvChartArray.append((self.HRV-30)/50)
-                }else{
-                    count += 1
-                }
-                
-                if(self.hrvChartArray.count > 6) {
-                    hrvClassificationController.classifyHRV(HR: self.currentHR, HRV: self.HRV);
-                    
-                    self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
-                    
-                    hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
-                    
-                    NotificationManager.instance.scheduleSurvey();
-                    
-                    for _ in 1...1 {
-                        _ = Timer(timeInterval: 2.5, repeats: false) {_ in
-                            self.prevSampleTime = self.curSampleTime
-                            self.curSampleTime = Date()
-
-                            self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
-                            self.hrvChartArray.append((self.HRV-30)/50)
-                        }
+                if (hrvCalculator.canWriteToHealthKit) {
+                    if(count > 6) {
+                        self.hrvChartArray.append((self.HRV-30)/50)
+                    }else{
+                        count += 1
                     }
-//                    
-                    if(self.hrvChartArray.count > 240) {
-                        self.hrvChartArray.removeFirst()
-                        self.hrvChartArray.removeFirst()
-//                        self.hrvChartArray.removeFirst()
+                    
+                    if(self.hrvChartArray.count > 6) {
+                        hrvClassificationController.classifyHRV(HR: self.currentHR, HRV: self.HRV);
+                        
+                        self.saveHRVData(date: self.curSampleTime!, hrv: self.HRV)
+                        
+                        hrvClassificationController.updateHRVClassification(HR: self.currentHR, HRV: self.HRV, label: "high")
+                        
+                        NotificationManager.instance.scheduleSurvey();
+                        
+                        for _ in 1...1 {
+                            _ = Timer(timeInterval: 2.5, repeats: false) {_ in
+                                self.prevSampleTime = self.curSampleTime
+                                self.curSampleTime = Date()
+
+                                self.HRV = self.hrvCalculator.predictHRV(curSampleTime: self.curSampleTime ?? Date(), prevSampleTime: self.prevSampleTime ?? Date())
+                                
+                                    self.hrvChartArray.append((self.HRV-30)/50)
+                            }
+                        }
+
+                        if(self.hrvChartArray.count > 240) {
+                            self.hrvChartArray.removeFirst()
+                            self.hrvChartArray.removeFirst()
+    //                        self.hrvChartArray.removeFirst()
+                        }
                     }
                     
                 }

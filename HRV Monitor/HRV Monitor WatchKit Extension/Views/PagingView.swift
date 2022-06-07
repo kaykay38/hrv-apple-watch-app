@@ -20,7 +20,6 @@ struct PagingView: View {
         case survey, controls, liveHRV, stats, table, settings
     }
     
-    
     var body: some View {
         if(workoutManager.running) {
             TabView(selection: $runningSelection) {
@@ -34,9 +33,9 @@ struct PagingView: View {
     //            TableView().tag(Tab.table)
                 SettingsView().tag(Tab.settings)
             }
-            .sheet(isPresented: $notificationManager.thankYou) { ConfirmationView()}
-            .sheet(isPresented: $notificationManager.activeSurvey, content: {SurveyView()})
-            .sheet(isPresented: $notificationManager.activeAlert, content: {
+            .sheet(isPresented: $notificationManager.isConfirmed) { ConfirmationView()}
+            .sheet(isPresented: $notificationManager.isSurveyActive, content: {SurveyView()})
+            .sheet(isPresented: $notificationManager.isAlertActive, content: {
                 NotificationView()
                     })
     }

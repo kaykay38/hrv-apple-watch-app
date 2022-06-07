@@ -19,7 +19,7 @@ struct SurveyView: View {
                 
                 Button {
                     //self.modalState.isModal2Presented = true
-                    NotificationManager.instance.thankYou = true
+                    NotificationManager.instance.isConfirmed = true
                 } label: {
                     Text("Low")
                         .font(.title3)
@@ -34,7 +34,7 @@ struct SurveyView: View {
                 ///
                     //self.modalState.isModal2Presented = true
 
-                    NotificationManager.instance.thankYou = true
+                    NotificationManager.instance.isConfirmed = true
                 } label: {
                     Text("Moderate")
                         .font(.title3)
@@ -48,7 +48,7 @@ struct SurveyView: View {
                 Button {
                     //self.modalState.isModal2Presented = true
 
-                    NotificationManager.instance.thankYou = true
+                    NotificationManager.instance.isConfirmed = true
                 } label: {
                     Text("High")
                         .font(.title3)

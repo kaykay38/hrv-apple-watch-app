@@ -10,11 +10,12 @@ import UserNotifications
 
 class NotificationManager: ObservableObject {
     
-    @Published var activeAlert: Bool = false
-    @Published var activeSurvey: Bool = false
-    @Published var thankYou: Bool = false
-    @Published var settingsUpdated: Bool = false
+    @Published var isAlertActive: Bool = false
+    @Published var isSurveyActive: Bool = false
+    @Published var isConfirmed: Bool = false
+    @Published var isSettingsUpdated: Bool = false
     
+    var settingsManager: SettingsManager = SettingsManager.instance
     
     static let instance = NotificationManager()
     
@@ -35,17 +36,6 @@ class NotificationManager: ObservableObject {
     
     var prevSurvey: Date? = nil
     
-    func surveyFirstTime() {
-        UserDefaults.standard.set(1, forKey: "surveyIntervalIndex")
-        UserDefaults.standard.set(-3600, forKey: "surveyInterval")
-        UserDefaults.standard.set(false, forKey: "isFirstTime")
-        UserDefaults.standard.synchronize()
-        
-        print("surveyIntervalIndex:", UserDefaults.standard.integer(forKey: "surveyIntervalIndex"))
-        print("isFirstTime:", UserDefaults.standard.bool(forKey: "isFirstTime"))
-        print("surveyInterval:", UserDefaults.standard.integer(forKey: "surveyInterval"))
-    }
-    
     // trigger the survey on a calendar
     func scheduleSurvey(){
         if(UserDefaults.standard.bool(forKey: "survey")){
@@ -59,7 +49,7 @@ class NotificationManager: ObservableObject {
                     print(prevSurvey!.timeIntervalSinceNow)
                     print(prevSurvey!.timeIntervalSinceNow < UserDefaults.standard.double(forKey: "surveyInterval"))
                     
-                    self.activeSurvey = true
+                    self.isSurveyActive = true
                     let content = UNMutableNotificationContent()
                     content.title = "How are you feeling?"
                     content.subtitle = "Log your stess level in app."
@@ -84,14 +74,14 @@ class NotificationManager: ObservableObject {
                     UNUserNotificationCenter.current().add(request)
                         
                         
-                        self.activeSurvey = true
+                        self.isSurveyActive = true
                     
-                    _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+                    _ = Timer(timeInterval: 60, repeats: true) { _ in self.isAlertActive = false }
                 }
             }
         }
         else{
-            self.activeSurvey = false
+            self.isSurveyActive = false
         }
     }
     
@@ -101,7 +91,7 @@ class NotificationManager: ObservableObject {
         if(prevAlert == nil || prevAlert!.timeIntervalSinceNow < -300)
         {
             prevAlert = Date()
-            self.activeAlert = true
+            self.isAlertActive = true
             let content = UNMutableNotificationContent()
             content.title = "Warning"
             content.subtitle = "High stress detected"
@@ -127,7 +117,7 @@ class NotificationManager: ObservableObject {
             
             UNUserNotificationCenter.current().add(request)
             
-            _ = Timer(timeInterval: 60, repeats: true) { _ in self.activeAlert = false }
+            _ = Timer(timeInterval: 60, repeats: true) { _ in self.isAlertActive = false }
         }
     }
         
