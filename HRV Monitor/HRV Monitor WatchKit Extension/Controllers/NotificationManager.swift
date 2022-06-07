@@ -39,8 +39,7 @@ class NotificationManager: ObservableObject {
     // trigger the survey on a calendar
     func scheduleSurvey(){
         if(settingsManager.isSurveyEnabled){
-//            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < settingsManager.surveyInterval)
-            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < -3)
+            if(prevSurvey == nil || prevSurvey!.timeIntervalSinceNow < settingsManager.surveyInterval)
             {
                 prevSurvey = Date();
                 
@@ -76,7 +75,7 @@ class NotificationManager: ObservableObject {
                 _ = Timer(timeInterval: 60, repeats: true) { _ in self.isAlertActive = false }
             }
         }
-        else{
+        else {
             self.isSurveyActive = false
         }
     }
@@ -84,9 +83,7 @@ class NotificationManager: ObservableObject {
     var prevAlert: Date? = nil
     
     func scheduleHighNotification() {
-//        if(prevAlert == nil || prevAlert!.timeIntervalSinceNow < -300)
-        
-        if(prevAlert == nil || prevAlert!.timeIntervalSinceNow < -3)
+        if(prevAlert == nil || prevAlert!.timeIntervalSinceNow < -300)
         {
             prevAlert = Date()
             self.isAlertActive = true
