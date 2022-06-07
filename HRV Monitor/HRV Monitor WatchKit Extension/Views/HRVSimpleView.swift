@@ -17,7 +17,7 @@ struct HRVSimpleView: View {
             if(workoutManager.running) {
                 VStack(alignment: .center) {
                     if(workoutManager.HRV != 0) {
-                        Text("HRV")
+                        Text(HRV_PAGE_TITLE)
                             .font(.title2)
                         
                         Spacer()

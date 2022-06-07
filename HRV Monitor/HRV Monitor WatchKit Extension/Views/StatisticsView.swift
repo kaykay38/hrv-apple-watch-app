@@ -12,22 +12,15 @@ struct StatisticsView: View {
     
     var body: some View {
         VStack {
-            //            HStack {
-            //                Image(systemName: "bolt.heart").font(.title2).padding(2)
-            //                VStack(alignment: .leading){
-            //                    Text("Stats")
-            //                }
-            //                .font(.title)
-            //            }
             VStack(alignment: .leading){
-                Text("Stats")
+                Text(STATS_PAGE_TITLE)
             }
             .font(.title)
             Spacer()
             
             VStack(alignment: .leading, spacing: 9.0) {
                 HStack {
-                    Label("Max:", systemImage: "arrow.up.circle")
+                    Label(STATS_MAX_LABEL, systemImage: ICON_STATS_MAX)
                     Text(
                         workoutManager.hrvCalculator.maximumHRV
                             .formatted(
@@ -36,7 +29,7 @@ struct StatisticsView: View {
                     )
                 }.font(.title3)
                 HStack {
-                    Label("Avg:", systemImage: "minus.circle")
+                    Label(STATS_AVG_LABEL, systemImage: ICON_STATS_AVG)
                     Text(
                         workoutManager.hrvCalculator.averageHRV
                             .formatted(
@@ -44,7 +37,7 @@ struct StatisticsView: View {
                             )
                     )                }.font(.title3)
                 HStack {
-                    Label("Min:", systemImage: "arrow.down.circle")
+                    Label(STATS_MIN_LABEL, systemImage: ICON_STATS_MIN)
                     Text(
                         workoutManager.hrvCalculator.minimumHRV
                             .formatted(

@@ -19,7 +19,7 @@ struct ChartView: View {
                     if (!workoutManager.hrvCalculator.canWriteToHealthKit) {
                         VStack{
                             Spacer()
-                            Text("Initalizing HRV")
+                            Text(INIALIZING_HRV)
                                 .font(.title3)
                                 .foregroundColor(.gray)
                             
@@ -30,7 +30,7 @@ struct ChartView: View {
                         }
                     } else {
                         VStack(alignment: .leading) {
-                            Text("HRV")
+                            Text(HRV_PAGE_TITLE)
                                 .font(.title2)
                             HStack {
                                 Text(
@@ -41,15 +41,15 @@ struct ChartView: View {
                                 ).font(.largeTitle);
                                 Spacer()
                                 if(workoutManager.hrvClassificationController.alert) {
-                                    Label("Warning", systemImage: "exclamationmark.circle")
+                                    Label(WARNING_LABEL, systemImage: ICON_HRV_WARNING_LABEL)
                                         .font(.title3)
                                         .foregroundColor(.red);
                                 }else if(workoutManager.hrvClassificationController.warning) {
-                                    Label("Moderate", systemImage: "minus.circle")
+                                    Label(MODERATE_LABEL, systemImage: ICON_HRV_MODERATE_LABEL)
                                         .font(.title3)
                                         .foregroundColor(.yellow);
                                 }else{
-                                    Label("Good", systemImage: "hand.thumbsup.circle")
+                                    Label(GOOD_LABEL, systemImage: ICON_HRV_GOOD_LABEL)
                                         .font(.title3)
                                         .foregroundColor(.green);
                                 }
@@ -60,7 +60,7 @@ struct ChartView: View {
                     if(workoutManager.HRV != 0 && workoutManager.hrvChartArray.count < 12) {
                         VStack (alignment: .center){
                             Spacer()
-                            Text("Loading Graph")
+                            Text(LOADING_GRAPH)
                                 .font(.title3)
                                 .foregroundColor(.gray)
                             
@@ -89,17 +89,20 @@ struct ChartView: View {
                     
                 }else{
                     VStack(alignment: .leading){
-                        Text("HRV")
+                        Text(HRV_PAGE_TITLE)
                             .font(.title2)
-                        Text("No Data")
+                        Text(NO_DATA)
                             .font(.title3)
-                        Text("Start Session To Display HRV")
+                        Text(START_SESSION_TO_DISPLAY_HRV)
+                            .lineLimit(3)
+                            .scaledToFit()
+                            .minimumScaleFactor(0.7)
                             .foregroundColor(.gray)
                         Spacer()
                         Button {
                             workoutManager.startWorkout()
                         } label: {
-                            Text("Start")
+                            Text(START_LABEL)
                                 .font(.title3)
                         }.foregroundColor(.green).frame(height: 20)
                             .tint(.green)

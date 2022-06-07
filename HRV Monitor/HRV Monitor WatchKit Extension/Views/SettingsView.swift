@@ -8,26 +8,32 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
-    @ObservedObject var settingsManager:SettingsManager = NotificationManager.instance.settingsManager
+    @ObservedObject var notificationManager: NotificationManager = NotificationManager.instance
+    @ObservedObject var settingsManager: SettingsManager = NotificationManager.instance.settingsManager
     
-    var intervalOptions = ["30 Min.", "1 Hr.", "2 Hr.", "3 Hr."]
+    var intervalOptions = [
+        SURVEY_INTERVAL_OPTION_30MIN,
+        SURVEY_INTERVAL_OPTION_1HR,
+        SURVEY_INTERVAL_OPTION_2HR,
+        SURVEY_INTERVAL_OPTION_3HR
+    ]
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Settings")
+            Text(SETTINGS_PAGE_TITLE)
                 .font(.title3)
             Divider()
             Form {
-                Section(footer: Text("Popup survey to improve accuracy of stress prediction.")){
+                Section(footer: Text(SETTINGS_SURVEY_TOGGLE_DESCRIPTION_FOOTER)){
                     Toggle(isOn: $settingsManager.isSurveyEnabled) {
-                        Text("Stress Survey")
+                        Text(STRESS_SURVEY_LABEL)
                     }
                 }.onChange(of: settingsManager.isSurveyEnabled) { newValue in
                     settingsManager.setSurveyEnabled(newValue)
                 }
                 if (settingsManager.isSurveyEnabled) {
-                    Section(footer: Text("Time interval between survey occurence.")){
-                        Picker(selection: $settingsManager.surveyIntervalIndex, label: Text("Survey Interval")) {
+                    Section(footer: Text(SETTINGS_SURVEY_INTERVAL_DESCRIPTION_FOOTER)){
+                        Picker(selection: $settingsManager.surveyIntervalIndex, label: Text(SURVEY_INTERVAL_LABEL)) {
                             ForEach(0 ..< intervalOptions.count) {
                                 Text(self.intervalOptions[$0])
                             }
@@ -35,14 +41,22 @@ struct SettingsView: View {
                             settingsManager.setSurveyInterval(newValue)
                         }
                     }
+                    
+                }
+                
+                Section(header: Text(SETTINGS_HIGH_STRESS_ALERT_MESSAGE_LABEL), footer: Text(SETTINGS_HIGH_STRESS_ALERT_MESSAGE_DESCRIPTION_FOOTER)) {
+                    TextField(text: $settingsManager.alertMessage) {
+                    }.onChange(of: settingsManager.alertMessage) { newValue in
+                        settingsManager.setAlertMessage(newValue)
+                    }
                 }
             }
         }
     }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
+    
+    struct SettingsView_Previews: PreviewProvider {
+        static var previews: some View {
+            SettingsView()
+        }
     }
 }

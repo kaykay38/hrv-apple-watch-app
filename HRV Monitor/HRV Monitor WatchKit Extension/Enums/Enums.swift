@@ -8,5 +8,9 @@
 import Foundation
 
 enum KeyValue: String {
-    case isSurveyEnabled, surveyIntervalIndex, surveyInterval, isSettingsInitialized
+    case isSurveyEnabled, surveyIntervalIndex, surveyInterval, isSettingsInitialized, alertMessage, alertTitle
+}
+
+enum NotitficationIdentifier: String {
+    case reply, falseAlarm, falseAlarmOrDismiss
 }

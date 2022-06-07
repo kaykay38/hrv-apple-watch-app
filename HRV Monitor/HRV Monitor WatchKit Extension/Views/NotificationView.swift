@@ -9,40 +9,44 @@ import SwiftUI
 
 struct NotificationView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
-//    @ObservedObject var modalState: ModalState
+    //    @ObservedObject var modalState: ModalState
     @ObservedObject var hapticController: HapticController = HapticController.instance
-    @ObservedObject var notificationManager:NotificationManager = NotificationManager.instance
+    @ObservedObject var notificationManager: NotificationManager = NotificationManager.instance
+    @ObservedObject var settingsManager: SettingsManager = SettingsManager.instance
     
     var body: some View {
-//        Button("schedule notification"){
-//         NotificationManager.instance.scheduleHighNotification()
-//        }
+        //        Button("schedule notification"){
+        //         NotificationManager.instance.scheduleHighNotification()
+        //        }
         
         VStack {
             HStack{
-                Image(systemName: "exclamationmark.square").font(.title).padding(.bottom, 3).foregroundColor(.red).padding(.bottom, 5);
+                Image(systemName: ICON_EXCLAMATION_SQUARE).font(.title).padding(.bottom, 3).foregroundColor(.red).padding(.bottom, 5);
                 VStack(alignment: .leading){
-                    Text("High Stress")
-                    Text("Detected")
+                    Text(settingsManager.alertMessage)
+                        .lineLimit(3)
+                        .scaledToFit()
+                        .minimumScaleFactor(0.7)
+                    
                 }.font(.title3)
             }
-        
+            
             Button {
                 notificationManager.isSurveyActive = true
             } label: {
-                Text("False Alarm")
+                Text(FALSE_ALARM_LABEL)
                     .font(.title3)
             }.padding(.top, 10).tint(.yellow)
-                
-        
-        Button("Dismiss") {
-            NotificationManager.instance.isAlertActive = false
-        }.font(.title3)
+            
+            
+            Button(DISMISS_LABEL) {
+                NotificationManager.instance.isAlertActive = false
+            }.font(.title3)
                 .tint(.gray)
                 .foregroundColor(.white)
                 .onAppear(perform: hapticController.triggerHaptic)
+        }
     }
- }
 }
 //// modal 1
 //struct ModalView: View {
@@ -134,7 +138,7 @@ struct NotificationView: View {
 //        }
 //    }
 //}*/
-    
+
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
